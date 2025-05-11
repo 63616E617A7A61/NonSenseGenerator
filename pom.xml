@@ -86,7 +86,7 @@
           <artifactId>javafx-maven-plugin</artifactId>
           <version>${javafx.maven.plugin.version}</version>
           <configuration>
-          <mainClass>demo.App</mainClass>
+          <mainClass>com.g63616e617a7a61.nonsensegenerator.App</mainClass>
           </configuration>
         </plugin>
       </plugins>
