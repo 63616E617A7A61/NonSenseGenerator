@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    -fx-font-family: "Azeret Mono", monospace;
+}
+
+#main{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 50%, #252d3b, #232936, #212630, #1e222b, #1c1f26);
+    background-color: radial-gradient(center 50% 50%, radius 50%, #252d3b, #232936, #212630, #1e222b, #1c1f26);
+}   
+
+#titleSect {
+    -fx-alignment: center;
+    -fx-padding: 140 0 0 0;
+}
+
+#titleSect > Label{
+    -fx-max-width: 350px;
+    -fx-alignment: center;
+    -fx-wrap-text: true;
+    -fx-text-fill: #7c8399;
+    -fx-text-alignment: center;
+    -fx-font-size: 12px;
+
+}
+
+#titleSect > #title {
+    -fx-text-fill: #e9ebed;
+    -fx-max-width: 450px;
+    -fx-font-size: 20px;
+    -fx-padding: 0 0 15px 0;
+}
+
+#inputSect HBox{
+    -fx-background-color: #262e3a;
+    -fx-padding: 20;
+    -fx-border-color: #3d414c;
+    -fx-border-width: 1;
+    -fx-background-radius: 15;
+    -fx-max-width: 500;
+    -fx-border-radius: 15;
+}
+
+#inputSect TextField{
+    -fx-pref-width: 350;
+    -fx-background-color: transparent;
+    -fx-text-fill: #e9ebed;
+}
+
+#inputSect Button{
+    -fx-pref-width: 80; 
+    -fx-border-radius: 20;
+    -fx-background-color: transparent;
+    -fx-text-fill: #e9ebed;
+    -fx-font-weight: bold;
+}
+
+#inputSect{
+    -fx-alignment: center;
+    -fx-padding: 60;
+}
