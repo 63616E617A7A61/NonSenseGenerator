@@ -9,4 +9,8 @@
     -title-color: #e9ebed; 
     -container-background-color: #262e3a;
     -container-border-color: #3d414c;
+
+    -container-padding: 20;
+    -container-radius: 15;
+    -container-border-width: 1;
 }

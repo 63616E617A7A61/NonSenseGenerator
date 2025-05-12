@@ -16,6 +16,11 @@
             <Label text="Are you ready to craft a new sentence?&#10;Write what you want and discover the fantastic result we offer to you!" />
             </children>
         </VBox>
+        <!-- Sentence Card Container (the cards are generated dinamically) -->
+        <VBox id="sentenceCardSect">
+            <children>
+            </children>
+        </VBox>
     </center>
     <bottom>
         <VBox id="inputSect">

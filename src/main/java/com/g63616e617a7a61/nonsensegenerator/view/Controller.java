@@ -16,41 +16,57 @@ public class Controller {
     @FXML 
     private Button generateBtn; 
 
+
+
+    
     @FXML
     public void initialize() {
-        // Unfocus TextField
-        Platform.runLater(() -> main.requestFocus());
 
+        // Unfocus TextFiel 
+        // Necessary to set focus on the main BorderPane and not on the TextField
+        Platform.runLater(() -> main.requestFocus());
+        
+        // Set focus on the main BorderPane when clicked 
+        // This is implemented to unfocus the TextField when the user clicks on the main BorderPane
         main.setOnMousePressed(event -> {
             main.requestFocus(); 
         });
 
-        // Enter kew pressed in input sentence text field
+
+
+        // ---------------------- INPUT TEXT FIELD AND GENERATE BUTTON ----------------------
+        // if the user presses Enter while the TextField is focused
         sentenceInput.setOnKeyPressed(event -> {
             if (event.getCode().getName().equals("Enter")) {
-                // if sentenceInput is empty, do nothing
-                if(sentenceInput.getText().isEmpty()) {
-                    return;
-                }   
-                //generateSentence(sentenceInput.getText());
-                // clear sentenceInput text field
-                sentenceInput.clear();
-                // unfocus TextField
-                main.requestFocus();
+                submitInputSentenceHandler();
             }
         });
         
         // generateBtn pressed
         generateBtn.setOnAction(event -> {
-            // if sentenceInput is empty, do nothing
-            if(sentenceInput.getText().isEmpty()) {
-                return;
-            }   
-            //generateSentence(sentenceInput.getText());
-            // clear sentenceInput text field
-            sentenceInput.clear();
+            submitInputSentenceHandler();
         });
 
+
+
+
+    }
+
+
+
+
+    /* Method to handle the input sentence when the user presses Enter 
+    while the TextField is focused or when the generate button is pressed */
+    public void submitInputSentenceHandler(){
+        // check that the TextField is not empty
+        if(!sentenceInput.getText().isEmpty()) {
+            // TODO
+        }   
+
+        // clear sentenceInput text field
+        sentenceInput.clear();
+        // unfocus TextField
+        main.requestFocus();
     }
 
 }

@@ -1,9 +1,15 @@
 @import "../style.css"; 
 
+
+
+
 #main{
     -fx-background-color: radial-gradient(center 50% 50%, radius 50%, #252d3b, #232936, #212630, #1e222b, #1c1f26);
     background-color: radial-gradient(center 50% 50%, radius 50%, #252d3b, #232936, #212630, #1e222b, #1c1f26);
-}   
+}
+
+
+
 
 #titleSect {
     -fx-alignment: center;
@@ -27,14 +33,17 @@
     -fx-padding: 0 0 15px 0;
 }
 
+
+
+
 #inputSect HBox{
     -fx-background-color: -container-background-color; 
-    -fx-padding: 20;
+    -fx-padding: -container-padding;
     -fx-border-color: -container-border-color;
-    -fx-border-width: 1;
-    -fx-background-radius: 15;
+    -fx-border-width: -container-border-width;
+    -fx-background-radius: -container-radius;
     -fx-max-width: 500;
-    -fx-border-radius: 15;
+    -fx-border-radius: -container-radius;
 }
 
 #inputSect TextField{
@@ -46,7 +55,6 @@
 
 #inputSect Button{
     -fx-pref-width: 80; 
-    -fx-border-radius: 20;
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
     -fx-font-weight: bold;

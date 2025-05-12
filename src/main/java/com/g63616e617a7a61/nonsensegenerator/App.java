@@ -9,12 +9,17 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        // Load the FXML file for the initial screen
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/init-screen/init-screen.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+
+        // Set the minimum height and width for the stage
         stage.setMinWidth(800);
         stage.setMinHeight(600);
-        stage.setScene(scene);
+
+        // Other stage properties
         stage.setTitle("NonSense Generator");
+        stage.setScene(scene);
         stage.show();
     }
 
