@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<HBox id="sentenceCard" prefWidth="500.0" stylesheets="@sentence-card.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox>
+         <children>
+            <Label text="Sentence 1" />
+            <Label styleClass="genSentence" text="The red cat plays in a large flowered garden." />
+         </children>
+      </VBox>
+      <Region HBox.hgrow="ALWAYS" />
+      <StackPane><Button text="+" /></StackPane>
+   </children>
+</HBox>

@@ -1,0 +1,27 @@
+@import "../../style.css"; 
+
+#sentenceCard{
+    -fx-background-color: -container-background-color; 
+    -fx-padding: 20;
+    -fx-border-color: -container-border-color;
+    -fx-border-width: 1;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+#sentenceCard VBox Label{
+    -fx-text-fill: -subtitle-color;
+    -fx-padding: 0 0 10px 0;
+    -fx-font-size: 12px;
+}
+
+#sentenceCard VBox .genSentence{
+    -fx-padding: 0;
+    -fx-text-fill: -title-color;
+}
+
+#sentenceCard StackPane Button{
+    -fx-text-fill: -title-color;
+    -fx-font-size: 18px;
+    -fx-background-color: transparent;
+}

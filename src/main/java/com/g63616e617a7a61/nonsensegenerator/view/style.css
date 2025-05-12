@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    -fx-font-family: "Azeret Mono", monospace;
+}
+
+.root{
+    -subtitle-color: #7c8399; 
+    -title-color: #e9ebed; 
+    -container-background-color: #262e3a;
+    -container-border-color: #3d414c;
+}
