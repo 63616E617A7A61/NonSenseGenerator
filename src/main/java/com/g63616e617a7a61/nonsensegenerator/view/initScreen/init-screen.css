@@ -13,14 +13,14 @@
 
 #titleSect {
     -fx-alignment: center;
-    -fx-padding: 140 0 0 0;
+    -fx-padding: 140px 0 0 0;
 }
 
 #titleSect > Label{
     -fx-max-width: 350px;
     -fx-alignment: center;
     -fx-wrap-text: true;
-    -fx-text-fill: -subtitle-color;
+    -fx-text-fill: -subtitle-color; 
     -fx-text-alignment: center;
     -fx-font-size: 12px;
 
@@ -33,21 +33,33 @@
     -fx-padding: 0 0 15px 0;
 }
 
+#sentenceCardSect {
+    -fx-alignment: center;
+    -fx-spacing: 15px;
+}
+
+
+
+
+#mainCenter{
+    -fx-alignment: center;
+}
+
 
 
 
 #inputSect HBox{
     -fx-background-color: -container-background-color; 
-    -fx-padding: -container-padding;
+    -fx-padding: 20px;
     -fx-border-color: -container-border-color;
-    -fx-border-width: -container-border-width;
-    -fx-background-radius: -container-radius;
-    -fx-max-width: 500;
-    -fx-border-radius: -container-radius;
+    -fx-border-width: 1px;
+    -fx-background-radius: 15px;
+    -fx-max-width: 500px;
+    -fx-border-radius: 15px;
 }
 
 #inputSect TextField{
-    -fx-pref-width: 350;
+    -fx-pref-width: 350px;
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
     -fx-font-size: 12px
@@ -63,5 +75,5 @@
 
 #inputSect{
     -fx-alignment: center;
-    -fx-padding: 60;
+    -fx-padding: 60px;
 }
