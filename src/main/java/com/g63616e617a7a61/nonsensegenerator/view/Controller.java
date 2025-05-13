@@ -5,17 +5,23 @@ package com.g63616e617a7a61.nonsensegenerator.view;
 import java.io.IOException;
 
 import com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard.SentenceCardController;
+
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 public class Controller {
     private static int sentenceCount = 0; // number of sentences generated
+    private static final int ANIMATION_DURATION_MS = 200;
 
     @FXML
     private BorderPane main; 
@@ -32,15 +38,22 @@ public class Controller {
     @FXML 
     private VBox sentenceCardSect;
 
+    @FXML 
+    private ScrollPane sentenceCardSectScroll; 
+
 
 
 
     @FXML
     public void initialize() {
+        
+        /*Force the rendering of the sentence card component in initialization 
+        in order to avoid the delay when the component is first shown*/
+        forceSentenceCardRendering();
 
         // Hide the sentence card section at the beginning, it will be shown when a sentence is generated
-        sentenceCardSect.setVisible(false);
-        sentenceCardSect.setManaged(false);
+        sentenceCardSectScroll.setVisible(false);
+        sentenceCardSectScroll.setManaged(false);
 
         // Unfocus TextFiel 
         // Necessary to set focus on the main BorderPane and not on the TextField
@@ -74,6 +87,22 @@ public class Controller {
 
 
 
+    /*SentenceCard rendering forcing
+    This is done to avoid the delay when the component is first shown*/
+    public void forceSentenceCardRendering(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
+            HBox dummyCard = loader.load();
+            dummyCard.setVisible(false); 
+            dummyCard.setManaged(false); 
+            sentenceCardSect.getChildren().add(dummyCard); 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     /* Method to handle the input sentence when the user presses Enter 
     while the TextField is focused or when the generate button is pressed */
@@ -84,8 +113,8 @@ public class Controller {
             if (titleSect.isVisible()) {
                 titleSect.setVisible(false);
                 titleSect.setManaged(false);
-                sentenceCardSect.setVisible(true);
-                sentenceCardSect.setManaged(true);
+                sentenceCardSectScroll.setVisible(true);
+                sentenceCardSectScroll.setManaged(true);
             }
 
             // increment the sentence count
@@ -100,11 +129,7 @@ public class Controller {
             } catch (IOException e) {
                 e.printStackTrace();
             } 
-        } else {
-            // if the TextField is empty, show an error message
-            System.out.println("Please enter a sentence.");
-        }   
-
+        }
         // clear sentenceInput text field
         sentenceInput.clear();
         // unfocus TextField
@@ -114,13 +139,23 @@ public class Controller {
 
 
     /* Method that load a sentence card in the init screen when a new
-       sentence is generated.*/
+       sentence is generated. With a fadeIn animation*/
     public void addSentenceCard(int genSentenceCount, String genSentence) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
         HBox newSentenceCard = loader.load();
         SentenceCardController controller = loader.getController();
-        controller.setContent(genSentenceCount, genSentence);;
+        controller.setContent(genSentenceCount, genSentence);
+
+        newSentenceCard.setOpacity(0);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(ANIMATION_DURATION_MS), newSentenceCard);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+
         sentenceCardSect.getChildren().add(newSentenceCard);
+
+        ParallelTransition animation = new ParallelTransition(fadeIn);
+        animation.play();
     }
 
 }

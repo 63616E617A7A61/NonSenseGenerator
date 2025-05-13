@@ -23,7 +23,6 @@
     -fx-text-fill: -subtitle-color; 
     -fx-text-alignment: center;
     -fx-font-size: 12px;
-
 }
 
 #titleSect > #title {
@@ -35,7 +34,30 @@
 
 #sentenceCardSect {
     -fx-alignment: center;
+    -fx-background-color: transparent;
     -fx-spacing: 15px;
+}
+
+#sentenceCardSectScroll {
+    -fx-fit-to-width: true;
+    -fx-background-color: transparent;
+    -fx-padding: 15px 0 15px 0;
+}
+
+#sentenceCardSectScroll .viewport {
+    -fx-background-color: transparent;
+}
+
+#sentenceCardSectScroll .content {
+    -fx-background-color: transparent;
+}
+
+#sentenceCardSectScroll .scroll-bar:vertical {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    -fx-max-height: 0;
+    -fx-min-height: 0;
 }
 
 
@@ -54,12 +76,12 @@
     -fx-border-color: -container-border-color;
     -fx-border-width: 1px;
     -fx-background-radius: 15px;
-    -fx-max-width: 500px;
+    -fx-max-width: 650px;
     -fx-border-radius: 15px;
 }
 
 #inputSect TextField{
-    -fx-pref-width: 350px;
+    -fx-pref-width: 500px;
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
     -fx-font-size: 12px
@@ -75,5 +97,5 @@
 
 #inputSect{
     -fx-alignment: center;
-    -fx-padding: 60px;
+    -fx-padding: 0 0 40px 0;
 }

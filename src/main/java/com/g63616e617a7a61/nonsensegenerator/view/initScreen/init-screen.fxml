@@ -2,13 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="main" fx:id="main" prefHeight="600.0" prefWidth="800.0" maxWidth="1200" stylesheets="@init-screen.css" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.Controller" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="main" fx:id="main" prefHeight="600.0" prefWidth="800.0" stylesheets="@init-screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.Controller">
     <center>
          <VBox id="mainCenter">
             <children>
@@ -18,11 +20,15 @@
                         <Label text="Are you ready to craft a new sentence?&#10;Write what you want and discover the fantastic result we offer to you!" />
                     </children>
                 </VBox>
-                <VBox id="sentenceCardSect" fx:id="sentenceCardSect">
-                    <children>
-                        <!-- generated sentence cards will go here -->
-                    </children>
-                </VBox>
+                <ScrollPane id="sentenceCardSectScroll" fx:id="sentenceCardSectScroll">
+                    <content>
+                        <VBox id="sentenceCardSect" fx:id="sentenceCardSect">
+                            <children>
+                                <!-- generated sentence cards will go here -->
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
             </children>
         </VBox>
     </center>
@@ -33,7 +39,7 @@
                     <children>
                         <TextField fx:id="sentenceInput" promptText="Write your sentence here..." />
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button text="Generate" id="generateBtn" fx:id="generateBtn" />
+                        <Button id="generateBtn" fx:id="generateBtn" text="Generate" />
                     </children>
                 </HBox>
             </children>
