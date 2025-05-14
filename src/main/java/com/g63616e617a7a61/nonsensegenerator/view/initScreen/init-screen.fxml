@@ -37,7 +37,7 @@
                     <children>
                         <TextArea fx:id="sentenceInput" promptText="Write your sentence here..." />
                         <Region VBox.vgrow="ALWAYS" />
-                        <Button id="generateBtn" fx:id="generateBtn" text="Generate" />
+                        <Button id="generateBtn" fx:id="generateBtn" text="Generate sentence" />
                     </children>
                 </VBox>
             </children>

@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -127,7 +126,7 @@ public class Controller {
     public void forceSentenceCardRendering(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
-            HBox dummyCard = loader.load();
+            VBox dummyCard = loader.load();
             dummyCard.setVisible(false); 
             dummyCard.setManaged(false); 
             sentenceCardSect.getChildren().add(dummyCard); 
@@ -178,7 +177,7 @@ public class Controller {
        sentence is generated. With a fadeIn animation*/
     public void addSentenceCard(int genSentenceCount, String genSentence) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
-        HBox newSentenceCard = loader.load();
+        VBox newSentenceCard = loader.load();
         SentenceCardController controller = loader.getController();
         controller.setContent(genSentenceCount, genSentence);
 
