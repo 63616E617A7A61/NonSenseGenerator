@@ -4,8 +4,10 @@
 
 
 #main{
-    -fx-background-color: radial-gradient(center 50% 50%, radius 50%, #252d3b, #232936, #212630, #1e222b, #1c1f26);
-    background-color: radial-gradient(center 50% 50%, radius 50%, #252d3b, #232936, #212630, #1e222b, #1c1f26);
+    -fx-background-image: url("../res/background-dark.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 
@@ -13,7 +15,6 @@
 
 #titleSect {
     -fx-alignment: center;
-    -fx-padding: 140px 0 0 0;
 }
 
 #titleSect > Label{
@@ -22,7 +23,7 @@
     -fx-wrap-text: true;
     -fx-text-fill: -subtitle-color; 
     -fx-text-alignment: center;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
 }
 
 #titleSect > #title {
@@ -33,7 +34,6 @@
 }
 
 #sentenceCardSect {
-    -fx-alignment: center;
     -fx-background-color: transparent;
     -fx-spacing: 15px;
 }
@@ -41,7 +41,7 @@
 #sentenceCardSectScroll {
     -fx-fit-to-width: true;
     -fx-background-color: transparent;
-    -fx-padding: 15px 0 15px 0;
+    -fx-padding: 30px;
 }
 
 #sentenceCardSectScroll .viewport {
@@ -50,14 +50,6 @@
 
 #sentenceCardSectScroll .content {
     -fx-background-color: transparent;
-}
-
-#sentenceCardSectScroll .scroll-bar:vertical {
-    -fx-opacity: 0;
-    -fx-max-width: 0;
-    -fx-min-width: 0;
-    -fx-max-height: 0;
-    -fx-min-height: 0;
 }
 
 
@@ -70,32 +62,57 @@
 
 
 
-#inputSect HBox{
+#inputSect VBox{
+    -fx-alignment: center-right;
     -fx-background-color: -container-background-color; 
-    -fx-padding: 20px;
+    -fx-padding: 30px;
     -fx-border-color: -container-border-color;
     -fx-border-width: 1px;
     -fx-background-radius: 15px;
-    -fx-max-width: 650px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 350px;
     -fx-border-radius: 15px;
 }
 
-#inputSect TextField{
-    -fx-pref-width: 500px;
+#inputSect VBox TextArea{
+    -fx-pref-width: infinity;
+    -fx-pref-height: 290px;
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
-    -fx-font-size: 12px
+    -fx-font-size: 13px; 
+    -fx-wrap-text: true;
+}
+
+#inputSect VBox TextArea .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+#inputSect VBox TextArea .scroll-bar {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+}
+
+#inputSect VBox TextArea .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+#inputSect VBox TextArea .scroll-pane .content{
+    -fx-background-color: transparent;
 }
 
 #inputSect Button{
-    -fx-pref-width: 80; 
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
     -fx-font-weight: bold;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
 }
 
 #inputSect{
-    -fx-alignment: center;
-    -fx-padding: 0 0 40px 0;
+    -fx-alignment: top-left;
+    -fx-padding: 30px 0 30px 30px;
+    -fx-max-width: 500px;
 }

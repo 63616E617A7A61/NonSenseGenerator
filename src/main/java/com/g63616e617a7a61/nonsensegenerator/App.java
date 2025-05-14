@@ -14,7 +14,7 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         // Set the minimum height and width for the stage
-        stage.setMinWidth(800);
+        stage.setMinWidth(1000);
         stage.setMinHeight(600);
 
         // Other stage properties

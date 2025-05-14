@@ -7,14 +7,14 @@
     -fx-border-width: 1;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-max-width: 500.0;
-    -fx-min-width: 500.0;
+    -fx-pref-width: infinity;
+    -fx-max-width: 800;
 }
 
 #sentenceCard VBox Label{
     -fx-text-fill: -subtitle-color;
     -fx-padding: 0 0 10px 0;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
 }
 
 #sentenceCard VBox .genSentence{

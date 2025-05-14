@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,11 +26,17 @@ public class Controller {
     @FXML
     private BorderPane main; 
 
+    @FXML
+    private VBox mainCenter;
+
     @FXML 
-    private TextField sentenceInput; 
+    private TextArea sentenceInput; 
 
     @FXML 
     private Button generateBtn; 
+
+    @FXML
+    private VBox inputSect;
 
     @FXML
     private VBox titleSect; 
@@ -41,7 +47,8 @@ public class Controller {
     @FXML 
     private ScrollPane sentenceCardSectScroll; 
 
-
+    @FXML
+    private VBox inputField; 
 
 
     @FXML
@@ -82,6 +89,34 @@ public class Controller {
 
 
 
+        // ---------------------- RESIZE HANDLING ----------------------
+        main.widthProperty().addListener((obs, oldVal, newVal) -> {
+            // Get the new width of the main BorderPane
+            double totalWidth = newVal.doubleValue();
+
+            // If the width is less than maxWidth, set the width to 40% of the main BorderPane width
+            int maxWidth = 1000;
+            if(totalWidth <= maxWidth){
+                inputSect.setPrefWidth(totalWidth * 0.4);
+            } else {
+                inputSect.setPrefWidth(maxWidth * 0.4);
+            }
+        });
+
+        main.heightProperty().addListener((obs, oldVal, newVal) -> {
+            // Get the new height of the main BorderPane
+            double totalHeight = newVal.doubleValue();
+
+            // If the height is less than maxHeight, set the width to 100% of the main BorderPane height
+            int maxHeight = 600;
+            if(totalHeight <= maxHeight){
+                inputField.setPrefHeight(maxHeight);
+            } else {
+                inputField.setPrefHeight(maxHeight);
+            }
+        });
+
+
 
     }
 
@@ -111,6 +146,7 @@ public class Controller {
         if(!sentenceInput.getText().isEmpty()) {
             // remove the title section if visibile
             if (titleSect.isVisible()) {
+                mainCenter.setAlignment(javafx.geometry.Pos.TOP_LEFT);
                 titleSect.setVisible(false);
                 titleSect.setManaged(false);
                 sentenceCardSectScroll.setVisible(true);
