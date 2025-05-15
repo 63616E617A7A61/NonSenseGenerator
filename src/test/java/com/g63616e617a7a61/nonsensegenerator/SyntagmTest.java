@@ -14,15 +14,6 @@ import com.g63616e617a7a61.nonsensegenerator.model.Verb;
  */
 public class SyntagmTest
 {
-    /* @Test
-    public void ShouldNotThrowFileNotFoundException()
-    {
-        Noun n = new Noun();
-        Adjective a = new Adjective();
-        Verb v = new Verb();
-
-              
-    } */
 
     @Test
     public void loadShouldCreateData()

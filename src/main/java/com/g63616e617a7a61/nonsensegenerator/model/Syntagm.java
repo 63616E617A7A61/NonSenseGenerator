@@ -5,9 +5,7 @@ package com.g63616e617a7a61.nonsensegenerator.model;
  */
 public abstract class Syntagm 
 {
-    private String value;
-    
-    
+    protected String value;
 
     public String getValue() {
         return value;
