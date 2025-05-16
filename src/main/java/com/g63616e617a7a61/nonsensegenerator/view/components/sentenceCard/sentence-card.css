@@ -28,3 +28,7 @@
     -fx-font-weight: bold;
     -fx-background-color: transparent;
 }
+
+#sentenceCard #progressIndicator {
+    -fx-progress-color: white;
+}

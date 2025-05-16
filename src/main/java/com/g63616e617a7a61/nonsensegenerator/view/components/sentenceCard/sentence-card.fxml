@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox  id="sentenceCard" fx:id="sentenceCard" stylesheets="@sentence-card.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard.SentenceCardController">
+<VBox id="sentenceCard" fx:id="sentenceCard" stylesheets="@sentence-card.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard.SentenceCardController">
    <children>
       <HBox> 
          <children>
             <VBox>
                <children>
                   <Label fx:id="sentenceCount" text="" />
-                  <Label fx:id="genSentence" styleClass="genSentence" text="" />
+                  <HBox>
+                     <children>
+                        <ProgressIndicator id="progressIndicator" fx:id="progressIndicator" prefHeight="16" prefWidth="16" />
+                        <Region fx:id="progressIndicatorSpacer" />
+                        <Label fx:id="genSentence" styleClass="genSentence" text="" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <Region HBox.hgrow="ALWAYS" />
             <StackPane>
                <children>
-                  <Button text="Input info" fx:id="sentenceCardInfoBtn" />
+                  <Button fx:id="sentenceCardInfoBtn" text="">
+                     <graphic>
+                        <ImageView fitHeight="18" fitWidth="18" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/com/g63616e617a7a61/nonsensegenerator/view/res/icons/info-white.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </StackPane>
          </children>

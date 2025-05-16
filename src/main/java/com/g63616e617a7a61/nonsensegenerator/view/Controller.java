@@ -4,11 +4,14 @@ package com.g63616e617a7a61.nonsensegenerator.view;
 
 import java.io.IOException;
 
+import com.g63616e617a7a61.Model.InputSentence;
+import com.g63616e617a7a61.Model.OutputSentence;
 import com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard.SentenceCardController;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -154,16 +157,11 @@ public class Controller {
 
             // increment the sentence count
             sentenceCount++;
-
-            // get the nonsense sentence generated
-            String genSentence = "the black cat jumped over the lazy dog"; // DEBUG 
-
-            // add the sentence card in the init screen
             try {
-                addSentenceCard(sentenceCount, genSentence);
+                addSentenceCard(sentenceCount, sentenceInput.getText());
             } catch (IOException e) {
                 e.printStackTrace();
-            } 
+            }
         }
         // clear sentenceInput text field
         sentenceInput.clear();
@@ -173,13 +171,16 @@ public class Controller {
 
 
 
+
+
     /* Method that load a sentence card in the init screen when a new
        sentence is generated. With a fadeIn animation*/
-    public void addSentenceCard(int genSentenceCount, String genSentence) throws IOException{
+    public void addSentenceCard(int sentenceCount, String inputSentence) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
         VBox newSentenceCard = loader.load();
         SentenceCardController controller = loader.getController();
-        controller.setContent(genSentenceCount, genSentence);
+
+        controller.generateSentence(sentenceCount, inputSentence);
 
         newSentenceCard.setOpacity(0);
 
@@ -192,5 +193,4 @@ public class Controller {
         ParallelTransition animation = new ParallelTransition(fadeIn);
         animation.play();
     }
-
 }
