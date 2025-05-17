@@ -14,4 +14,10 @@ public abstract class Syntagm
     public void setValue(String x) {
         value = x;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Syntagm)) return false;
+        return this.value.equals(((Syntagm) obj).value);
+    }
 }
