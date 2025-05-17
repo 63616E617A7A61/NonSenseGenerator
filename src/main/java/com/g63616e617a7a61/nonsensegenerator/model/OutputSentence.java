@@ -1,10 +1,10 @@
-package com.g63616e617a7a61.Model;
+package com.g63616e617a7a61.nonsensegenerator.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.atteo.evo.inflector.English;
-import com.g63616e617a7a61.Controller.ApiController;
+import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
 
 public class OutputSentence {
     private String value;
