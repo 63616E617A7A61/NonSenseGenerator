@@ -4,14 +4,11 @@ package com.g63616e617a7a61.nonsensegenerator.view;
 
 import java.io.IOException;
 
-import com.g63616e617a7a61.Model.InputSentence;
-import com.g63616e617a7a61.Model.OutputSentence;
 import com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard.SentenceCardController;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;

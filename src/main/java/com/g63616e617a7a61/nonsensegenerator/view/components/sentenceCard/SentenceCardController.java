@@ -2,13 +2,12 @@ package com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard;
 
 import java.io.IOException;
 
-import com.g63616e617a7a61.Model.InputSentence;
-import com.g63616e617a7a61.Model.OutputSentence;
+import com.g63616e617a7a61.nonsensegenerator.Model.InputSentence;
+import com.g63616e617a7a61.nonsensegenerator.Model.OutputSentence;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
