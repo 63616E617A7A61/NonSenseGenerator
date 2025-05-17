@@ -10,12 +10,10 @@ public class OutputSentence {
     private String value;
     private Template t;
     private double toxicity;
-    private Dictionary d;
 
     public OutputSentence(InputSentence in){
         t = new Template();
         toxicity = 0;
-        d = d.getInstance();
         value = "";
         generate(in);
     }
@@ -23,7 +21,6 @@ public class OutputSentence {
     public OutputSentence(InputSentence in, Template t){
         this.t = t;
         toxicity = 0;
-        d = d.getInstance();
         value = "";
         generate(in);
     }
@@ -48,19 +45,19 @@ public class OutputSentence {
         int diff = countOccurrences("%v") - v.size();
         if(diff > 0){
             for (int i = 0; i < diff; i++) {
-                v.add(new Verb(d.getRandVerb()));
+                v.add(new Verb());
             }
         }
         diff = countOccurrences("%n") - n.size();
         if(diff > 0){
             for (int i = 0; i < diff; i++) {
-                n.add(new Noun(d.getRandNoun()));
+                n.add(new Noun());
             }
         }
         diff = countOccurrences("%a") - a.size();
         if(diff > 0){
             for (int i = 0; i < diff; i++) {
-                a.add(new Adjective(d.getRandAdjective()));
+                a.add(new Adjective());
             }
         }
         // ho controllato se servivano altri termini se non ne abbiamo abbastanza li ho pescati dal dizionario
