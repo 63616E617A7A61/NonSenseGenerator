@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.g63616e617a7a61.Model.InputSentence;
-import com.g63616e617a7a61.Model.OutputSentence;
-import com.g63616e617a7a61.Model.Template;
+import com.g63616e617a7a61.nonsensegenerator.model.InputSentence;
+import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
+import com.g63616e617a7a61.nonsensegenerator.model.Template;
 
 public class OutputSentenceTest {
     

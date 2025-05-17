@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import com.g63616e617a7a61.Controller.ApiController;
-import com.g63616e617a7a61.Model.Adjective;
-import com.g63616e617a7a61.Model.Noun;
-import com.g63616e617a7a61.Model.Syntagm;
-import com.g63616e617a7a61.Model.SyntaxElement;
-import com.g63616e617a7a61.Model.Verb;
+import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
+import com.g63616e617a7a61.nonsensegenerator.model.Adjective;
+import com.g63616e617a7a61.nonsensegenerator.model.Noun;
+import com.g63616e617a7a61.nonsensegenerator.model.Syntagm;
+import com.g63616e617a7a61.nonsensegenerator.model.SyntaxElement;
+import com.g63616e617a7a61.nonsensegenerator.model.Verb;
 
 public class ApiControllerTest {
     @Test

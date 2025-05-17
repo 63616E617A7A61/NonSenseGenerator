@@ -22,6 +22,10 @@ public class Template
         template = DataUtils.getRandom(data); //get random template from database
     }
 
+    public Template(String s) {
+        template = s;
+    }
+
     public String getTemplate() {
         return template;
     }
