@@ -1,4 +1,4 @@
-package com.g63616e617a7a61.Model;
+package com.g63616e617a7a61.nonsensegenerator.model;
 
 import java.util.ArrayList;
 
@@ -37,6 +37,8 @@ public class SyntaxElement {
 
     @Override
     public boolean equals(Object se) {
+        if (!(se instanceof SyntaxElement)) return false;
+
         SyntaxElement e = (SyntaxElement) se;
         if(edges != null)
             return value.equals(e.value) 

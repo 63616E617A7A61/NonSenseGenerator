@@ -3,4 +3,4 @@
 <?import javafx.scene.layout.StackPane?>
 
 
-<StackPane id="syntaxTree" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<StackPane fx:id="syntaxTreeContainer" id="syntaxTree" stylesheets="@syntax-tree.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController" />

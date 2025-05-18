@@ -1,4 +1,4 @@
-package com.g63616e617a7a61.Controller;
+package com.g63616e617a7a61.nonsensegenerator.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,11 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.g63616e617a7a61.Model.Adjective;
-import com.g63616e617a7a61.Model.Noun;
-import com.g63616e617a7a61.Model.Syntagm;
-import com.g63616e617a7a61.Model.SyntaxElement;
-import com.g63616e617a7a61.Model.Verb;
+import com.g63616e617a7a61.nonsensegenerator.model.*;
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.language.v1.AnalyzeSyntaxRequest;

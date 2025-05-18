@@ -2,8 +2,9 @@ package com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard;
 
 import java.io.IOException;
 
-import com.g63616e617a7a61.nonsensegenerator.Model.InputSentence;
-import com.g63616e617a7a61.nonsensegenerator.Model.OutputSentence;
+import com.g63616e617a7a61.nonsensegenerator.model.InputSentence;
+import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
+import com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -11,8 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 
@@ -35,9 +36,11 @@ public class SentenceCardController {
 
     @FXML
     private Button sentenceCardInfoBtn; 
-
-    private String sentence = ""; 
+    
+    private String outputSentence = ""; 
+    private String inputSentence = "";
     private boolean isSyntaxTreeVisible = false; // Flag to check if the syntax tree is already visible
+    private Pane cachedSyntaxTree; // Load the syntax tree the first time, the next times use the cachedSyntaxTree
 
     @FXML
     public void initialize() {
@@ -57,10 +60,13 @@ public class SentenceCardController {
         });
     }
 
-    public void setContent(int count, String sentence) {
-        this.sentence = sentence;
+
+
+
+    public void setContent(int count, String outputSentence) {
+        this.outputSentence = outputSentence;
         sentenceCount.setText("Sentence " + Integer.toString(count));
-        genSentence.setText(sentence);
+        genSentence.setText(outputSentence);
     }
 
 
@@ -69,29 +75,30 @@ public class SentenceCardController {
     // Add syntax tree to sentence card 
     private void addSyntaxTree() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree.fxml"));
-            StackPane syntaxTree = loader.load();
-            syntaxTree.setId("syntaxTree");
-            //SyntaxTreeController controller = loader.getController();
-            //controller.generateTree(sentence);
-            sentenceCard.getChildren().add(syntaxTree);
+            if(cachedSyntaxTree == null){
+                cachedSyntaxTree = loader.load();
+                SyntaxTreeController controller = loader.getController();
+                controller.generateTree(inputSentence);
+            }
+            sentenceCard.getChildren().add(cachedSyntaxTree);
     }
 
-    //  Remove syntax tree from sentence card
+    // Remove syntax tree from sentence card
     private void removeSyntaxTree() {
-        sentenceCard.getChildren().removeIf(node -> node.getId() != null && node.getId().equals("syntaxTree"));
+        sentenceCard.getChildren().remove(cachedSyntaxTree); 
         isSyntaxTreeVisible = false; // Reset the flag
     }
     
     // Generation of the sentence
     public void generateSentence(int sentenceCount, String inputSentence){
-        //setContent(sentenceCount, inputSentence); // PER EVITARE DI USARE LA API 
+        this.inputSentence = inputSentence; 
         // Set Loading... when the sentence is generating 
         setContent(sentenceCount, "Loading...");
         progressIndicatorSpacer.setPrefWidth(10);
         progressIndicator.setVisible(true);
         progressIndicator.setManaged(true);
 
-        // Generation of the sentence process
+        // Generation of the sentence process 
         Task<String> generateSentenceTask = new Task<>() {
             @Override
             protected String call() throws Exception {
