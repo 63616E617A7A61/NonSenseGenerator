@@ -102,8 +102,9 @@ public class SyntaxTreeController {
                     int arcCount = arcCountBySource.getOrDefault(el.getIndex(), 0); // cerca nella mappa l'elemento da cui partirà l'arco, se non lo trova vuol dire che ha 0 archi e lo inizializza a 0
                     arcCountBySource.put(el.getIndex(), arcCount + 1); // aggiorna la mappa, aggiungendo un arco al nodo corrente 
 
-                    double arcHeight = 50 + arcCount * 15; // l'altezza è di 50 + 15 per ogni arco
-                    double arcY = (arcUp ? from.getY() - arcHeight + 7.5*arcCount + 15 : from.getY() - 5 - 7.5*arcCount); // posizione o sopra o sotto
+                    double distanceFactor = Math.abs(to.getX() - from.getX()) / 6; // rende l'altezza degli archi proporzionale alla distanza che devono percorrere
+                    double arcHeight = 50 + arcCount * 15 + distanceFactor; // l'altezza è di 50 + 15 per ogni arco
+                    double arcY = (arcUp ? from.getY() - arcHeight + distanceFactor * 0.4 + 7.5 * arcCount + 17 : from.getY() - 5 - 7.5 * arcCount - distanceFactor * 0.5); // posizione o sopra o sotto
 
                     // Disegna arco
                     gc.strokeArc(arcX, arcY, arcWidth, arcHeight, arcUp ? 0 : 180, 180, ArcType.OPEN); // disegna l'arco, se arcup = false lo ruota di 180 gradi (in modo da disegnarlo sotto)
