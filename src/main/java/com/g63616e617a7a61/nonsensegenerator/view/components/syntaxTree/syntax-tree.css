@@ -1,3 +1,58 @@
+#syntaxTreeLoading {
+    -fx-alignment: center;
+    -fx-padding: 20 0 0 0;
+}
+
+#syntaxTreeLoading Label{
+    -fx-text-fill: -title-color;
+    -fx-font-size: 13px;
+}
+
+#syntaxTreeLoading #progressIndicator {
+    -fx-progress-color: white;
+}
+
 #syntaxTree{
-    -fx-padding: 35 0 0 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+#syntaxTree .viewport {
+    -fx-background-color: transparent;
+}
+
+#syntaxTree .scroll-bar:horizontal {
+    -fx-background-color: transparent; 
+}
+
+#syntaxTree .scroll-bar:horizontal .track {
+    -fx-background-color: rgba(0, 0, 0, 0.2); 
+    -fx-background-insets: 2;
+    -fx-background-radius: 4;
+}
+
+#syntaxTree .scroll-bar:horizontal .thumb {
+    -fx-background-color: -title-color; 
+    -fx-background-insets: 2;
+    -fx-background-radius: 4;
+}
+
+#syntaxTree .scroll-bar:vertical {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+}
+
+#syntaxTree .increment-button,
+#syntaxTree .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-shape: "";
+    -fx-opacity: 0;
+    -fx-max-height: 0;
+    -fx-max-width: 0;
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+    -fx-min-height: 0;
+    -fx-min-width: 0;
 }

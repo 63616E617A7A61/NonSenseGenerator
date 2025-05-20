@@ -20,7 +20,7 @@
                   <HBox>
                      <children>
                         <ProgressIndicator id="progressIndicator" fx:id="progressIndicator" prefHeight="16" prefWidth="16" />
-                        <Region fx:id="progressIndicatorSpacer" />
+                        <Region prefWidth="10" />
                         <Label fx:id="genSentence" styleClass="genSentence" text="" />
                      </children>
                   </HBox>

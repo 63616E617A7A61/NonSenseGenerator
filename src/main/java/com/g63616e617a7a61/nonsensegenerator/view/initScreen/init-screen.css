@@ -23,11 +23,12 @@
     -fx-wrap-text: true;
     -fx-text-fill: -subtitle-color; 
     -fx-text-alignment: center;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 #titleSect > #title {
     -fx-text-fill: -title-color;
+    -fx-font-weight: bold;
     -fx-max-width: 450px;
     -fx-font-size: 20px;
     -fx-padding: 0 0 15px 0;
@@ -79,7 +80,7 @@
     -fx-pref-height: 290px;
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
-    -fx-font-size: 13px; 
+    -fx-font-size: 15px; 
     -fx-wrap-text: true;
 }
 
@@ -108,7 +109,7 @@
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
     -fx-font-weight: bold;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 #inputSect{

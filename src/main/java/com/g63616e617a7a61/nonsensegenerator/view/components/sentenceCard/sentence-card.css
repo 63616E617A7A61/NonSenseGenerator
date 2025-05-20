@@ -14,7 +14,7 @@
 #sentenceCard VBox Label{
     -fx-text-fill: -subtitle-color;
     -fx-padding: 0 0 10px 0;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 #sentenceCard VBox .genSentence{
@@ -24,7 +24,7 @@
 
 #sentenceCard StackPane Button{
     -fx-text-fill: -title-color;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-background-color: transparent;
 }

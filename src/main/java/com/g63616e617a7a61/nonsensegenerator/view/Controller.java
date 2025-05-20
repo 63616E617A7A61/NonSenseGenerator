@@ -1,5 +1,3 @@
-// Controller class for the init-screen.fxml file
-
 package com.g63616e617a7a61.nonsensegenerator.view;
 
 import java.io.IOException;
@@ -20,7 +18,7 @@ import javafx.util.Duration;
 
 public class Controller {
     private static int sentenceCount = 0; // number of sentences generated
-    private static final int ANIMATION_DURATION_MS = 200;
+    private static final int ANIMATION_DURATION_MS = 200; // animation duration in milliseconds
 
     @FXML
     private BorderPane main; 
@@ -53,6 +51,7 @@ public class Controller {
     @FXML
     public void initialize() {
         
+        // ---------------------- INITIALIZATION ----------------------
         /*Force the rendering of the sentence card component in initialization 
         in order to avoid the delay when the component is first shown*/
         forceSentenceCardRendering();
@@ -73,6 +72,8 @@ public class Controller {
 
 
 
+        
+
         // ---------------------- INPUT TEXT FIELD AND GENERATE BUTTON ----------------------
         // if the user presses Enter while the TextField is focused
         sentenceInput.setOnKeyPressed(event -> {
@@ -88,11 +89,15 @@ public class Controller {
 
 
 
+
+
         // ---------------------- RESIZE HANDLING ----------------------
+        // Listen for resize events on the main BorderPane
         main.widthProperty().addListener((obs, oldVal, newVal) -> {
             // Get the new width of the main BorderPane
             double totalWidth = newVal.doubleValue();
 
+            // Resize the input section based on the new width
             // If the width is less than maxWidth, set the width to 40% of the main BorderPane width
             int maxWidth = 1000;
             if(totalWidth <= maxWidth){
@@ -102,10 +107,12 @@ public class Controller {
             }
         });
 
+        // Listen for resize events on the main BorderPane
         main.heightProperty().addListener((obs, oldVal, newVal) -> {
             // Get the new height of the main BorderPane
             double totalHeight = newVal.doubleValue();
 
+            // Resize the input section based on the new height
             // If the height is less than maxHeight, set the width to 100% of the main BorderPane height
             int maxHeight = 600;
             if(totalHeight <= maxHeight){
@@ -119,21 +126,6 @@ public class Controller {
 
     }
 
-
-
-    /*SentenceCard rendering forcing
-    This is done to avoid the delay when the component is first shown*/
-    public void forceSentenceCardRendering(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
-            VBox dummyCard = loader.load();
-            dummyCard.setVisible(false); 
-            dummyCard.setManaged(false); 
-            sentenceCardSect.getChildren().add(dummyCard); 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
 
@@ -164,6 +156,25 @@ public class Controller {
         sentenceInput.clear();
         // unfocus TextField
         main.requestFocus();
+    }
+
+
+
+
+    
+    // ---------------------- OTHER METHODS ----------------------
+    /*SentenceCard rendering forcing
+    This is done to avoid the delay when the component is first shown*/
+    public void forceSentenceCardRendering(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
+            VBox dummyCard = loader.load();
+            dummyCard.setVisible(false); 
+            dummyCard.setManaged(false); 
+            sentenceCardSect.getChildren().add(dummyCard); 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

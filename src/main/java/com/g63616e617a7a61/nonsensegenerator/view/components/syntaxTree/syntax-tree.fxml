@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.ScrollPane?>
 
-
-<StackPane fx:id="syntaxTreeContainer" id="syntaxTree" stylesheets="@syntax-tree.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController" />
+<ScrollPane fx:id="syntaxTreeContainer" id="syntaxTree" stylesheets="@syntax-tree.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController" vbarPolicy="NEVER">
+    <content>
+        <!--Tree here-->
+    </content>
+</ScrollPane>

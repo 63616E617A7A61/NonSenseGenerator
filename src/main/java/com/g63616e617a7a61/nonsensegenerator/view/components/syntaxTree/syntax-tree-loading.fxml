@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox id="syntaxTreeLoading" fx:id="syntaxTreeLoading" stylesheets="@syntax-tree.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+        <ProgressIndicator id="progressIndicator" prefWidth="16" prefHeight="16" />
+        <Region prefWidth="10" />
+        <Label text="Generating tree..." />
+   </children>
+</HBox>
