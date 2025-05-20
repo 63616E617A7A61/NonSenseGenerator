@@ -44,7 +44,7 @@ public class SentenceCardController {
     private String generatedSentence = ""; // contains the generated sentence 
     private String inputSentence = ""; // contains the input sentence
     private boolean isSyntaxTreeVisible = false; // Flag to check if the syntax tree is already visible
-    private ScrollPane cachedSyntaxTree; // Load the syntax tree the first time, the next times use the cachedSyntaxTree
+    private VBox cachedSyntaxTree; // Load the syntax tree the first time, the next times use the cachedSyntaxTree
 
 
 
@@ -106,7 +106,7 @@ public class SentenceCardController {
                         FXMLLoader syntaxTreeLoader = new FXMLLoader(getClass().getResource(
                             "/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree.fxml"
                         ));
-                        ScrollPane syntaxTree = syntaxTreeLoader.load();
+                        VBox syntaxTree = syntaxTreeLoader.load();
 
                         SyntaxTreeController controller = syntaxTreeLoader.getController();
                         controller.generateTree(inputSentence);
@@ -119,6 +119,10 @@ public class SentenceCardController {
 
             loadSyntaxTreeTask.setOnSucceeded(event -> {
                 sentenceCard.getChildren().remove(loadingNode);
+                Region spacer = new Region();
+                spacer.setPrefHeight(20);
+                spacer.setId("SyntaxTreeSpacer");
+                sentenceCard.getChildren().add(spacer);
                 sentenceCard.getChildren().add(loadSyntaxTreeTask.getValue());
             });
 
@@ -142,6 +146,7 @@ public class SentenceCardController {
     // Remove syntax tree from sentence card
     private void removeSyntaxTree() {
         sentenceCard.getChildren().remove(cachedSyntaxTree); 
+        sentenceCard.getChildren().removeIf(node -> node.getId() != null && node.getId().equals("SyntaxTreeSpacer"));
     }
     
 

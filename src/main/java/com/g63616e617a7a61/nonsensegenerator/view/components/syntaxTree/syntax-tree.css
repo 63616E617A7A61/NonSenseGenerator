@@ -1,3 +1,13 @@
+#syntaxTreeContainer {
+    -fx-background-color: -container-background-color;
+    -fx-padding: 20;
+    -fx-background-radius: 15;
+}
+
+#syntaxTreeContainer #syntaxTreeContainerTitle{
+    -fx-font-weight: bold;
+}
+
 #syntaxTreeLoading {
     -fx-alignment: center;
     -fx-padding: 20 0 0 0;
@@ -15,7 +25,6 @@
 #syntaxTree{
     -fx-background-color: transparent;
     -fx-background-insets: 0;
-    -fx-padding: 0;
 }
 
 #syntaxTree .viewport {

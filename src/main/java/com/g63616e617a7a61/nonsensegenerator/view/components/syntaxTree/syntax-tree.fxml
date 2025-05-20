@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
-<ScrollPane fx:id="syntaxTreeContainer" id="syntaxTree" stylesheets="@syntax-tree.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController" vbarPolicy="NEVER">
-    <content>
-        <!--Tree here-->
-    </content>
-</ScrollPane>
+<VBox stylesheets="@syntax-tree.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController" id="syntaxTreeContainer">
+    <children>
+        <Label text="Input sentence syntax tree" id="syntaxTreeContainerTitle" />
+        <Region prefHeight="10" />
+        <ScrollPane fx:id="syntaxTreeContainer" id="syntaxTree" vbarPolicy="NEVER">
+            <content>
+                <!--Tree here-->
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>
