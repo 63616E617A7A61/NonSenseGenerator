@@ -13,7 +13,6 @@
 
 #sentenceCard VBox Label{
     -fx-text-fill: -subtitle-color;
-    -fx-padding: 0 0 10px 0;
     -fx-font-size: 15px;
 }
 
@@ -31,4 +30,16 @@
 
 #sentenceCard #progressIndicator {
     -fx-progress-color: white;
+}
+
+#toxicityRateContainer{
+    -fx-padding: 5 10;
+    -fx-background-color: #ffffff20; 
+    -fx-background-radius: 25;
+    -fx-alignment: center;
+}
+
+#toxicityRateContainer Label{
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
 }
