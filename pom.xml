@@ -14,8 +14,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
     <javafx.version>23</javafx.version>
     <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
   </properties>
@@ -107,6 +106,22 @@
           <configuration>
           <mainClass>com.g63616e617a7a61.nonsensegenerator.App</mainClass>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.9</version>
+          <!-- <configuration>
+            <sourceFileIncludes>
+              <include>Syntagm.java</include>
+              <include>Noun.java</include>
+              <include>Adjective.java</include>
+              <include>Verb.java</include>
+              <include>Template.java</include>
+              <include>DataUtils.java</include>
+            </sourceFileIncludes>
+            <sourcepath>${basedir}/src/main/java/com/g63616e617a7a61/nonsensegenerator/model</sourcepath>
+          </configuration> -->
         </plugin>
       </plugins>
     </pluginManagement>

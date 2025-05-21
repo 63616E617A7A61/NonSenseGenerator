@@ -44,9 +44,9 @@ public class DataUtils {
     }
 
     /**
-     * Selects and returns a random element from the provided ArrayList<String>.
+     * Selects and returns a random element from the provided ArrayList{@literal <}String{@literal >}.
      * If the input list is null, returns the string "null".
-     *z
+     *
      * @param list  The ArrayList from which to select a random element
      * @return      A randomly selected string from the list, or "null" if <code>list</code> is null
      */
