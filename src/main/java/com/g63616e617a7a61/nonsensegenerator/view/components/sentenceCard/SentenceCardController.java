@@ -168,7 +168,7 @@ public class SentenceCardController {
         progressIndicator.setManaged(true);
 
         // Generation of the sentence process 
-        /*Task<String> generateSentenceTask = new Task<>() {
+        Task<String> generateSentenceTask = new Task<>() {
             @Override
             protected String call() throws Exception {
                 OutputSentence genSentence = new OutputSentence(new InputSentence(inputSentence)); // USARE FRASECONTROLLER
@@ -196,7 +196,7 @@ public class SentenceCardController {
         // Start the generation task in a new thread
         Thread thread = new Thread(generateSentenceTask);
         thread.setDaemon(true);
-        thread.start();*/
+        thread.start();
     }
 
 }

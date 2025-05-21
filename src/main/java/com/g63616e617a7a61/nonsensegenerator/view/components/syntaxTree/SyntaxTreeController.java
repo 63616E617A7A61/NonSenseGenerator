@@ -52,15 +52,13 @@ public class SyntaxTreeController {
     */
     public void generateTree(String sentence) {
         // Call the API to get the syntax tree elements (only the first time, after that it uses the cached elements)
-        /*if(elements == null){
+        if(elements == null){
             try {
                 elements = ApiController.getSyntaxTree(sentence);
             } catch (IOException e) {
                 e.printStackTrace();
             } 
-        }*/
-
-        elements = debugApiCall(); // DEBUG CALL
+        }
 
         /* Order the edges so that the nodes connected to the left of the current node are displayed in descending order by the drawing algorithm 
          * while those on the right are displayed in ascending order so that the growth of the edges follows this logic: 
@@ -210,48 +208,5 @@ public class SyntaxTreeController {
             }
         }
     }
-
-    // API DEBUG CALL
-    public List<SyntaxElement> debugApiCall() {
-        List<SyntaxElement> elements = new ArrayList<>();
-
-        elements.add(new SyntaxElement("The", "DT", 0));
-        elements.add(new SyntaxElement("quick", "JJ", 1));
-        elements.add(new SyntaxElement("brown", "JJ", 2));
-        elements.add(new SyntaxElement("fox", "NN", 3));
-        elements.add(new SyntaxElement("who", "WP", 4));
-        elements.add(new SyntaxElement("jumped", "VBD", 5));
-        elements.add(new SyntaxElement("over", "IN", 6));
-        elements.add(new SyntaxElement("the", "DT", 7));
-        elements.add(new SyntaxElement("lazy", "JJ", 8));
-        elements.add(new SyntaxElement("dog", "NN", 9));
-        elements.add(new SyntaxElement("was", "VBD", 10));
-        elements.add(new SyntaxElement("seen", "VBN", 11));
-        elements.add(new SyntaxElement("by", "IN", 12));
-        elements.add(new SyntaxElement("a", "DT", 13));
-        elements.add(new SyntaxElement("group", "NN", 14));
-        elements.add(new SyntaxElement("of", "IN", 15));
-        elements.add(new SyntaxElement("curious", "JJ", 16));
-        elements.add(new SyntaxElement("children", "NNS", 17));
-        elements.add(new SyntaxElement("near", "IN", 18));
-        elements.add(new SyntaxElement("the", "DT", 19));
-        elements.add(new SyntaxElement("park", "NN", 20));
-        elements.add(new SyntaxElement("entrance", "NN", 21));
-
-        // Imposta gli archi
-        elements.get(3).setEdges(new ArrayList<>(Arrays.asList(0, 1, 2, 4)));        // fox → det, adj, relclause
-        elements.get(4).setEdges(new ArrayList<>(List.of(5)));                      // who → jumped
-        elements.get(5).setEdges(new ArrayList<>(Arrays.asList(6, 7)));             // jumped → over, the
-        elements.get(9).setEdges(new ArrayList<>(Arrays.asList(7, 8)));             // dog → the, lazy
-        elements.get(10).setEdges(new ArrayList<>(Arrays.asList(3, 11)));           // was → fox, seen
-        elements.get(11).setEdges(new ArrayList<>(List.of(12)));                    // seen → by
-        elements.get(12).setEdges(new ArrayList<>(List.of(14)));                    // by → group
-        elements.get(14).setEdges(new ArrayList<>(Arrays.asList(13, 15)));          // group → a, of
-        elements.get(15).setEdges(new ArrayList<>(List.of(17)));                    // of → children
-        elements.get(17).setEdges(new ArrayList<>(List.of(16)));                    // children → curious
-        elements.get(18).setEdges(new ArrayList<>(List.of(20)));                    // near → park
-        elements.get(20).setEdges(new ArrayList<>(Arrays.asList(19, 21)));          // park → the, entrance
-
-        return elements;
-    }
+    
 }
