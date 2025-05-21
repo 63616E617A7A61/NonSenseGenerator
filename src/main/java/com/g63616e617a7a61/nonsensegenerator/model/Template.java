@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Template
 {
-    private static ArrayList data;
+    private static ArrayList<String> data;
     private static final String DATAPATH = "data/Templates.txt";
 
     private final String template;
@@ -20,6 +20,10 @@ public class Template
         }
 
         template = DataUtils.getRandom(data); //get random template from database
+    }
+
+    public Template(String s) {
+        template = s;
     }
 
     public String getTemplate() {
