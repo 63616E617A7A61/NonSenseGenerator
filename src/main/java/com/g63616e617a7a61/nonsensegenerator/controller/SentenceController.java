@@ -1,7 +1,10 @@
 package com.g63616e617a7a61.nonsensegenerator.controller;
 
+import java.util.List;
+
 import com.g63616e617a7a61.nonsensegenerator.model.InputSentence;
 import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
+import com.g63616e617a7a61.nonsensegenerator.model.SyntaxElement;
 
 public class SentenceController {
     private InputSentence in;
@@ -15,9 +18,11 @@ public class SentenceController {
     public String getOutputSentence() {
         return out.toString();
     }
-    public String getSyntaxTree() {
+    
+    public List<SyntaxElement> getSyntaxTree() {
         return in.getSyntaxTree();
     }
+
     public double getToxicity() {
         return out.getToxicity();
     }

@@ -5,32 +5,34 @@ import java.io.IOException;
 import java.util.List;
 
 public class InputSentence {
-    private String value;
     private Syntagm[] syntagms;
+    private String value;
 
     public InputSentence(String s) {
         value = s;
-        syntagms = extract();
+        try {
+            syntagms = ApiController.extract(s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Syntagm[] extract(){
+        return syntagms;
+    }
+
+    public List<SyntaxElement> getSyntaxTree(){
+        List<SyntaxElement> seList = null;
         try {
-            return ApiController.extract(value);
+            seList = ApiController.getSyntaxTree(value);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        return seList;
     }
 
-    public String getSyntaxTree(){
-        try {
-            List<SyntaxElement> seList = ApiController.getSyntaxTree(value);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return "";
-    }
-
+    @Override
     public String toString() {
         return value;
     }
