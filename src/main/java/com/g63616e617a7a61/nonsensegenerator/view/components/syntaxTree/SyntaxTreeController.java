@@ -84,7 +84,7 @@ public class SyntaxTreeController {
         }
 
         // Create a canvas to draw the syntax tree
-        Canvas canvas = new Canvas(totalWidth, 250);
+        Canvas canvas = new Canvas(totalWidth, baseY*2);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         // load the custom font

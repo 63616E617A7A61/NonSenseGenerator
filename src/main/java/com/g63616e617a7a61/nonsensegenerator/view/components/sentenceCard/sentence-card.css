@@ -38,6 +38,7 @@
     -fx-background-radius: 25;
     -fx-alignment: center;
     -fx-max-width: 150; 
+    -fx-min-width: 150; 
 }
 
 #toxicityRateContainer Label{
