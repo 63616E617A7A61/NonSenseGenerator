@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Template
 {
-    private static ArrayList data;
+    private static ArrayList<String> data;
     private static final String DATAPATH = "data/Templates.txt";
 
     private final String template;

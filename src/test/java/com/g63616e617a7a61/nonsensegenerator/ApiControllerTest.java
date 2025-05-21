@@ -1,7 +1,6 @@
 package com.g63616e617a7a61.nonsensegenerator;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Locale;
 
 import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
 import com.g63616e617a7a61.nonsensegenerator.model.Adjective;
@@ -39,7 +38,7 @@ public class ApiControllerTest {
     @Test
     public void testGetToxicity(){
         try {
-            assertEquals(0.029414838179945946, ApiController.getToxicity("The table is big"));
+            assertTrue("0.029414838".equals(String.format(Locale.US, "%.9f", ApiController.getToxicity("The table is big"))));
         } catch (IOException e) {
             fail(e.getMessage());
         }

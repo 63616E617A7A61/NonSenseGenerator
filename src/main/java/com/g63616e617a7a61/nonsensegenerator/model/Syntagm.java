@@ -20,4 +20,9 @@ public abstract class Syntagm
         if (!(obj instanceof Syntagm)) return false;
         return this.value.equals(((Syntagm) obj).value);
     }
+
+    @Override
+    public String toString() {
+        return getValue();
+    }
 }
