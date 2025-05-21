@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
+import com.g63616e617a7a61.nonsensegenerator.controller.SentenceController;
 import com.g63616e617a7a61.nonsensegenerator.model.SyntaxElement;
+import com.google.cloud.language.v1.Sentence;
+
 import javafx.scene.paint.Color;
 
 import javafx.fxml.FXML;
@@ -53,11 +56,8 @@ public class SyntaxTreeController {
     public void generateTree(String sentence) {
         // Call the API to get the syntax tree elements (only the first time, after that it uses the cached elements)
         if(elements == null){
-            try {
-                elements = ApiController.getSyntaxTree(sentence);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } 
+            SentenceController sc = new SentenceController(sentence); // Call the API to get the syntax tree elements
+            elements = sc.getSyntaxTree(); // get the syntax tree elements 
         }
 
         /* Order the edges so that the nodes connected to the left of the current node are displayed in descending order by the drawing algorithm 

@@ -2,6 +2,7 @@ package com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard;
 
 import java.io.IOException;
 
+import com.g63616e617a7a61.nonsensegenerator.controller.SentenceController;
 import com.g63616e617a7a61.nonsensegenerator.model.InputSentence;
 import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
 import com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController;
@@ -38,7 +39,10 @@ public class SentenceCardController {
     VBox sentenceCard;
 
     @FXML
-    private Button sentenceCardInfoBtn; 
+    private Button sentenceCardInfoBtn;
+    
+    @FXML 
+    private Label toxicityRate; 
     
     // ------------------ VARIABLES ------------------
     private String generatedSentence = ""; // contains the generated sentence 
@@ -71,10 +75,11 @@ public class SentenceCardController {
 
     // ------------------ METHODS ------------------
     // When this method is caalled, it sets the content of the sentence card (or updates it)
-    public void setContent(int count, String generatedSentence) {
+    public void setContent(int count, String generatedSentence, double toxicity) {
         this.generatedSentence = generatedSentence;
         sentenceCount.setText("Sentence " + Integer.toString(count));
         genSentence.setText(generatedSentence);
+        toxicityRate.setText(String.format("%.2f", toxicity) + "%");
     }
 
 
@@ -90,9 +95,7 @@ public class SentenceCardController {
     */
     private void addSyntaxTree() {
         // Mostra l'animazione di caricamento
-        FXMLLoader loadingAnimationLoader = new FXMLLoader(getClass().getResource(
-            "/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree-loading.fxml"
-        ));
+        FXMLLoader loadingAnimationLoader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree-loading.fxml"));
 
         try {
             Node loadingNode = loadingAnimationLoader.load();
@@ -103,9 +106,7 @@ public class SentenceCardController {
                 @Override
                 protected Parent call() throws Exception {
                     if (cachedSyntaxTree == null) {
-                        FXMLLoader syntaxTreeLoader = new FXMLLoader(getClass().getResource(
-                            "/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree.fxml"
-                        ));
+                        FXMLLoader syntaxTreeLoader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree.fxml"));
                         VBox syntaxTree = syntaxTreeLoader.load();
 
                         SyntaxTreeController controller = syntaxTreeLoader.getController();
@@ -163,23 +164,24 @@ public class SentenceCardController {
     public void generateSentence(int sentenceCount, String inputSentence){
         this.inputSentence = inputSentence; 
         // Set Loading... when the sentence is generating 
-        setContent(sentenceCount, "Loading...");
+        setContent(sentenceCount, "Loading...", 0);
         progressIndicator.setVisible(true);
         progressIndicator.setManaged(true);
 
         // Generation of the sentence process 
-        Task<String> generateSentenceTask = new Task<>() {
+        Task<Object[]> generateSentenceTask = new Task<>() {
             @Override
-            protected String call() throws Exception {
-                OutputSentence genSentence = new OutputSentence(new InputSentence(inputSentence)); // USARE FRASECONTROLLER
-                return genSentence.toString();
+            protected Object[] call() throws Exception {
+                SentenceController sc = new SentenceController(inputSentence); 
+                return new Object[] {sc.getOutputSentence(), sc.getToxicity()*100};
             }
         }; 
         
         // When the generation is completed update the sentence card content
         generateSentenceTask.setOnSucceeded(event -> {
-            String generatedText = generateSentenceTask.getValue();
-            setContent(sentenceCount, generatedText);
+            String generatedText = (String) generateSentenceTask.getValue()[0];
+            double toxicity = (double) generateSentenceTask.getValue()[1];
+            setContent(sentenceCount, generatedText, toxicity);
             progressIndicatorSpacer.setPrefWidth(0);
             progressIndicator.setVisible(false);
             progressIndicator.setManaged(false);
@@ -187,7 +189,7 @@ public class SentenceCardController {
 
         // Handle errors 
         generateSentenceTask.setOnFailed(event -> {
-            setContent(sentenceCount, "An error occurred!");
+            setContent(sentenceCount, "An error occurred!", Double.NaN);
             progressIndicatorSpacer.setPrefWidth(0);
             progressIndicator.setVisible(false);
             progressIndicator.setManaged(false);
