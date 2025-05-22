@@ -2,6 +2,9 @@ package com.g63616e617a7a61.nonsensegenerator.model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,6 +28,14 @@ public class DataUtils {
         }
 
         return list;
+    }
+
+    public static void append(String s, String filePath){
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
+            writer.println(s);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
     }
 
     public static String getRandom(ArrayList<String> list) {

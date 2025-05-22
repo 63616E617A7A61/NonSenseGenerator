@@ -94,7 +94,9 @@ public class ApiController {
                 SyntaxElement se = new SyntaxElement(
                     token.getText().getContent(),
                     token.getDependencyEdge().getLabel().name(),
-                    index);
+                    index, 
+                    token.getPartOfSpeech().getPerson().name(), 
+                    token.getPartOfSpeech().getNumber().name());
                 
                 tree.add(se);
                 if(index != token.getDependencyEdge().getHeadTokenIndex())
@@ -117,6 +119,23 @@ public class ApiController {
             
             return tree;
         }
+    }
+
+    public static SyntaxElement getSubject(String sentence, String verb) throws IOException{
+        List<SyntaxElement> lse = getSyntaxTree(sentence);
+        for(SyntaxElement e : lse){                         //cerco il mio verbo
+            if(e.getValue().equals(verb)){                  //se lo trovo
+                if(e.getEdges() == null) return null;
+                for(int i : e.getEdges()){                  //controllo i collegamenti che ha, sicuramente è connesso al suo soggetto
+                    SyntaxElement buff = lse.get(i);        
+                    if (buff.getSyntax_value().contains("SUBJ")) { //contollo tutti gli archi se uno di questi è etichettato con SUBJ
+                        return buff;             //ritorna il nosto soggetto
+                    }
+                }
+                
+            }
+        }
+        return null;
     }
 
     public static double getToxicity(String s) throws IOException{

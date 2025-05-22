@@ -5,16 +5,20 @@ import java.util.ArrayList;
 public class SyntaxElement {
     private String value;
     private String syntax_value;
+    private String person;
+    private String number;
     private int index;
     private ArrayList<Integer> edges;
     
-    public SyntaxElement(String value, String syntax_value, int index){
+    public SyntaxElement(String value, String syntax_value, int index, String person, String number){
         this.value = value;
         this.syntax_value = syntax_value;
         this.index = index;
+        this.person = person;
+        this.number = number;
         edges = null;
     }
-
+    
     public String getValue() {
         return value;
     }
@@ -33,6 +37,14 @@ public class SyntaxElement {
 
     public void setEdges(ArrayList<Integer> edges) {
         this.edges = edges;
+    }
+    
+    public String getNumber() {
+        return number;
+    }
+    
+    public String getPerson() {
+        return person;
     }
 
     @Override

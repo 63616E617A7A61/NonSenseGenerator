@@ -23,4 +23,11 @@ public class Noun extends Syntagm
     public Noun(String value) {
         this.setValue(value);
     }
+
+    public static void save(String s){
+        if(data != null && data.indexOf(s) == -1){
+            data.add(s);
+            DataUtils.append(s, DATAPATH);
+        }
+    }
 }

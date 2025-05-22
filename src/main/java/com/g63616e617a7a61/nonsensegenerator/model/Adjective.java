@@ -23,4 +23,11 @@ public class Adjective extends Syntagm
     public Adjective(String value) {
         this.setValue(value);
     }
+
+    public static void save(String s){
+        if(data != null && data.indexOf(s) == -1){
+            data.add(s);
+            DataUtils.append(s, DATAPATH);
+        }
+    }
 }

@@ -17,6 +17,26 @@ public class InputSentence {
         }
     }
 
+    public InputSentence(String s, boolean save) {
+        value = s;
+        try {
+            syntagms = ApiController.extract(s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if(save){
+            for(Syntagm syn : syntagms){
+                if(syn instanceof Verb){
+                    Verb.save(syn.getValue());
+                }else if(syn instanceof Noun){
+                    Noun.save(syn.getValue());
+                }else{
+                    Adjective.save(syn.getValue());
+                }
+            }
+        }
+    }
+
     public Syntagm[] extract(){
         return syntagms;
     }

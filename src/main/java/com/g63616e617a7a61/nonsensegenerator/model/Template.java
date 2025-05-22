@@ -29,4 +29,12 @@ public class Template
     public String getTemplate() {
         return template;
     }
+
+    public static ArrayList<String> getTemplates(){
+        if (data == null) {
+            data = DataUtils.load(DATAPATH);
+        }
+
+        return data;
+    }
 }
