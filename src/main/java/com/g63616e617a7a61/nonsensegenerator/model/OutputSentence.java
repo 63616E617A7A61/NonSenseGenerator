@@ -37,6 +37,14 @@ public class OutputSentence {
         generate(in);
     }
 
+    public OutputSentence(InputSentence in, Tense t){
+        this.t = new Template();
+        toxicity = 0;
+        value = "";
+        tense = t;
+        generate(in);
+    }
+
     public OutputSentence(InputSentence in, Template t, Tense tense){
         this.t = t;
         toxicity = 0;

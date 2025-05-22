@@ -8,6 +8,8 @@ import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
 import com.g63616e617a7a61.nonsensegenerator.model.SyntaxElement;
 import com.g63616e617a7a61.nonsensegenerator.model.Template;
 
+import simplenlg.features.Tense;
+
 public class SentenceController {
     private InputSentence in;
     private OutputSentence out;
@@ -20,6 +22,21 @@ public class SentenceController {
     public SentenceController(String s, boolean flag){
         in = new InputSentence(s, flag);
         out = new OutputSentence(in);
+    }
+
+    public SentenceController(String s, boolean flag, Tense t){
+        in = new InputSentence(s, flag);
+        out = new OutputSentence(in, t);
+    }
+
+    public SentenceController(String s, boolean flag, Tense t, Template tmpl){
+        in = new InputSentence(s, flag);
+        out = new OutputSentence(in, tmpl, t);
+    }
+
+    public SentenceController(String s, Tense t, Template tmpl){
+        in = new InputSentence(s);
+        out = new OutputSentence(in, tmpl, t);
     }
 
     public String getOutputSentence() {
@@ -35,16 +52,16 @@ public class SentenceController {
     }
 
     public ArrayList<String> getTemplateList(){
-        ArrayList<String> out = Template.getTemplates();
-        // Template.getTemplates();
-        for(String i : out){
+        ArrayList<String> out = new ArrayList<>();
+        for(String i : Template.getTemplates()){
             int index = 0;
+            String nt = i;
             while (true) {
-                index = i.indexOf("%", index);
+                index = nt.indexOf("%", index);
                 if (index == -1) {
                     break; 
                 }
-                String substring = i.substring(index, index+3);
+                String substring = nt.substring(index, index+3);
                 String word = "";
                 switch (substring) {
                     case "%na":
@@ -63,9 +80,10 @@ public class SentenceController {
                         word = substring;
                         break;
                 }
-                i = i.replaceFirst(substring, word);
+                nt = nt.replaceFirst(substring, word);
                 index += substring.length();
             }  
+            out.add(nt);
         } 
         return out;
     }
