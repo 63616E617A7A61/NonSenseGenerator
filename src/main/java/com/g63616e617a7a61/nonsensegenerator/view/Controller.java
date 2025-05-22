@@ -95,11 +95,12 @@ public class Controller {
         });
 
         SentenceController sc = new SentenceController(""); 
+        templateSelector.getItems().add("Casual"); // add default value to the list
         templateSelector.getItems().addAll(sc.getTemplateList());
-        templateSelector.setValue("Select a template"); // set default value to "Select a template"
+        templateSelector.setValue("Casual"); // set default value to "Select a template"
         templateSelector.setOnAction(event -> {
             String selectedTemplate = templateSelector.getValue();
-            if (!selectedTemplate.equals("Select a template")) {
+            if (!selectedTemplate.equals("Casual")) {
                 template = new Template(selectedTemplate); // get the selected value
             } else {
                 template = null; // set to null if "Select a template" is selected
@@ -157,7 +158,7 @@ public class Controller {
         sentenceInput.clear();
 
         // clear other options 
-        templateSelector.setValue("Select a template");
+        templateSelector.setValue("Casual");
         template = null; // set to null if "Select a template" is selected
         tenseSelector.setValue(simplenlg.features.Tense.PRESENT); // set default value to present tense
         tense = simplenlg.features.Tense.PRESENT; // default tense

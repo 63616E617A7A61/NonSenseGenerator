@@ -1,16 +1,12 @@
 package com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
 import com.g63616e617a7a61.nonsensegenerator.controller.SentenceController;
 import com.g63616e617a7a61.nonsensegenerator.model.SyntaxElement;
-import com.google.cloud.language.v1.Sentence;
 
 import javafx.scene.paint.Color;
 

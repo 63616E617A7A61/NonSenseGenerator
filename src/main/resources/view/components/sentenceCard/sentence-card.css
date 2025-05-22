@@ -26,6 +26,7 @@
     -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-background-color: transparent;
+    -fx-cursor: hand;
 }
 
 #sentenceCard #progressIndicator {

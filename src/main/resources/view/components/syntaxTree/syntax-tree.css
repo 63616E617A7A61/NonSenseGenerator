@@ -1,5 +1,5 @@
 #syntaxTreeContainer {
-    -fx-background-color: -container-background-color;
+    -fx-background-color: -container-background-color-solid;
     -fx-padding: 20;
     -fx-background-radius: 10;
 }

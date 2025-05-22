@@ -128,26 +128,58 @@
 }
 
 #otherOptions ComboBox {
+    -fx-cursor: hand;
     -fx-background-radius: 10px;
-    -fx-background-color: -container-background-color;
+    -fx-background-color: -container-background-color-solid;
     -fx-text-fill: -title-color;
     -fx-font-size: 15px;
-    -fx-padding: 5px;
+    -fx-padding: 5px 12.5px;
     -fx-pref-width: infinity;
+    -fx-background-radius: 10;
 }
 
 #otherOptions ComboBox .arrow {
+    -fx-cursor: hand;
     -fx-background-color: -title-color;
 }
 
 #otherOptions ComboBox .list-view {
     -fx-background-color: -container-background-color-solid; 
     -fx-text-fill: -title-color;
+    -fx-translate-y: 4px;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
 }
 
 #otherOptions ComboBox .list-cell {
     -fx-text-fill: -title-color;
     -fx-background-color: transparent;
+    -fx-padding: 7.5px 0;
+    -fx-cursor: hand;
+}
+
+#otherOptions ComboBox .scroll-bar {
+    -fx-background-color: transparent; 
+}
+
+#otherOptions ComboBox .scroll-bar .track {
+    -fx-background-color: rgba(0, 0, 0, 0.2); 
+    -fx-background-insets: 1;
+    -fx-background-radius: 4;
+}
+
+#otherOptions ComboBox .scroll-bar .thumb {
+    -fx-background-color: -title-color; 
+    -fx-background-insets: 1;
+    -fx-background-radius: 4;
+}
+
+#otherOptions ComboBox .scroll-bar .increment-button,
+#otherOptions ComboBox .scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-shape: "";
+    -fx-background-color: transparent;
+    -fx-opacity: 0;
 }
 
 #otherOptions CheckBox {
@@ -156,9 +188,10 @@
 }
 
 #otherOptions CheckBox .box {
-    -fx-background-color: -container-background-color;           
+    -fx-background-color: -container-background-color-solid;           
     -fx-background-radius: 3px;
     -fx-padding: 2px;
+    -fx-cursor: hand;
 }
 
 #otherOptions CheckBox:selected .mark {
@@ -167,7 +200,8 @@
 
 #generateButton{
     -fx-min-width: 380px;
-    -fx-background-color: -container-background-color;
+    -fx-background-color: -container-background-color-solid;
     -fx-background-radius: 15px;
     -fx-padding: 15;
+    -fx-cursor: hand;
 }

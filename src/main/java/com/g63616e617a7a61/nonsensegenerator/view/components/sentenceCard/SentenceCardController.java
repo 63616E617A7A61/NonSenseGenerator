@@ -3,8 +3,6 @@ package com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard;
 import java.io.IOException;
 
 import com.g63616e617a7a61.nonsensegenerator.controller.SentenceController;
-import com.g63616e617a7a61.nonsensegenerator.model.InputSentence;
-import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
 import com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController;
 import com.g63616e617a7a61.nonsensegenerator.model.Template;
 
@@ -16,8 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
