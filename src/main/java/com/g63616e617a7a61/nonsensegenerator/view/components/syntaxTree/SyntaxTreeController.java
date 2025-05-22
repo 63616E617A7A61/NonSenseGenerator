@@ -67,7 +67,7 @@ public class SyntaxTreeController {
         SortEdges(elements);
 
         // Parameters for the drawing
-        double baseY = 100; // Y coordinate of the base line for the words
+        double baseY = 125; // Y coordinate of the base line for the words
         double spacing = 20; // spacing between words
 
         // Create a list of Text objects for each word in the syntax tree

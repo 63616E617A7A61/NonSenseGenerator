@@ -3,6 +3,8 @@ package com.g63616e617a7a61.nonsensegenerator.view;
 import java.io.IOException;
 
 import com.g63616e617a7a61.nonsensegenerator.view.components.sentenceCard.SentenceCardController;
+import com.g63616e617a7a61.nonsensegenerator.model.Template;
+import com.g63616e617a7a61.nonsensegenerator.controller.SentenceController;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
@@ -10,6 +12,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
@@ -19,6 +23,10 @@ import javafx.util.Duration;
 public class Controller {
     private static int sentenceCount = 0; // number of sentences generated
     private static final int ANIMATION_DURATION_MS = 200; // animation duration in milliseconds
+
+    simplenlg.features.Tense tense = simplenlg.features.Tense.PRESENT; // default tense
+    Template template = null; // default template
+    boolean save = false; // default save value
 
     @FXML
     private BorderPane main; 
@@ -47,6 +55,15 @@ public class Controller {
     @FXML
     private VBox inputField; 
 
+    @FXML
+    private ComboBox<simplenlg.features.Tense> tenseSelector; 
+
+    @FXML 
+    private ComboBox<String> templateSelector; 
+
+    @FXML 
+    private CheckBox saveCheckbox;
+
 
     @FXML
     public void initialize() {
@@ -70,8 +87,30 @@ public class Controller {
             main.requestFocus(); 
         });
 
+        // COMBOBOX 
+        tenseSelector.getItems().addAll(simplenlg.features.Tense.PAST, simplenlg.features.Tense.PRESENT, simplenlg.features.Tense.FUTURE);
+        tenseSelector.setValue(simplenlg.features.Tense.PRESENT); // set default value to present tense
+        tenseSelector.setOnAction(event -> {
+            tense = tenseSelector.getValue(); // get the selected value
+        });
 
+        SentenceController sc = new SentenceController(""); 
+        templateSelector.getItems().addAll(sc.getTemplateList());
+        templateSelector.setValue("Select a template"); // set default value to "Select a template"
+        templateSelector.setOnAction(event -> {
+            String selectedTemplate = templateSelector.getValue();
+            if (!selectedTemplate.equals("Select a template")) {
+                template = new Template(selectedTemplate); // get the selected value
+            } else {
+                template = null; // set to null if "Select a template" is selected
+            }
+        });
 
+        // CHECKBOX
+        saveCheckbox.setSelected(false); // set default value to false
+        saveCheckbox.setOnAction(event -> {
+            save = saveCheckbox.isSelected(); // get the selected value
+        });
         
 
         // ---------------------- INPUT TEXT FIELD AND GENERATE BUTTON ----------------------
@@ -86,44 +125,6 @@ public class Controller {
         generateBtn.setOnAction(event -> {
             submitInputSentenceHandler();
         });
-
-
-
-
-
-        // ---------------------- RESIZE HANDLING ----------------------
-        // Listen for resize events on the main BorderPane
-        main.widthProperty().addListener((obs, oldVal, newVal) -> {
-            // Get the new width of the main BorderPane
-            double totalWidth = newVal.doubleValue();
-
-            // Resize the input section based on the new width
-            // If the width is less than maxWidth, set the width to 40% of the main BorderPane width
-            int maxWidth = 1000;
-            if(totalWidth <= maxWidth){
-                inputSect.setPrefWidth(totalWidth * 0.4);
-            } else {
-                inputSect.setPrefWidth(maxWidth * 0.4);
-            }
-        });
-
-        // Listen for resize events on the main BorderPane
-        main.heightProperty().addListener((obs, oldVal, newVal) -> {
-            // Get the new height of the main BorderPane
-            double totalHeight = newVal.doubleValue();
-
-            // Resize the input section based on the new height
-            // If the height is less than maxHeight, set the width to 100% of the main BorderPane height
-            int maxHeight = 600;
-            if(totalHeight <= maxHeight){
-                inputField.setPrefHeight(maxHeight);
-            } else {
-                inputField.setPrefHeight(maxHeight);
-            }
-        });
-
-
-
     }
 
 
@@ -147,13 +148,22 @@ public class Controller {
             // increment the sentence count
             sentenceCount++;
             try {
-                addSentenceCard(sentenceCount, sentenceInput.getText());
+                addSentenceCard(sentenceCount, sentenceInput.getText(), save, template, tense);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         // clear sentenceInput text field
         sentenceInput.clear();
+
+        // clear other options 
+        templateSelector.setValue("Select a template");
+        template = null; // set to null if "Select a template" is selected
+        tenseSelector.setValue(simplenlg.features.Tense.PRESENT); // set default value to present tense
+        tense = simplenlg.features.Tense.PRESENT; // default tense
+        saveCheckbox.setSelected(false); // set default value to false
+        save = false; // default save value
+        
         // unfocus TextField
         main.requestFocus();
     }
@@ -183,12 +193,12 @@ public class Controller {
 
     /* Method that load a sentence card in the init screen when a new
        sentence is generated. With a fadeIn animation*/
-    public void addSentenceCard(int sentenceCount, String inputSentence) throws IOException{
+    public void addSentenceCard(int sentenceCount, String inputSentence, boolean save, Template template, simplenlg.features.Tense tense) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/sentenceCard/sentence-card.fxml"));
         VBox newSentenceCard = loader.load();
         SentenceCardController controller = loader.getController();
 
-        controller.generateSentence(sentenceCount, inputSentence);
+        controller.generateSentence(sentenceCount, inputSentence, save, template, tense);
 
         newSentenceCard.setOpacity(0);
 

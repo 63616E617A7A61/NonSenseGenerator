@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -8,7 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="main" fx:id="main" prefHeight="600.0" prefWidth="800.0" stylesheets="@init-screen.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.Controller">
+<BorderPane id="main" fx:id="main" prefHeight="600.0" prefWidth="800.0" stylesheets="@init-screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.Controller">
     <center>
          <VBox id="mainCenter" fx:id="mainCenter">
             <children>
@@ -18,7 +20,7 @@
                         <Label text="Are you ready to craft a new sentence?&#10;Write what you want and discover the fantastic result we offer to you!" />
                     </children>
                 </VBox>
-                <ScrollPane id="sentenceCardSectScroll" fx:id="sentenceCardSectScroll" vbarPolicy="NEVER" hbarPolicy="NEVER" fitToWidth="true">
+                <ScrollPane id="sentenceCardSectScroll" fx:id="sentenceCardSectScroll" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER">
                     <content>
                         <VBox id="sentenceCardSect" fx:id="sentenceCardSect">
                             <children>
@@ -33,13 +35,30 @@
     <left>
         <VBox id="inputSect" fx:id="inputSect">
             <children>
-                <VBox fx:id="inputField">
+                <VBox id="InputField" fx:id="inputField">
                     <children>
                         <TextArea fx:id="sentenceInput" promptText="Write your sentence here..." />
-                        <Region VBox.vgrow="ALWAYS" />
-                        <Button id="generateBtn" fx:id="generateBtn" text="Generate sentence" />
+                        <Region prefHeight="15" minHeight="15" />
                     </children>
                 </VBox>
+                <Region prefHeight="15" minHeight="15" />
+                <VBox id="otherOptions" fx:id="otherOptions">
+                    <children>
+                        <Label id="title" text="Other generation options" />
+                        <Region prefHeight="20" minHeight="20" />
+                        <Label text="Select a custom template to use:" />
+                        <Region prefHeight="5" minHeight="5" />
+                        <ComboBox fx:id="templateSelector" />
+                        <Region prefHeight="20" minHeight="20" />
+                        <Label text="Select the temp tense to use:" />
+                        <Region prefHeight="5" minHeight="5" />
+                        <ComboBox fx:id="tenseSelector" />
+                        <Region prefHeight="25" minHeight="25" />
+                        <CheckBox fx:id="saveCheckbox" text="Save unknown word in the dictionary" />
+                    </children>
+                </VBox>
+                <Region prefHeight="15" minHeight="15" />
+                <Button id="generateButton" fx:id="generateBtn" text="Generate sentence" />
             </children>
         </VBox>
     </left>

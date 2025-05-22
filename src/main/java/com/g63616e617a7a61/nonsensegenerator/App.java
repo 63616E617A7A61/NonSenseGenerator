@@ -16,7 +16,7 @@ public class App extends Application {
 
         // Set the minimum height and width for the stage
         stage.setMinWidth(1000);
-        stage.setMinHeight(600);
+        stage.setMinHeight(650);
 
         // Other stage properties
         stage.setTitle("NonSense Generator");

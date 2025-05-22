@@ -15,7 +15,7 @@
 
 #syntaxTreeLoading Label{
     -fx-text-fill: -title-color;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 #syntaxTreeLoading #progressIndicator {

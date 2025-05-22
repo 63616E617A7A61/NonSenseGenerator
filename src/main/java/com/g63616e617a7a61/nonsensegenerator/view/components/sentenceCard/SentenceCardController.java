@@ -6,6 +6,7 @@ import com.g63616e617a7a61.nonsensegenerator.controller.SentenceController;
 import com.g63616e617a7a61.nonsensegenerator.model.InputSentence;
 import com.g63616e617a7a61.nonsensegenerator.model.OutputSentence;
 import com.g63616e617a7a61.nonsensegenerator.view.components.syntaxTree.SyntaxTreeController;
+import com.g63616e617a7a61.nonsensegenerator.model.Template;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -161,7 +162,7 @@ public class SentenceCardController {
      * 3. When the task is completed (setOnSucceeded()), update the content of the sentence card with the generated sentence
      * 4. If an error occurs (setOnFailed()), set the content of the sentence card to "An error occurred!"
     */
-    public void generateSentence(int sentenceCount, String inputSentence){
+    public void generateSentence(int sentenceCount, String inputSentence, boolean save, Template template, simplenlg.features.Tense tense) {
         this.inputSentence = inputSentence; 
         // Set Loading... when the sentence is generating 
         setContent(sentenceCount, "Loading...", 0);
@@ -172,7 +173,16 @@ public class SentenceCardController {
         Task<Object[]> generateSentenceTask = new Task<>() {
             @Override
             protected Object[] call() throws Exception {
-                SentenceController sc = new SentenceController(inputSentence); 
+                SentenceController sc = new SentenceController("");
+                if(template == null && tense == null) {
+                    sc = new SentenceController(inputSentence, save);
+                } else if(template == null) {
+                    sc = new SentenceController(inputSentence, save, tense);
+                } else if(tense == null) {
+                    sc = new SentenceController(inputSentence, save, new Template(sc.getRawTemplate(template.getTemplate())));
+                } else {
+                    sc = new SentenceController(inputSentence, save, tense, new Template(sc.getRawTemplate(template.getTemplate())));
+                }
                 return new Object[] {sc.getOutputSentence(), sc.getToxicity()*100};
             }
         }; 

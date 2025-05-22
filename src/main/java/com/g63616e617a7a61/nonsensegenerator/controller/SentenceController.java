@@ -29,6 +29,11 @@ public class SentenceController {
         out = new OutputSentence(in, t);
     }
 
+    public SentenceController(String s, boolean flag, Template tmpl){
+        in = new InputSentence(s, flag);
+        out = new OutputSentence(in, tmpl);
+    }
+
     public SentenceController(String s, boolean flag, Tense t, Template tmpl){
         in = new InputSentence(s, flag);
         out = new OutputSentence(in, tmpl, t);
@@ -86,5 +91,42 @@ public class SentenceController {
             out.add(nt);
         } 
         return out;
+    }
+
+    public String getRawTemplate(String input) {
+        String nt = input;
+        int index = 0;
+        while (true) {
+            index = nt.indexOf("'", index);
+            if (index == -1 || index + 1 >= nt.length()) {
+                break;
+            }
+            int end = nt.indexOf("'", index + 1);
+            if (end == -1) {
+                break;
+            }
+            String substring = nt.substring(index, end + 1);
+            String word = "";
+            switch (substring) {
+                case "'name'":
+                    word = "%na";
+                    break;
+                case "'adjective'":
+                    word = "%ad";
+                    break;
+                case "'plural name'":
+                    word = "%np";
+                    break;
+                case "'verb'":
+                    word = "%ve";
+                    break;
+                default:
+                    word = substring;
+                    break;
+            }
+            nt = nt.replaceFirst(java.util.regex.Pattern.quote(substring), word);
+            index += word.length();
+        }
+        return nt;
     }
 }

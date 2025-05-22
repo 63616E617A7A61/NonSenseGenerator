@@ -23,15 +23,15 @@
     -fx-wrap-text: true;
     -fx-text-fill: -subtitle-color; 
     -fx-text-alignment: center;
-    -fx-font-size: 15px;
+    -fx-font-size: 18px;
 }
 
 #titleSect > #title {
     -fx-text-fill: -title-color;
     -fx-font-weight: bold;
     -fx-max-width: 450px;
-    -fx-font-size: 20px;
-    -fx-padding: 0 0 15px 0;
+    -fx-font-size: 24px;
+    -fx-padding: 0 0 10px 0;
 }
 
 #sentenceCardSect {
@@ -64,24 +64,22 @@
 
 
 #inputSect VBox{
-    -fx-alignment: center-right;
+    -fx-alignment: top-left;
     -fx-background-color: -container-background-color; 
     -fx-padding: 30px;
-    -fx-border-color: -container-border-color;
-    -fx-border-width: 1px;
     -fx-background-radius: 25px;
-    -fx-pref-width: 300px;
-    -fx-pref-height: 350px;
+    -fx-pref-width: 350px;
     -fx-border-radius: 25px;
 }
 
 #inputSect VBox TextArea{
     -fx-pref-width: infinity;
-    -fx-pref-height: 290px;
+    -fx-pref-height: 100px;
     -fx-background-color: transparent;
     -fx-text-fill: -title-color;
     -fx-font-size: 15px; 
     -fx-wrap-text: true;
+    -fx-prompt-text-fill: -title-color;
 }
 
 #inputSect VBox TextArea .scroll-pane {
@@ -116,4 +114,60 @@
     -fx-alignment: top-left;
     -fx-padding: 30px 0 30px 30px;
     -fx-max-width: 500px;
+}
+
+#otherOptions #title {
+    -fx-text-fill: -title-color;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#otherOptions Label {
+    -fx-text-fill: -title-color;
+    -fx-font-size: 15px;
+}
+
+#otherOptions ComboBox {
+    -fx-background-radius: 10px;
+    -fx-background-color: -container-background-color;
+    -fx-text-fill: -title-color;
+    -fx-font-size: 15px;
+    -fx-padding: 5px;
+    -fx-pref-width: infinity;
+}
+
+#otherOptions ComboBox .arrow {
+    -fx-background-color: -title-color;
+}
+
+#otherOptions ComboBox .list-view {
+    -fx-background-color: -container-background-color-solid; 
+    -fx-text-fill: -title-color;
+}
+
+#otherOptions ComboBox .list-cell {
+    -fx-text-fill: -title-color;
+    -fx-background-color: transparent;
+}
+
+#otherOptions CheckBox {
+    -fx-text-fill: -title-color;
+    -fx-font-size: 15px;
+}
+
+#otherOptions CheckBox .box {
+    -fx-background-color: -container-background-color;           
+    -fx-background-radius: 3px;
+    -fx-padding: 2px;
+}
+
+#otherOptions CheckBox:selected .mark {
+    -fx-background-color: -title-color;
+}
+
+#generateButton{
+    -fx-min-width: 380px;
+    -fx-background-color: -container-background-color;
+    -fx-background-radius: 15px;
+    -fx-padding: 15;
 }
