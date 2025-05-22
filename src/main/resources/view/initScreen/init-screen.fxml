@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="main" fx:id="main" prefHeight="600.0" prefWidth="800.0" stylesheets="@init-screen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.Controller">
+<BorderPane id="main" fx:id="main" prefHeight="600.0" prefWidth="800.0" stylesheets="@init-screen.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.g63616e617a7a61.nonsensegenerator.view.Controller">
     <center>
          <VBox id="mainCenter" fx:id="mainCenter">
             <children>

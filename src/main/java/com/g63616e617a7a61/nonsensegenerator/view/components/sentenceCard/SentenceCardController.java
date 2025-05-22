@@ -95,7 +95,7 @@ public class SentenceCardController {
     */
     private void addSyntaxTree() {
         // Mostra l'animazione di caricamento
-        FXMLLoader loadingAnimationLoader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree-loading.fxml"));
+        FXMLLoader loadingAnimationLoader = new FXMLLoader(getClass().getResource("/view/components/syntaxTree/syntax-tree-loading.fxml"));
 
         try {
             Node loadingNode = loadingAnimationLoader.load();
@@ -106,7 +106,7 @@ public class SentenceCardController {
                 @Override
                 protected Parent call() throws Exception {
                     if (cachedSyntaxTree == null) {
-                        FXMLLoader syntaxTreeLoader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/syntaxTree/syntax-tree.fxml"));
+                        FXMLLoader syntaxTreeLoader = new FXMLLoader(getClass().getResource("/view/components/syntaxTree/syntax-tree.fxml"));
                         VBox syntaxTree = syntaxTreeLoader.load();
 
                         SyntaxTreeController controller = syntaxTreeLoader.getController();

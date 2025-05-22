@@ -41,7 +41,7 @@
                      <graphic>
                         <ImageView fitHeight="18" fitWidth="18" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/com/g63616e617a7a61/nonsensegenerator/view/res/icons/info-white.png" />
+                              <Image url="@/view/res/icons/info-white.png" />
                            </image>
                         </ImageView>
                      </graphic>
