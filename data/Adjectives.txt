@@ -5,7 +5,6 @@ Christian
 European
 Greek
 Japanese
-Jewish
 Russian
 Spanish
 able
@@ -52,6 +51,7 @@ decided
 defined
 described
 designed
+desired
 developed
 different
 difficult
@@ -129,6 +129,7 @@ light
 likely
 limited
 little
+living
 local
 located
 long
