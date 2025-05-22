@@ -1,21 +1,19 @@
 package com.g63616e617a7a61.nonsensegenerator;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
+import com.g63616e617a7a61.nonsensegenerator.model.*;
+import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import com.g63616e617a7a61.nonsensegenerator.controller.ApiController;
-import com.g63616e617a7a61.nonsensegenerator.model.Adjective;
-import com.g63616e617a7a61.nonsensegenerator.model.Noun;
-import com.g63616e617a7a61.nonsensegenerator.model.Syntagm;
-import com.g63616e617a7a61.nonsensegenerator.model.SyntaxElement;
-import com.g63616e617a7a61.nonsensegenerator.model.Verb;
+
 
 public class ApiControllerTest {
     @Test
@@ -38,7 +36,7 @@ public class ApiControllerTest {
     @Test
     public void testGetToxicity(){
         try {
-            assertTrue("0.029414838".equals(String.format(Locale.US, "%.9f", ApiController.getToxicity("The table is big"))));
+            assertEquals(0.029414838179945946, ApiController.getToxicity("The table is big"));
         } catch (IOException e) {
             fail(e.getMessage());
         }
@@ -47,19 +45,19 @@ public class ApiControllerTest {
     @Test
     public void testGetSyntaxTree(){
         List<SyntaxElement> tree = new ArrayList<>();
-        tree.add(new SyntaxElement("The", "DET", 0));
-        SyntaxElement buff  = new SyntaxElement("table", "NSUBJ", 1);
+        tree.add(new SyntaxElement("The", "DET", 0, "", ""));
+        SyntaxElement buff  = new SyntaxElement("table", "NSUBJ", 1, "", "");
         ArrayList<Integer> tmp = new ArrayList<>();
         tmp.add(0);
         buff.setEdges(tmp);
         tree.add(buff);
-        buff = new SyntaxElement("is", "ROOT", 2);
+        buff = new SyntaxElement("is", "ROOT", 2, "", "");
         tmp = new ArrayList<>();
         tmp.add(1);
         tmp.add(3);
         buff.setEdges(tmp);
         tree.add(buff);
-        tree.add(new SyntaxElement("big", "ACOMP", 3));
+        tree.add(new SyntaxElement("big", "ACOMP", 3, "", ""));
 
         try {
             assertTrue(tree.equals(ApiController.getSyntaxTree("The table is big")));
