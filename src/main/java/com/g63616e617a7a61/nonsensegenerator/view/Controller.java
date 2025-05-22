@@ -167,7 +167,7 @@ public class Controller {
     This is done to avoid the delay when the component is first shown*/
     public void forceSentenceCardRendering(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/sentenceCard/sentence-card.fxml"));
             VBox dummyCard = loader.load();
             dummyCard.setVisible(false); 
             dummyCard.setManaged(false); 
@@ -184,7 +184,7 @@ public class Controller {
     /* Method that load a sentence card in the init screen when a new
        sentence is generated. With a fadeIn animation*/
     public void addSentenceCard(int sentenceCount, String inputSentence) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/g63616e617a7a61/nonsensegenerator/view/components/sentenceCard/sentence-card.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/sentenceCard/sentence-card.fxml"));
         VBox newSentenceCard = loader.load();
         SentenceCardController controller = loader.getController();
 

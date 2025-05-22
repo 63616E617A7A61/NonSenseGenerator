@@ -11,7 +11,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         // Load the FXML file for the initial screen
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("view/initScreen/init-screen.fxml"));  
+        fxmlLoader.setLocation(getClass().getResource("/view/initScreen/init-screen.fxml"));  
         Scene scene = new Scene(fxmlLoader.load());
 
         // Set the minimum height and width for the stage
