@@ -1,19 +1,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>title</title>
-    <!-- Import zero-md definition -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documentation Tree</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+
+        /* background */
+        html {
+            height: 100%;
+            overflow: hidden
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            background: #020024;
+            background: -webkit-linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 47%, rgba(0, 212, 255, 1) 100%);
+            background: -moz-linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 47%, rgba(0, 212, 255, 1) 100%);
+            background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 47%, rgba(0, 212, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#00D4FF", GradientType=0);
+        }
+
+
+        /* Contenitore principale */
+        .doc-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Titolo */
+        .doc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #e7e7e7;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+
+            font-family: "Martian Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        /* Griglia pulsanti */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Stile pulsanti */
+        .doc-button {
+            background: #63badd;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 150px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+
+        .doc-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            background: #2980b9;
+            border-color: #ffffff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .doc-title {
+                font-size: 2rem;
+            }
+            
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <li><a href="site/Manuale/Manuale.html">Manuale</a></li>
-        <li><a href="site/Project Information/index.html">Maven Site</a></li>
-        <li><a href="site/Project Information/apidocs/index.html">Unit Test Report</a></li>
-    </ul>
-
-    <!-- Visualizza il contenuto Markdown -->
-    <zero-md src="../Manuale.md"></zero-md>
+    <div class="doc-container">
+        <h1 class="doc-title">Documentation Tree</h1>
+        
+        <div class="button-grid">
+            <a href="site/Manuale/Manuale.html" class="doc-button">
+                <span>Manuale Utente</span>
+            </a>
+            
+            <a href="site/Project Information/index.html" class="doc-button">
+                <span>Documentazione Maven</span>
+            </a>
+            
+            <a href="site/Project Information/apidocs/index.html" class="doc-button">
+                <span>Report Test Unitari</span>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
