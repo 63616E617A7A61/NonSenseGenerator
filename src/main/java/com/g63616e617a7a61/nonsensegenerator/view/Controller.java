@@ -94,9 +94,8 @@ public class Controller {
             tense = tenseSelector.getValue(); // get the selected value
         });
 
-        SentenceController sc = new SentenceController(""); 
         templateSelector.getItems().add("Casual"); // add default value to the list
-        templateSelector.getItems().addAll(sc.getTemplateList());
+        templateSelector.getItems().addAll(SentenceController.getTemplateList());
         templateSelector.setValue("Casual"); // set default value to "Select a template"
         templateSelector.setOnAction(event -> {
             String selectedTemplate = templateSelector.getValue();

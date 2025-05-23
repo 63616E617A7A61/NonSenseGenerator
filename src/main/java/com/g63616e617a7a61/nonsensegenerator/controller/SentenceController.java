@@ -133,7 +133,7 @@ public class SentenceController {
      * Gets the list of available templates with placeholders replaced by descriptions.
      * @return ArrayList of template strings with human-readable placeholders
      */
-    public ArrayList<String> getTemplateList(){
+    public static ArrayList<String> getTemplateList(){
         ArrayList<String> out = new ArrayList<>();
         for(String i : Template.getTemplates()){
             int index = 0;
@@ -175,7 +175,7 @@ public class SentenceController {
      * @param input Template string with human-readable placeholders
      * @return Template string with programmatic placeholders (%na, %ve, etc.)
      */
-    public String getRawTemplate(String input) {
+    public static String getRawTemplate(String input) {
         String nt = input;
         int index = 0;
         while (true) {

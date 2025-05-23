@@ -169,15 +169,15 @@ public class SentenceCardController {
         Task<Object[]> generateSentenceTask = new Task<>() {
             @Override
             protected Object[] call() throws Exception {
-                SentenceController sc = new SentenceController("");
+                SentenceController sc = null;
                 if(template == null && tense == null) {
                     sc = new SentenceController(inputSentence, save);
                 } else if(template == null) {
                     sc = new SentenceController(inputSentence, save, tense);
                 } else if(tense == null) {
-                    sc = new SentenceController(inputSentence, save, new Template(sc.getRawTemplate(template.getTemplate())));
+                    sc = new SentenceController(inputSentence, save, new Template(SentenceController.getRawTemplate(template.getTemplate())));
                 } else {
-                    sc = new SentenceController(inputSentence, save, tense, new Template(sc.getRawTemplate(template.getTemplate())));
+                    sc = new SentenceController(inputSentence, save, tense, new Template(SentenceController.getRawTemplate(template.getTemplate())));
                 }
                 return new Object[] {sc.getOutputSentence(), sc.getToxicity()*100};
             }
