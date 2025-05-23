@@ -49,10 +49,9 @@ public class SyntaxTreeController {
      * 3. Create the tree
      * 
     */
-    public void generateTree(String sentence) {
+    public void generateTree(SentenceController sc) {
         // Call the API to get the syntax tree elements (only the first time, after that it uses the cached elements)
         if(elements == null){
-            SentenceController sc = new SentenceController(sentence); // Call the API to get the syntax tree elements
             elements = sc.getSyntaxTree(); // get the syntax tree elements 
         }
 

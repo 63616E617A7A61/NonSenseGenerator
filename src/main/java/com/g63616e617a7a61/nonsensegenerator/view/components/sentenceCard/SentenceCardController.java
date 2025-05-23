@@ -40,13 +40,14 @@ public class SentenceCardController {
     
     @FXML 
     private Label toxicityRate; 
+
     
     // ------------------ VARIABLES ------------------
     private String generatedSentence = ""; // contains the generated sentence 
     private String inputSentence = ""; // contains the input sentence
     private boolean isSyntaxTreeVisible = false; // Flag to check if the syntax tree is already visible
     private VBox cachedSyntaxTree; // Load the syntax tree the first time, the next times use the cachedSyntaxTree
-
+    private SentenceController sc; 
 
 
 
@@ -107,7 +108,7 @@ public class SentenceCardController {
                         VBox syntaxTree = syntaxTreeLoader.load();
 
                         SyntaxTreeController controller = syntaxTreeLoader.getController();
-                        controller.generateTree(inputSentence);
+                        controller.generateTree(sc);
 
                         cachedSyntaxTree = syntaxTree;
                     }
@@ -169,7 +170,6 @@ public class SentenceCardController {
         Task<Object[]> generateSentenceTask = new Task<>() {
             @Override
             protected Object[] call() throws Exception {
-                SentenceController sc = null;
                 if(template == null && tense == null) {
                     sc = new SentenceController(inputSentence, save);
                 } else if(template == null) {
