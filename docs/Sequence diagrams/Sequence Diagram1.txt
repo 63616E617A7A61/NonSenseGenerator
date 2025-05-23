@@ -1,0 +1,43 @@
+@startuml
+participant "Verb" as v
+participant "Noun" as n
+participant "Adjective" as a
+
+participant "DataUtils" as du
+
+database Verbs.txt as vt
+database Nouns.txt as nt
+database Adjectives.txt as at
+
+== Initialization == 
+
+'Verb
+group Verb
+v -> du : Verb()
+du -> vt : load(data/Verbs.txt)
+vt -> du : ArrayList<String> list
+du -> v : data = list
+v -> du : data
+du -> v : value = getRandom(data)
+end
+
+'Noun
+group Noun
+n -> du : Noun()
+du -> nt : load(data/Nouns.txt)
+nt -> du : ArrayList<String> list
+du -> n : data = list
+n -> du : data
+du -> n : value = getRandom(data)
+end
+
+'Adjective
+group Adjective
+a -> du : Adjective()
+du -> at : load(data/Adjectives.txt)
+at -> du : ArrayList<String> list
+du -> a : data = list
+a -> du : data
+du -> a : value = getRandom(data)
+end
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+
+participant "OutputSentence" as os
+participant "InptutSentence" as is
+participant "ApiController" as ac
+entity "Google cloud" as c
+participant "Template" as t
+
+group OutputSentence()
+group Syntagms
+os -> is :generate()
+
+is -> ac : extract()
+
+ac -> c : request
+ac <- c : response
+
+is <- ac: syntagms[]
+
+os <- is : add verbs to internal list
+os <- is : add nouns to internal list
+os <- is : add adjectives to internal list
+end
+
+os -> t : getTemplate()
+os <- t : template
+
+os -> os : countOccurrences()
+os -> os : fill template
+end
+@enduml

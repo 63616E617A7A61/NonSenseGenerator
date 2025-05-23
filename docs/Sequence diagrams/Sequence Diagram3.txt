@@ -1,0 +1,32 @@
+@startuml
+
+participant "InputSentence" as is
+participant "ApiController" as ac
+entity "Google cloud" as c
+
+is -> ac : InputSentence(String s)
+
+activate ac
+
+ac -> c : request
+
+loop tokens in response
+
+alt tag = Verb
+ac <- c : add verb to list
+end
+
+alt tag = Noun
+ac <- c : add noun to list
+end
+
+alt tag = Adjective
+ac <- c : add adjective to list
+end
+
+end
+is <- ac : syntagms[]
+
+deactivate ac
+
+@enduml
