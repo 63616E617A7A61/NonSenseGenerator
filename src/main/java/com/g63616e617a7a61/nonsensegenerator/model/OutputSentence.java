@@ -155,6 +155,9 @@ public class OutputSentence {
                     word = substring;
                     break;
             }
+            if (index == 0) {  // se e' la prima parola mette la lettera maiuscola
+                word = word.substring(0, 1).toUpperCase() + word.substring(1);
+            }
             value = value.replaceFirst(substring, word);
             index += substring.length();
         }
@@ -175,7 +178,11 @@ public class OutputSentence {
                 subj = null;
             }
 
-            value = value.replaceFirst(word, changeTense(subj, word));
+            String newVerb = changeTense(subj, word);
+            if (index == 0) {  // se e' la prima parola mette la lettera maiuscola
+                newVerb = newVerb.substring(0, 1).toUpperCase() + newVerb.substring(1);
+            }
+            value = value.replaceFirst(word, newVerb);
             
             index += substring.length();
         }

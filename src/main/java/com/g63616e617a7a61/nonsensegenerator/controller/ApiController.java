@@ -2,9 +2,11 @@ package com.g63616e617a7a61.nonsensegenerator.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import com.g63616e617a7a61.nonsensegenerator.model.*;
 import com.google.api.gax.core.FixedCredentialsProvider;
@@ -19,9 +21,32 @@ import com.google.cloud.language.v1.LanguageServiceSettings;
 import com.google.cloud.language.v1.ModerateTextRequest;
 import com.google.cloud.language.v1.ModerateTextResponse;
 import com.google.cloud.language.v1.Token;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageException;
+import com.google.cloud.storage.StorageOptions;
+import com.google.cloud.storage.BlobId;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Bucket;
+import com.google.cloud.storage.BucketInfo;
+
+/**
+ * Controller class for interacting with Google Cloud Natural Language API and Cloud Storage.
+ * Provides functionality for text analysis, syntax parsing, toxicity detection, and cloud storage operations.
+ * 
+ * @author Tommaso Rovoletto
+ */
 
 public class ApiController {
-    private static String key = "nice-etching-459813-s4-7e025d2aaa2c.json";
+    private static String key = "api_key.json";
+    private static String bucketName = "g63616e617a7a61-data";
+
+    /**
+     * Extracts syntagms (nouns, verbs, adjectives) from a given text using Google Natural Language API.
+     * 
+     * @param s the input text to analyze
+     * @return array of extracted Syntagm objects
+     * @throws IOException if there's an error reading credentials or communicating with the API
+     */
     public static Syntagm[] extract(String s) throws IOException{
         ArrayList<Syntagm> syntagms = new ArrayList<>();
 
@@ -65,6 +90,13 @@ public class ApiController {
         return syntagms.toArray(out);
     }
 
+    /**
+     * Generates a syntax tree from the input text with dependency relationships.
+     * 
+     * @param s the input text to analyze
+     * @return List of SyntaxElements representing the syntax tree with dependency edges
+     * @throws IOException if there's an error reading credentials or communicating with the API
+     */
     public static List<SyntaxElement> getSyntaxTree(String s) throws IOException{
         GoogleCredentials credentials = GoogleCredentials.fromStream(
             new FileInputStream(key))
@@ -121,6 +153,14 @@ public class ApiController {
         }
     }
 
+    /**
+     * Finds the subject of a given verb in a sentence by analyzing the syntax tree.
+     * 
+     * @param sentence the complete sentence to analyze
+     * @param verb the verb to find the subject for
+     * @return SyntaxElement representing the subject, or null if not found
+     * @throws IOException if there's an error analyzing the syntax
+     */
     public static SyntaxElement getSubject(String sentence, String verb) throws IOException{
         List<SyntaxElement> lse = getSyntaxTree(sentence);
         for(SyntaxElement e : lse){                         //cerco il mio verbo
@@ -138,6 +178,13 @@ public class ApiController {
         return null;
     }
 
+    /**
+     * Analyzes text for toxic content using Google's Perspective API.
+     * 
+     * @param s the text to analyze
+     * @return toxicity rate between 0.0 (non-toxic) and 1.0 (highly toxic)
+     * @throws IOException if there's an error reading credentials or communicating with the API
+     */
     public static double getToxicity(String s) throws IOException{
         GoogleCredentials credentials = GoogleCredentials.fromStream(
             new FileInputStream(key))
@@ -167,6 +214,54 @@ public class ApiController {
                 }
             }
             return 0.0f;
+        }
+    }
+
+    /**
+     * Uploads a JSON file to Google Cloud Storage bucket.
+     * Creates the bucket if it doesn't exist and generates a unique filename for store data.
+     * 
+     * @param jString the JSON content to upload
+     * @return true if upload was successful, false otherwise
+     */
+    public static boolean uploadJsonToBucket(String jString){
+        // Authenticate with service account
+        GoogleCredentials credentials = null;
+        try {
+            credentials = GoogleCredentials.fromStream(
+                    new FileInputStream(key))
+                    .createScoped("https://www.googleapis.com/auth/cloud-platform");
+        } catch (Exception e) {
+            System.err.println("Error on authentication process: " + e.getMessage());
+            return false;
+        }
+        try {
+            Storage storage = StorageOptions.newBuilder()
+                    .setCredentials(credentials)
+                    .build()
+                    .getService();
+
+
+            // Check if bucket exists, create if not
+            Bucket bucket = storage.get(bucketName);
+            if (bucket == null) {
+                bucket = storage.create(BucketInfo.of(bucketName));
+            }
+
+            // Create blob info with JSON content type
+            BlobId blobId = BlobId.of(bucketName, "data_" + UUID.randomUUID() + ".json");
+            BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
+                    .setContentType("application/json")
+                    .build();
+
+            // Upload the JSON string
+            storage.create(blobInfo, jString.getBytes(StandardCharsets.UTF_8));
+            
+            return true;
+            
+        } catch (StorageException e) {
+            System.err.println("Error uploading JSON to GCS: " + e.getMessage());
+            return false;
         }
     }
 }
