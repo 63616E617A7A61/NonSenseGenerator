@@ -46,6 +46,12 @@ public class DataUtils {
         return list;
     }
 
+    /**
+     * Appends a string on the bottom of the specified file.
+     * 
+     * @param s the string to append to the file
+     * @param filePath the path to the target file
+     */
     public static void append(String s, String filePath){
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
             writer.println(s);
