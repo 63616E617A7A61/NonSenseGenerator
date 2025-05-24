@@ -46,8 +46,6 @@ public class SentenceCardController {
 
     
     // ------------------ VARIABLES ------------------
-    private String generatedSentence = ""; // contains the generated sentence 
-    private String inputSentence = ""; // contains the input sentence
     private boolean isSyntaxTreeVisible = false; // Flag to check if the syntax tree is already visible
     private VBox cachedSyntaxTree; // Load the syntax tree the first time, the next times use the cachedSyntaxTree
     private SentenceController sc; 
@@ -90,7 +88,6 @@ public class SentenceCardController {
      * @param toxicity          the calculated toxicity percentage (0–100).
      */
     public void setContent(int count, String generatedSentence, double toxicity) {
-        this.generatedSentence = generatedSentence;
         sentenceCount.setText("Sentence " + Integer.toString(count));
         genSentence.setText(generatedSentence);
         toxicityRate.setText(String.format("%.2f", toxicity) + "%");
@@ -179,7 +176,6 @@ public class SentenceCardController {
      * @param tense         an optional verb tense for generation (nullable).
      */
     public void generateSentence(int sentenceCount, String inputSentence, boolean save, Template template, simplenlg.features.Tense tense) {
-        this.inputSentence = inputSentence; 
         // Set Loading... when the sentence is generating 
         setContent(sentenceCount, "Loading...", 0);
         progressIndicator.setVisible(true);
@@ -211,7 +207,7 @@ public class SentenceCardController {
             progressIndicator.setVisible(false);
             progressIndicator.setManaged(false);
             sentenceCardInfoBtn.setDisable(false); // Enable the info button
-            sentenceCardInfoBtn.setOpacity(1.0); // Set the opacity to indicate it's enabled
+            sentenceCardInfoBtn.setOpacity(1.0); // Set the opacity to indicate it's enable
         });
 
         // Handle errors 
