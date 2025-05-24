@@ -22,8 +22,9 @@
 
         /* background */
         html {
-            height: 100%;
-            overflow: hidden
+            height: 1500px;
+            overflow: auto;
+            scrollbar-width: none;
         }
 
         body {
@@ -88,6 +89,7 @@
             min-height: 150px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border: 2px solid transparent;
+            font-weight: bold;
         }
 
         .doc-button:hover {
@@ -111,21 +113,30 @@
 </head>
 <body>
     <div class="doc-container">
-        <h1 class="doc-title">Documentation Tree</h1>
+        <h1 class="doc-title">Documentation</h1>
         
         <div class="button-grid">
-            <a href="site/Manuale/Manuale.html" class="doc-button">
+            <a target="_blank" href="site/Manuale/Manuale.html" class="doc-button">
                 <span>Manuale Utente</span>
             </a>
             
-            <a href="site/Project Information/index.html" class="doc-button">
-                <span>Documentazione Maven</span>
+            <a target="_blank" href="https://studenti-team-hixm3nin.atlassian.net/jira/software/projects/SCRUM/list?atlOrigin=eyJpIjoiYzE1ZTM3N2I5ZWY5NGUzZDhlNmM2NDkwOTExN2IxN2MiLCJwIjoiaiJ9" class="doc-button">
+                <span>User Stories</span>
+            </a>
+
+            <a target="_blank" href="" class="doc-button">
+                <span>Documento di Design</span>
+            </a>
+
+            <a target="_blank" href="site/Project Information/index.html" class="doc-button">
+                <n>Documentazione Maven</span>
             </a>
             
-            <a href="site/Project Information/apidocs/index.html" class="doc-button">
-                <span>Report Test Unitari</span>
+            <a target="_blank" href="" class="doc-button">
+                <span>Documento di System Test</span>
+            </a>
 
-            <a href="site/Project Information/apidocs/index.html" class="doc-button">
+            <a target="_blank" href="UnitTest Report/surefire.html" class="doc-button">
                 <span>Report Test Unitari</span>
             </a>
         </div>

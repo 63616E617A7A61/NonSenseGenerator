@@ -6,7 +6,8 @@
 
   <groupId>com.g63616e617a7a61.nonsensegenerator</groupId>
   <artifactId>nonsensegenerator</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
+  
 
   <name>nonsensegenerator</name>
   <description>
@@ -19,18 +20,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
-    <javafx.version>23</javafx.version>
+    <javafx.version>23.0.1</javafx.version>
     <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
   </properties>
 
   <dependencies>
-    <!-- <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency> -->
-
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
@@ -130,22 +124,6 @@
           <configuration>
           <mainClass>com.g63616e617a7a61.nonsensegenerator.App</mainClass>
           </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.11.2</version>
-          <!-- <configuration>
-            <sourceFileIncludes>
-              <include>Syntagm.java</include>
-              <include>Noun.java</include>
-              <include>Adjective.java</include>
-              <include>Verb.java</include>
-              <include>Template.java</include>
-              <include>DataUtils.java</include>
-            </sourceFileIncludes>
-            <sourcepath>${basedir}/src/main/java/com/g63616e617a7a61/nonsensegenerator/model</sourcepath>
-          </configuration> -->
         </plugin>
       </plugins>
     </pluginManagement>
