@@ -42,6 +42,7 @@ public class OutputSentenceTest {
     
     @Test
     public void testToxicity(){
+        o = new OutputSentence(i, t);
         assertTrue("0.029414838".equals(String.format(Locale.US, "%.9f", o.getToxicity())));
     }
 
