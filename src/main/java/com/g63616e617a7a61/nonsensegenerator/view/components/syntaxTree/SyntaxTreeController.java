@@ -20,11 +20,27 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * Controller responsible for rendering the syntactic structure of a generated sentence.
+ * It dynamically builds a visual syntax tree based on edges between syntax elements.
+ * 
+ * <p>It handles:
+ * <ul>
+ *   <li>Loading the syntax tree from a {@link SentenceController}</li>
+ *   <li>Drawing labeled arcs to represent syntactic relationships</li>
+ *   <li>Using cached tree data on repeated access</li>
+ *   <li>Handling scroll behavior inside a {@link ScrollPane}</li>
+ * </ul>
+ */
 public class SyntaxTreeController {
 
     @FXML 
     private ScrollPane syntaxTreeContainer; 
 
+    /**
+     * Initializes the syntax tree container.
+     * Propagates vertical scroll events to the parent node.
+     */
     @FXML 
     public void initialize() {
         // Block the vertical scroll of the syntax tree container and propagate it to the parent
@@ -40,15 +56,17 @@ public class SyntaxTreeController {
 
     List<SyntaxElement> elements = null; // cached elements of the syntax tree
 
-    /* This method is called for generating a new tree
-     * It takes a sentence as input and generates the syntax tree for that sentence.
+    /**
+     * Generates the syntax tree canvas from a given {@link SentenceController}.
+     * This method:
+     * <ol>
+     *   <li>Fetches the syntax elements</li>
+     *   <li>Sorts edges into left/right</li>
+     *   <li>Draws words and arcs representing relationships</li>
+     * </ol>
      * 
-     * This is the steps: 
-     * 1. Call the API to get the syntax tree elements (only the first time, from the second reopening of the tree tab it does not call the API)
-     * 2. Sort the edges
-     * 3. Create the tree
-     * 
-    */
+     * @param sc The controller used to generate the sentence and its syntax tree
+     */
     public void generateTree(SentenceController sc) {
         // Call the API to get the syntax tree elements (only the first time, after that it uses the cached elements)
         if(elements == null){
@@ -92,7 +110,7 @@ public class SyntaxTreeController {
 
         // Draw each word in the syntax tree and calculate its center
         ArrayList<Point2D> wordCenters = new ArrayList<>();  // List of centers of the words
-        double currentX = 0; // variable of support for the x coordinate
+        double currentX = 5; // variable of support for the x coordinate
         for (int i = 0; i < words.size(); i++) {
             Text word = words.get(i); 
             double wordWidth = word.getLayoutBounds().getWidth(); // take the width of the word
@@ -156,7 +174,15 @@ public class SyntaxTreeController {
         syntaxTreeContainer.setContent(canvas); // add the canvas to the container
     }
 
-    // calculate the position and rotation of the arrow head
+    /**
+     * Draws an arrowhead at the end of an arc.
+     *
+     * @param gc    The graphics context to draw on
+     * @param x     X coordinate of the arrow point
+     * @param y     Y coordinate of the arrow point
+     * @param angle Rotation angle of the arrow
+     * @param size  Size of the arrow head
+     */
     private void drawArrowHead(GraphicsContext gc, double x, double y, double angle, double size) {
         double sin = Math.sin(angle);
         double cos = Math.cos(angle);
@@ -174,7 +200,16 @@ public class SyntaxTreeController {
 
 
 
-    // Sort the edges of the syntax tree elements
+    /**
+     * Sorts the edges of each syntax element into:
+     * <ul>
+     *   <li>Right edges in ascending order</li>
+     *   <li>Left edges in descending order</li>
+     * </ul>
+     * Adds -1 as a separator between the two groups.
+     *
+     * @param elements The syntax tree elements to process
+     */
     private void SortEdges(List<SyntaxElement> elements) {
         for (SyntaxElement el : elements) {
             if (el.getEdges() != null) {

@@ -5,8 +5,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Main JavaFX application class that launches the NonSense Generator UI.
+ * It loads the initial FXML layout, sets stage properties, and displays the primary window.
+ */
 public class App extends Application {
 
+    /**
+     * Called when the JavaFX application starts.
+     * Loads the initial screen from FXML, configures the stage, and shows it.
+     *
+     * @param stage The primary stage for this application.
+     * @throws Exception If loading the FXML file fails.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         // Load the FXML file for the initial screen
@@ -24,6 +35,12 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Main method serving as the entry point of the application.
+     * Launches the JavaFX application lifecycle.
+     *
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         launch();
     }

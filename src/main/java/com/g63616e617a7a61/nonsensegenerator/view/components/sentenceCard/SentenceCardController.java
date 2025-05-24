@@ -17,7 +17,10 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
-
+/**
+ * Controller for the SentenceCard component.
+ * Handles the display, sentence generation, and syntax tree logic for each card.
+ */
 public class SentenceCardController {
 
     @FXML
@@ -52,6 +55,10 @@ public class SentenceCardController {
 
 
     // ------------------ INITIALIZATION ------------------
+    /**
+     * Initializes the controller.
+     * Sets the action for the info button to toggle the syntax tree visibility.
+     */
     @FXML
     public void initialize() {
         // ------------------ INFO BUTTON CLICK ------------------
@@ -66,13 +73,22 @@ public class SentenceCardController {
                 isSyntaxTreeVisible = false; 
             }
         });
+
+        sentenceCardInfoBtn.setDisable(true); // Disable the info button by default
+        sentenceCardInfoBtn.setOpacity(0.5); // Set the opacity to indicate it's disabled
     }
 
 
 
 
     // ------------------ METHODS ------------------
-    // When this method is caalled, it sets the content of the sentence card (or updates it)
+   /**
+     * Updates the content of the sentence card with the given sentence data.
+     *
+     * @param count             the index number of the sentence.
+     * @param generatedSentence the generated sentence text.
+     * @param toxicity          the calculated toxicity percentage (0–100).
+     */
     public void setContent(int count, String generatedSentence, double toxicity) {
         this.generatedSentence = generatedSentence;
         sentenceCount.setText("Sentence " + Integer.toString(count));
@@ -84,13 +100,11 @@ public class SentenceCardController {
 
 
 
-    /* When the user clicks the info button, this method is called 
-     * Then it loads the syntax tree from the FXML file and adds it to the sentence card
-     * This is the steps: 
-     * 1. Load the syntax tree from the FXML file
-     * 2. Generate the syntax tree using the input sentence (if the syntax tree is not already generated)
-     * 3. While the syntax tree is loading, show the loading animation
-    */
+    /**
+     * Loads and displays the syntax tree in the sentence card.
+     * If already cached, uses the cached tree.
+     * Shows a loading animation during the asynchronous load.
+     */
     private void addSyntaxTree() {
         // Mostra l'animazione di caricamento
         FXMLLoader loadingAnimationLoader = new FXMLLoader(getClass().getResource("/view/components/syntaxTree/syntax-tree-loading.fxml"));
@@ -142,7 +156,9 @@ public class SentenceCardController {
 
 
 
-    // Remove syntax tree from sentence card
+     /**
+     * Removes the syntax tree view from the sentence card.
+     */
     private void removeSyntaxTree() {
         sentenceCard.getChildren().remove(cachedSyntaxTree); 
         sentenceCard.getChildren().removeIf(node -> node.getId() != null && node.getId().equals("SyntaxTreeSpacer"));
@@ -152,13 +168,16 @@ public class SentenceCardController {
 
 
 
-    /* Generation of the sentence (this method is called from init screen for creating a new sentence card) 
-     * This is the steps:
-     * 1. Set the content of the sentence card to "Loading..." (and show the progress indicator)
-     * 2. Create a new task to generate the sentence (this is done in a separate thread to avoid blocking the UI)
-     * 3. When the task is completed (setOnSucceeded()), update the content of the sentence card with the generated sentence
-     * 4. If an error occurs (setOnFailed()), set the content of the sentence card to "An error occurred!"
-    */
+    /**
+     * Asynchronously generates a new sentence and updates the sentence card UI.
+     * Shows a loading indicator while generating.
+     *
+     * @param sentenceCount the index number of the sentence.
+     * @param inputSentence the original input sentence.
+     * @param save          flag indicating whether to save the sentence.
+     * @param template      an optional sentence template (nullable).
+     * @param tense         an optional verb tense for generation (nullable).
+     */
     public void generateSentence(int sentenceCount, String inputSentence, boolean save, Template template, simplenlg.features.Tense tense) {
         this.inputSentence = inputSentence; 
         // Set Loading... when the sentence is generating 
@@ -191,6 +210,8 @@ public class SentenceCardController {
             progressIndicatorSpacer.setPrefWidth(0);
             progressIndicator.setVisible(false);
             progressIndicator.setManaged(false);
+            sentenceCardInfoBtn.setDisable(false); // Enable the info button
+            sentenceCardInfoBtn.setOpacity(1.0); // Set the opacity to indicate it's enabled
         });
 
         // Handle errors 

@@ -20,6 +20,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
+/**
+ * Main JavaFX controller class for the Nonsense Generator UI.
+ * Handles user input, dynamic rendering of sentence cards,
+ * and interactions with templates and sentence logic.
+ */
 public class Controller {
     private static int sentenceCount = 0; // number of sentences generated
     private static final int ANIMATION_DURATION_MS = 200; // animation duration in milliseconds
@@ -64,7 +69,11 @@ public class Controller {
     @FXML 
     private CheckBox saveCheckbox;
 
-
+    /**
+     * Initializes the UI components, event listeners,
+     * default values, and prepares the view.
+     * Automatically invoked by JavaFX after the FXML is loaded.
+     */
     @FXML
     public void initialize() {
         
@@ -131,8 +140,11 @@ public class Controller {
 
 
 
-    /* Method to handle the input sentence when the user presses Enter 
-    while the TextField is focused or when the generate button is pressed */
+     /**
+     * Handles the submission of user input when Enter is pressed
+     * or the generate button is clicked. Generates a new sentence card,
+     * resets input fields, and manages UI visibility.
+     */
     public void submitInputSentenceHandler(){
         // check that the TextField is not empty
         if(!sentenceInput.getText().isEmpty()) {
@@ -173,8 +185,10 @@ public class Controller {
 
     
     // ---------------------- OTHER METHODS ----------------------
-    /*SentenceCard rendering forcing
-    This is done to avoid the delay when the component is first shown*/
+    /**
+     * Forces loading of a dummy SentenceCard component to ensure
+     * it is pre-rendered before actual usage, avoiding UI lag.
+     */
     public void forceSentenceCardRendering(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/sentenceCard/sentence-card.fxml"));
@@ -191,8 +205,16 @@ public class Controller {
 
 
 
-    /* Method that load a sentence card in the init screen when a new
-       sentence is generated. With a fadeIn animation*/
+     /**
+     * Adds a new SentenceCard to the view with a fade-in animation.
+     *
+     * @param sentenceCount The number of the generated sentence.
+     * @param inputSentence The user input sentence.
+     * @param save Whether the sentence should be saved.
+     * @param template The template used for sentence generation.
+     * @param tense The selected grammatical tense.
+     * @throws IOException If the FXML resource fails to load.
+     */
     public void addSentenceCard(int sentenceCount, String inputSentence, boolean save, Template template, simplenlg.features.Tense tense) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/sentenceCard/sentence-card.fxml"));
         VBox newSentenceCard = loader.load();
