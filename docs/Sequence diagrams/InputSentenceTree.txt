@@ -1,11 +1,11 @@
 @startuml
 
-participant "SentenceController" as sc
 participant "InptutSentence" as is
 participant "ApiController" as ac
 entity "Google cloud" as c
 
-sc -> is : getSyntaxTree()
+group getSyntaxTree()
+
 is -> ac : getSyntaxTree(value)
 
 activate ac
@@ -26,6 +26,7 @@ end
 is <- ac : tree
 deactivate ac
 
-sc <- is : tree
+end
+
 group OutputSentence()
 @enduml
