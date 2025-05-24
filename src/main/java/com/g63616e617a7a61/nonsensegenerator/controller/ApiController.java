@@ -16,6 +16,7 @@ import com.google.cloud.language.v1.AnalyzeSyntaxResponse;
 import com.google.cloud.language.v1.ClassificationCategory;
 import com.google.cloud.language.v1.Document;
 import com.google.cloud.language.v1.Document.Type;
+import com.google.cloud.language.v1.PartOfSpeech.Number;
 import com.google.cloud.language.v1.LanguageServiceClient;
 import com.google.cloud.language.v1.LanguageServiceSettings;
 import com.google.cloud.language.v1.ModerateTextRequest;
@@ -76,7 +77,11 @@ public class ApiController {
                         syntagms.add(new Adjective(token.getText().getContent()));
                         break;
                     case NOUN:
-                        syntagms.add(new Noun(token.getText().getContent()));
+                        if(token.getPartOfSpeech().getNumber() == Number.PLURAL){
+                            syntagms.add(new Noun(token.getLemma()));
+                        }else{
+                            syntagms.add(new Noun(token.getText().getContent()));
+                        }
                         break;
                     case VERB:
                         syntagms.add(new Verb(token.getText().getContent()));
