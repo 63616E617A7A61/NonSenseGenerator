@@ -1,0 +1,114 @@
+@startuml
+
+'SYNTAXELEMENT
+class "SyntaxElement" as se {
+- String : value
+- String : syntax_value
+- String : person
+- String : number
+- int : index
+- ArrayList<Integer> : edges
+--
+--
+}
+
+'DATAUTILS
+class "DataUtils" as du {
+--
++ {static} ArrayList<String> load(String filePath)
++ {static} void append(String s, String filePath)
++ {static} String getRandom(ArrayList<String> list)
+--
+Load list of Strings from a txt file.
+Write given term in specified txt file.
+Return a random element from a list of Strings.
+}
+
+'APICONTROLLER
+class "ApiController" as ac {
+- {static} String  : key
+- {static} String : bucketName
+--
++ {static} extract(String s)
++ {static} getSyntaxTree(String s)
++ {static} getToxicity()
++ {static} uploadJsonToBucket()
+--
+}
+
+'VERB / NOUN / ADJECTIVE
+class "Verb" as v {}
+class "Noun" as n {}
+class "Adjective" as a {}
+
+'SYNTAGM
+Abstract "Syntagm" as s{
+# String : value
+}
+
+'TEMPLATE
+class "Template" as t {
+- String : template
+
+}
+
+'SENTENCE CONTROLLER
+class "SentenceController" as sc {
+-InputSentence in
+-OutputSentence out
+--
++ getOutputSentence()
++ getSyntaxTree()
++ getToxicity
+}
+
+'INPUT SENTENCE
+class "InputSentence" as is <Syntagm>{
+- Syntagm[] : syntagms
+- String : Value
+--
++ InputSentence(String s)
++ InputSentence(String s, boolean save)
++ extract()
++ getSyntaxTree()
+--
+}
+
+'OUTPUT SENTENCE
+class "OutPutSentence" as os <Template> {
+- String : value
+- Template : t
+--
++ OutputSentence(InputSentence in)
++ OutputSentence(InputSentence in, Template t)
++ OutputSentence(InputSentence in, Tense t)
++ OutputSentence(InputSentence in, Template t, Tense tense)
++ getToxicity()
+- generate(InputSentence in)
+--
+}
+
+
+
+'RELATIONS
+
+v --|> s : extends
+n --|> s : extends
+a --|> s : extends
+
+s -d-> du : use functionalities
+
+os --> ac
+is --> ac
+
+os -d--> t : generates on
+t -r-> du : use functionalities
+
+os *-r- is : needs
+is -> s : uses
+
+sc *-- os : manages
+sc *-- is : manages
+
+ac -> se : uses
+@enduml

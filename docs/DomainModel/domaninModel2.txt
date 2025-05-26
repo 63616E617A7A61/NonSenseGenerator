@@ -1,0 +1,37 @@
+@startuml
+object "User" as u
+object "UI" as ui
+object "Controller" as c
+object "Template" as t
+object "InputSentence" as is
+object "OutputSentence" as os
+object "ApiController" as ac
+object "Syntagm" as s
+object "Verb" as v
+object "Noun" as n
+object "Adjective" as a
+object "SentenceController" as sc
+
+' User - UI interface
+u -right-> ui : interacts with
+
+ui -right-> c : displays data from
+
+c -right-> sc : manages
+
+sc "1" *-- "\t1" is : manages
+sc "1" *-- "1" os : manages
+
+os -down-> ac : uses
+is -down-> ac : uses
+
+os "1" -left-> "0, 1" t : \tbuilt on\t
+
+is "1" -right-> "0, n" s : \tcontains\t
+os *-right- is : needs\t
+
+v --|> s : is a
+n --|> s : is a 
+a --|> s : is a
+
+@enduml
