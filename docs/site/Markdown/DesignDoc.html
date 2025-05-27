@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Design Document</title>
+
+    <link rel="stylesheet" href="css/github-markdown.css">
+</head>
+<body background="black" style="margin: 10px 20px;">
+    <div class="markdown-body">
+        <p><em>Gruppo 63616E617A7A61, Elementi di ingegneria del Software</em>.</p>
+        <h1 id="documento-di-design">Documento di design</h1>
+        <h2 id="-domain-model-"><em>Domain model</em></h2>
+        <p><img src="./Domain%20model/Domain%20model.png" alt="img"></p>
+        <h2 id="-class-diagram-"><em>Class diagram</em></h2>
+        <p><img src="./Class%20Diagram/Class%20Diagram.png" alt="img"></p>
+        <h3 id="descrizione-del-sistema-">Descrizione del sistema:</h3>
+        <ul>
+        <li><p><strong>Syntagm:</strong> Classe usata per rappresentare un&#39;unità sintattica della frase (verbi, nomi, aggettivi). Il campo <strong><em>value</em></strong> contiene il sintagma scritto in modo letterale.
+        <strong><em>Syntagm</em></strong> è una classe astratta su cui si basano le classi <strong><em>Verb</em></strong>,<strong><em>Noun</em></strong> e <strong><em>Adjective</em></strong>. Il principale utilizzo della classe <strong><em>Syntagm</em></strong> avviene tramite il metodo <strong><em>extract()</em></strong> della classe <strong><em>InputSentence</em></strong> per estrarre e categorizzare i sintagmi componenti la frase fornita dall&#39;utente.</p>
+        </li>
+        <li><p><strong>Verb, Noun, Adjective:</strong> Classi che estendono la classe astratta <strong><em>Syntagm</em></strong> e che formano il dizionario interno del sistema di verbi, nomi e aggettivi rispettivamente.
+        Ognuna di queste classsi contiente una lista interna di oggetti di tipo String come campo <strong><em>data</em></strong> caricata da file di testo durante l&#39;inizializzazione. Per riempire <strong><em>data</em></strong> ognuna di queste classi fa uso del metodo <strong><em>load(String filePath)</em></strong> fornito dalla classe <strong><em>DataUtils</em></strong> specificando la locazione di ciascun file tramite il campo interno <strong><em>dataPath</em></strong>. Ognuna di queste classi supporta la generazione di verbi, nomi o aggettivi casuali nel proprio costruttore tramite il metodo <strong><em>getRandom(ArrayList<String> list)</em></strong> della classe <strong><em>DataUtils</em></strong> qualora non venga specificato diversamente durante la dichiarazione di nuove variabili.</p>
+        </li>
+        <li><p><strong>ApiController:</strong>
+        Utility Class che si occupa di interfacciarsi direttamente con la Google cloud API a cui effettua
+        richieste in base alle istruzioni ricevute dalle classi <strong><em>InputSentence</em></strong> e <strong><em>OutputSentence</em></strong>.
+        Fornsice funzionalità riguardanti l&#39;estrazione e categorizzazione dei sintagmi di una frase, la creazione di alberi sintattici, la tossicità della frase e il salvataggio nel cloud bucket delle frasi generate.</p>
+        </li>
+        <li><p><strong>SyntaxElement:</strong>
+        Classe rappresentante un elemento sintattico e usata nella creazione dell&#39;albero sintattico. Contiene i campi descrittivi <strong><em>value</em></strong> e <strong><em>syntax_value</em></strong>. Il campo <strong><em>index</em></strong> specifica la posizione di un nodo di tipo <strong><em>SyntaxElement</em></strong> in una <strong><em>ArrayList<SyntaxElement></em></strong> mentre <strong><em>edges</em></strong> quella dei nodi che formano dei lati con il nodo selezionato.</p>
+        </li>
+        <li><p><strong>DataUtils</strong>:
+        Utility Class usata nell&#39;inizializzazione delle liste di verbi, nomi e aggettivi che formano il
+        dizionario interno del sistema. DataUtils fornisce inoltre metodi che implementano il salvataggio
+        di termini nel dizionario interno e su file.</p>
+        </li>
+        <li><p><strong>Template:</strong>
+        Classe usata per gestire i vari template usati nella costruzione della frase generata. La classe
+        fa uso di funzionalità fornite da DataUtils per gestire una lista interna di templates caricata da file di testo.
+        Un <strong><em>Template</em></strong> contiene un campo interno in cui vengono salvate delle frasi costruite in modo tale da avere verbi, nomi e aggettivi rimossi e sostituiti con %v, %n, %v rispettivamente.</p>
+        </li>
+        <li><p><strong>SentenceController:</strong>
+        Classe che gestisce le interazioni tra InputSentence e OutputSentence in base alle istruzioni ricevute dall&#39;UI layer.</p>
+        </li>
+        <li><p><strong>InputSentence:</strong>
+        Classe usata nella gestione della frase fornita dall&#39;utente tramite interazioni con la classe ApiController. Durante l&#39;inizializzazione la frase fornita dall&#39;utente viene salvata in un campo value.<br>Il metodo privato <strong><em>extract()</em></strong> viene eseguito durante l&#39;inizializzazione dell&#39;oggetto InputSentence e delega ad ApiController l&#39;operazione necessaria a riconoscere i vari sintagmi componenti la frase fornita e categorizzarli come Verb, Noun e Adjective.
+        Il metodo <strong><em>getSyntaxTree()</em></strong> viene usato per ottenere l&#39;albero sintattico della frase fornita.</p>
+        </li>
+        <li><p><strong>OutputSentence:</strong>
+        Classe che gestisce la generazione di una frase casuale basandosi su un oggetto di tipo <strong><em>InputSentence</em></strong>. 
+        <strong><em>OutputSentence</em></strong> tramite il metodo privato <strong><em>generate()</em></strong> usa le funzionalità della classe <strong><em>InputSentence</em></strong> per suddividerne i sintagmi, successivamente fa uso di un oggetto <strong><em>Template</em></strong> (casuale o fornito) che riempie usando i termini estratti e termini aggiuntivi se questi non sono sufficienti. </p>
+        </li>
+        </ul>
+        <h2 id="-sequence-diagrams-"><strong>Sequence diagrams</strong></h2>
+        <h3 id="system-sequence-diagram">System sequence Diagram</h3>
+        <p>Qui sono riportate le principali interazioni tra utente e sistema:  </p>
+        <p><img src="./Sequence%20diagrams/Diagrams/SystemSequenceDiagram.png" alt="img"></p>
+        <h3 id="internal-sequence-diagrams">Internal sequence diagrams</h3>
+        <ul>
+        <li><h4 id="-inizializzazione-tramite-datautils-"><strong>Inizializzazione tramite DataUtils</strong></h4>
+        Il seguente Sequence diagram mostra la creazione del dizionario interno in inizializzaione per ciascuna categoria di sintagma.</li>
+        </ul>
+        <p><img src="./Sequence%20diagrams/Diagrams/SyntagmInitialization.png" alt="img"> </p>
+        <p><img src="./Sequence%20diagrams/Diagrams/Template.png" alt="img"></p>
+        <ul>
+        <li><h4 id="-sentencecontroller-"><strong>SentenceController</strong></h4>
+        <p><img src="./Sequence%20diagrams/Diagrams/SentenceController.png" alt="img"> </p>
+        </li>
+        <li><h4 id="-inputsentence-"><strong>InputSentence</strong></h4>
+        <p><img src="./Sequence%20diagrams/Diagrams/InputSentence.png" alt="img"></p>
+        </li>
+        </ul>
+        <h4 id="descrizione-">Descrizione:</h4>
+        <p>La prima parte del squence diagram mostra la creazione di un oggetto <strong><em>InputSentence</em></strong> su cui si basa il funzionamento delle altre classi. InputSentence contiene diversi costruttori in base alle esigenza dell&#39;utente che specifica se salvare o meno i termini di una frase digitata.
+        La classe si interfaccia direttamente con <strong><em>ApiController</em></strong> a cui delega il compito di estrarre i sintagmi e categorizzarli per poi salvarli in un array. <strong><em>ApiCOntroller</em></strong> esegue questo compito compilando una richiesta da inoltrare a Google Cloud API. Nella risposta sono presenti diversi token con un tag che specifica il tipo di sintagma a cui appartengono. <strong><em>ApiController</em></strong> usa questo campo per differenziare i sintagmi e riempire l&#39;array per poi restituirlo.</p>
+        <p>Il metodo <strong><em>getSyntaxTree()</em></strong> è responsabile della creazione dell&#39;albero sintattico. <strong><em>ApiController</em></strong> crea uno specifico tipo di richiesta da inviare server Google e dalla risposta genera l&#39;albero sintattico usando come nodi oggetti di tipo <strong><em>SyntaxElement</em></strong>.</p>
+        <ul>
+        <li><h4 id="-outputsentence-"><strong>OutputSentence</strong></h4>
+        <img src="./Sequence%20diagrams/Diagrams/OutputSentence.png" alt="img"> </li>
+        </ul>
+        <h4 id="descrizione-">Descrizione:</h4>
+        <p>La generazione della frase avviene durante l&#39;inizializzazione della classe <strong><em>OutputSentence</em></strong>. Viene fornito un oggetto <strong><em>InputSentence</em></strong> già inizializzato, inoltre vengono considerate ulteriori necessità come quella di usare un template personalizzato o un tempo verbale specifico.
+        Vengono salvati i termini usati nella frase in input in delle liste interne per renderli disponibili nella frase da generare. Nel caso i termini non siano sufficienti si generano nuovi termini tramite i costruttori di <strong><em>Verb</em></strong>,<strong><em>Noun</em></strong> e <strong><em>Adjective</em></strong>. L&#39;ultima operazione è quella di riempimento del template sostituendo i marcatori con i termini disponibili con successivo salvataggio della frase generata all&#39;interno di <strong><em>OutputSentence</em></strong>.
+        Il campo interno contenente la frase generata viene usato per ottenere la toxicity di questa tramite la classe <strong><em>ApiController</em></strong></p>
+    </div>
+</body>
+</html>
