@@ -6,7 +6,7 @@
 ![img](./Domain%20model/Domain%20model.png)
 
 ## *Class diagram*
-![img](./Class%20diagram/Class%20diagram.png)
+![img](./Class%20Diagram/Class%20Diagram.png)
 
 ### Descrizione del sistema:
 
