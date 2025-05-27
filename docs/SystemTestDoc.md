@@ -74,6 +74,10 @@
 	- Validation: ok
 	- Note: the same input generates outputs with different templates if no one is chosen, as expected
 	- Date: 27/5
+- *Given that I am a user, in any case I want the output sentence to specify what template it has used*
+	- Validation: ok
+	- Note: 
+	- Date: 27/5	
 	
 ### **7. As a user I want the option to add new words from the input to the dictionary**
 - *Given that I am a user If I click the "Save unkown word in the dictonary button", than if a word in the input sentence is not present in Date/, it is added*

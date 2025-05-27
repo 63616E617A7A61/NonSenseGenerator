@@ -1,4 +1,8 @@
-# TO DO : rimuovere italiano
+# TO DO : 
+- rimuovere italiano
+- sistemare link alle immagini in site
+- rivedere jira???
+- il sito non comprende l'intera documentazione
 
 ---------------------
 The documentation for this project can be found [here](https://63616e617a7a61.github.io/NonSenseGenerator/).
