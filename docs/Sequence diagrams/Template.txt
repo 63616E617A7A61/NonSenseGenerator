@@ -5,9 +5,9 @@ participant "DataUtils" as du
 database "Templates.txt" as tt
 
 t -> du : Template()
-du -> tt : load(Data/Templates.txt)
-du <- tt : ArrayList<String> list
-t <- du : data = list
-t -> du : data
-t <- du : template = getRandom(data)
+du -> tt : load from file
+du <- tt : list of templates
+t <- du : internal list of templates
+t -> du : request random
+t <- du : random from list
 @enduml

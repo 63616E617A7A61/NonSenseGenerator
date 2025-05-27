@@ -7,26 +7,45 @@ participant "ApiController" as ac
 
 
 group SentenceController()
-sc <- is : sentence
+-> sc : sentence
+-> sc : save sentence option
+-> sc : requested tense
+-> sc : custom template
 
-is -> os : provides sentence
-sc <- os : generated sentence
+sc -> is : sentence 
+activate is
+is -> ac : initialize InputSentence
+activate ac 
+is <-- ac : InputSentence
+deactivate ac
+sc <-- is : InputSentence
+deactivate is
+
+sc -> os : InputSentence
+activate os
+os -> ac : generate OutputSentence
+activate ac
+os <-- ac : generated sentence
+deactivate ac
+sc <-- os : OutputSentence
+deactivate os
 end
 
 group getSyntaxTree()
 sc -> is : getSyntaxTree()
-
-is -> ac : getSyntaxTree(value)
-
+activate is
+is -> ac : getSyntaxTree()
 activate ac
-is <- ac : SyntaxTree
+is <-- ac : SyntaxTree
 deactivate ac
-
-sc <- is : SyntaxTree
+sc <-- is : SyntaxTree
+deactivate is
 end
 
 group getToxicity()
 sc -> os : getToxicity()
-sc <- os : toxicity
+activate os
+sc <-- os : toxicity
+deactivate os
 end
 @enduml

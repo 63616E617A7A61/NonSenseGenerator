@@ -9,35 +9,33 @@ database Verbs.txt as vt
 database Nouns.txt as nt
 database Adjectives.txt as at
 
-== Initialization == 
-
 'Verb
 group Verb
 v -> du : Verb()
-du -> vt : load(data/Verbs.txt)
-vt -> du : ArrayList<String> list
-du -> v : data = list
-v -> du : data
-du -> v : value = getRandom(data)
+du -> vt : load from file
+vt -> du : list of verbs
+du -> v : internal list of verbs
+v -> du : request random verb
+du -> v : random verb from list
 end
 
 'Noun
 group Noun
 n -> du : Noun()
-du -> nt : load(data/Nouns.txt)
-nt -> du : ArrayList<String> list
-du -> n : data = list
-n -> du : data
-du -> n : value = getRandom(data)
+du -> nt : load from file
+nt -> du : list of nouns
+du -> n : internal list of nouns
+n -> du : request random noun
+du -> n : random noun from list
 end
 
 'Adjective
 group Adjective
 a -> du : Adjective()
-du -> at : load(data/Adjectives.txt)
-at -> du : ArrayList<String> list
-du -> a : data = list
-a -> du : data
-du -> a : value = getRandom(data)
+du -> at : load from file
+at -> du : list of adjectives
+du -> a : internal list of adjectives
+a -> du : request random adjective
+du -> a : random adjective from list
 end
 @enduml

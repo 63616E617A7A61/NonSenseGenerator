@@ -1,32 +1,69 @@
 @startuml
 
-participant "InputSentence" as is
+participant "InptutSentence" as is
 participant "ApiController" as ac
 entity "Google cloud" as c
 
-is -> ac : InputSentence(String s)
 
+group InputSentence()
+-> is : sentence
+-> is : "save terms" flag
+
+is -> ac : extract syntagms
+
+group extract()
 activate ac
-
-ac -> c : request
-
+ac -> ac : create request
+ac -> c : send request
+activate c
+ac <-- c : response 
+deactivate c
 loop tokens in response
 
+'LOOP
 alt tag = Verb
-ac <- c : add verb to list
+ac -> ac : add verb to list
 end
 
+end
 alt tag = Noun
-ac <- c : add noun to list
+ac -> ac : add noun to list
 end
 
 alt tag = Adjective
-ac <- c : add adjective to list
+ac -> ac : add adjective to list
 end
 
 end
-is <- ac : syntagms[]
+is <-- ac : syntagms[]
 
 deactivate ac
+end
 
+''SYNTAX TREE
+group getSyntaxTree()
+is -> ac : getSyntaxTree(sentence)
+
+activate ac
+ac -> ac : create request
+ac -> c : analyzeSyntax(request)
+activate c
+ac <-- c : response
+deactivate c
+
+loop tokens in response
+ac -> ac : create syntaxElement
+ac -> ac : add syntaxElement to tree
+end
+
+loop nodes in tree
+ac -> ac : adds edges to nodes
+end
+
+is <-- ac : syntax tree
+deactivate ac
+
+end
+
+group OutputSentence()
 @enduml

@@ -4,8 +4,6 @@
 class "SyntaxElement" as se {
 - String : value
 - String : syntax_value
-- String : person
-- String : number
 - int : index
 - ArrayList<Integer> : edges
 --
@@ -15,18 +13,15 @@ class "SyntaxElement" as se {
 'DATAUTILS
 class "DataUtils" as du {
 --
-+ {static} ArrayList<String> load(String filePath)
-+ {static} void append(String s, String filePath)
-+ {static} String getRandom(ArrayList<String> list)
++ {static} load(String filePath)
++ {static} append(String s, String filePath)
++ {static} getRandom(ArrayList<String> list)
 --
-Load list of Strings from a txt file.
-Write given term in specified txt file.
-Return a random element from a list of Strings.
 }
 
 'APICONTROLLER
 class "ApiController" as ac {
-- {static} String  : key
+- {static} String : key
 - {static} String : bucketName
 --
 + {static} extract(String s)
@@ -37,9 +32,18 @@ class "ApiController" as ac {
 }
 
 'VERB / NOUN / ADJECTIVE
-class "Verb" as v {}
-class "Noun" as n {}
-class "Adjective" as a {}
+class "Verb" as v {
+- {static} ArrayList<String> : data
+- {static} String : dataPath
+}
+class "Noun" as n {
+- {static} ArrayList<String> : data
+- {static} String : dataPath
+}
+class "Adjective" as a {
+- {static} ArrayList<String> : data
+- {static} String : dataPath
+}
 
 'SYNTAGM
 Abstract "Syntagm" as s{
@@ -59,7 +63,7 @@ class "SentenceController" as sc {
 --
 + getOutputSentence()
 + getSyntaxTree()
-+ getToxicity
++ getToxicity()
 }
 
 'INPUT SENTENCE
@@ -67,8 +71,6 @@ class "InputSentence" as is <Syntagm>{
 - Syntagm[] : syntagms
 - String : Value
 --
-+ InputSentence(String s)
-+ InputSentence(String s, boolean save)
 + extract()
 + getSyntaxTree()
 --
@@ -79,10 +81,6 @@ class "OutPutSentence" as os <Template> {
 - String : value
 - Template : t
 --
-+ OutputSentence(InputSentence in)
-+ OutputSentence(InputSentence in, Template t)
-+ OutputSentence(InputSentence in, Tense t)
-+ OutputSentence(InputSentence in, Template t, Tense tense)
 + getToxicity()
 - generate(InputSentence in)
 --
@@ -98,17 +96,17 @@ a --|> s : extends
 
 s -d-> du : use functionalities
 
-os --> ac
-is --> ac
+os --> ac : use functionalitites
+is --> ac : use functionalitites
 
-os -d--> t : generates on
+os "1\t" -d--> "1\t" t : generates on
 t -r-> du : use functionalities
 
-os *-r- is : needs
-is -> s : uses
+os "1" *-r- "1" is : needs
+is "1" -> "*" s : contains
 
-sc *-- os : manages
-sc *-- is : manages
+sc "1   " *-- "1" os : contains
+sc "1 " *-- "1   " is : contains
 
 ac -> se : uses
 @enduml
