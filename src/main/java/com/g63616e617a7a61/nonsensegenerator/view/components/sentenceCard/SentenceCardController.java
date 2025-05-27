@@ -44,6 +44,9 @@ public class SentenceCardController {
     @FXML 
     private Label toxicityRate; 
 
+    @FXML 
+    private Label usedTemplate; 
+
     
     // ------------------ VARIABLES ------------------
     private boolean isSyntaxTreeVisible = false; // Flag to check if the syntax tree is already visible
@@ -87,10 +90,11 @@ public class SentenceCardController {
      * @param generatedSentence the generated sentence text.
      * @param toxicity          the calculated toxicity percentage (0–100).
      */
-    public void setContent(int count, String generatedSentence, double toxicity) {
+    public void setContent(int count, String generatedSentence, double toxicity, String template) {
         sentenceCount.setText("Sentence " + Integer.toString(count));
         genSentence.setText(generatedSentence);
         toxicityRate.setText(String.format("%.2f", toxicity) + "%");
+        usedTemplate.setText(template);
     }
 
 
@@ -177,7 +181,7 @@ public class SentenceCardController {
      */
     public void generateSentence(int sentenceCount, String inputSentence, boolean save, Template template, simplenlg.features.Tense tense) {
         // Set Loading... when the sentence is generating 
-        setContent(sentenceCount, "Loading...", 0);
+        setContent(sentenceCount, "Generating...", 0, "Loading template...");
         progressIndicator.setVisible(true);
         progressIndicator.setManaged(true);
 
@@ -194,7 +198,7 @@ public class SentenceCardController {
                 } else {
                     sc = new SentenceController(inputSentence, save, tense, new Template(SentenceController.getRawTemplate(template.getTemplate())));
                 }
-                return new Object[] {sc.getOutputSentence(), sc.getToxicity()*100};
+                return new Object[] {sc.getOutputSentence(), sc.getToxicity()*100, SentenceController.rewriteTemplate(sc.getOutputSentenceObject().getTemplate().toString())};
             }
         }; 
         
@@ -202,7 +206,8 @@ public class SentenceCardController {
         generateSentenceTask.setOnSucceeded(event -> {
             String generatedText = (String) generateSentenceTask.getValue()[0];
             double toxicity = (double) generateSentenceTask.getValue()[1];
-            setContent(sentenceCount, generatedText, toxicity);
+            String temp = "Used template: " + ((String) generateSentenceTask.getValue()[2]).replaceAll("\\\\", "");
+            setContent(sentenceCount, generatedText, toxicity, temp);
             progressIndicatorSpacer.setPrefWidth(0);
             progressIndicator.setVisible(false);
             progressIndicator.setManaged(false);
@@ -212,7 +217,7 @@ public class SentenceCardController {
 
         // Handle errors 
         generateSentenceTask.setOnFailed(event -> {
-            setContent(sentenceCount, "An error occurred!", Double.NaN);
+            setContent(sentenceCount, "An error occurred!", Double.NaN, "");
             progressIndicatorSpacer.setPrefWidth(0);
             progressIndicator.setVisible(false);
             progressIndicator.setManaged(false);

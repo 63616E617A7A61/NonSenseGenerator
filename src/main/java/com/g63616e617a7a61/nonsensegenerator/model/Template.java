@@ -53,4 +53,14 @@ public class Template
 
         return data;
     }
+
+    /**
+     * Returns a string representation of the Template object.
+     *
+     * @return A string containing the template value.
+     */
+    @Override
+    public String toString() {
+        return template;
+    }
 }

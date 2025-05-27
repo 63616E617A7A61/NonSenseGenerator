@@ -25,6 +25,8 @@
                         <Label fx:id="genSentence" styleClass="genSentence" text=""  wrapText="true" />
                      </children>
                   </HBox>
+                  <Region prefHeight="10" />
+                  <Label fx:id="usedTemplate" id="usedTemplate" text=""  wrapText="true" />
                   <Region prefHeight="15" />
                   <HBox id="toxicityRateContainer">
                      <children>
@@ -34,7 +36,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Region HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" minWidth="15" />
             <StackPane>
                <children>
                   <Button fx:id="sentenceCardInfoBtn" text="">

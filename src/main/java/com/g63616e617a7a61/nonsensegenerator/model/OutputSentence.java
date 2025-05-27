@@ -259,6 +259,14 @@ public class OutputSentence {
     }
 
     /**
+     * Gets the template used for generating this sentence.
+     * @return the Template instance
+     */
+    public Template getTemplate() {
+        return t;
+    }
+
+    /**
      * Returns the string representation of the generated sentence.
      * @return the generated sentence
      */

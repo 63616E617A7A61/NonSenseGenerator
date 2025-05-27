@@ -43,6 +43,7 @@
     -fx-fit-to-width: true;
     -fx-background-color: transparent;
     -fx-padding: 30px;
+    -fx-min-height: 600px;
 }
 
 #sentenceCardSectScroll .viewport {

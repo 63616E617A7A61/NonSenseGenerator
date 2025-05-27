@@ -11,6 +11,10 @@
     -fx-max-width: 800;
 }
 
+#sentenceCard #sentenceCount{
+    -fx-font-weight: bold;
+}
+
 #sentenceCard VBox Label{
     -fx-text-fill: -subtitle-color;
     -fx-font-size: 15px;
@@ -33,7 +37,7 @@
     -fx-progress-color: white;
 }
 
-#toxicityRateContainer{
+#sentenceCard #toxicityRateContainer{
     -fx-padding: 5 10;
     -fx-background-color: #ffffff20; 
     -fx-background-radius: 25;
@@ -42,7 +46,11 @@
     -fx-min-width: 150; 
 }
 
-#toxicityRateContainer Label{
+#sentenceCard #toxicityRateContainer Label{
     -fx-font-size: 12px;
     -fx-font-weight: bold;
+}
+
+#sentenceCard #usedTemplate {
+    -fx-font-style: italic;
 }

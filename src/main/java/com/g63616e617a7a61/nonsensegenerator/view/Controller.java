@@ -24,6 +24,8 @@ import javafx.util.Duration;
  * Main JavaFX controller class for the Nonsense Generator UI.
  * Handles user input, dynamic rendering of sentence cards,
  * and interactions with templates and sentence logic.
+ * 
+ * @author Nicola Zillio
  */
 public class Controller {
     private static int sentenceCount = 0; // number of sentences generated

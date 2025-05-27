@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 /**
  * Main JavaFX application class that launches the NonSense Generator UI.
  * It loads the initial FXML layout, sets stage properties, and displays the primary window.
+ * 
+ * @author Nicola Zillio
  */
 public class App extends Application {
 
@@ -27,7 +29,7 @@ public class App extends Application {
 
         // Set the minimum height and width for the stage
         stage.setMinWidth(1000);
-        stage.setMinHeight(650);
+        stage.setMinHeight(675);
 
         // Other stage properties
         stage.setTitle("NonSense Generator");
