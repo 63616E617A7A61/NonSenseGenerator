@@ -139,11 +139,11 @@ public class ApiController {
                 tree.add(se);
                 if(index != token.getDependencyEdge().getHeadTokenIndex())
                     dependencies[index] = token.getDependencyEdge().getHeadTokenIndex();
-                else dependencies[index] = -1; //non voglio nessun collegamento autoreferenziale
+                else dependencies[index] = -1; //I don't want any self-referential links
                 index++;
             }
 
-            for(SyntaxElement e : tree){  // inserisco i "collegamenti" tra gli elementi
+            for(SyntaxElement e : tree){  //I insert the "links" between the elements
                 ArrayList<Integer> buff = new ArrayList<>();
                 for(int i = 0; i < dependencies.length; i++){
                     if (dependencies[i] == e.getIndex()) {
@@ -169,13 +169,13 @@ public class ApiController {
      */
     public static SyntaxElement getSubject(String sentence, String verb) throws IOException{
         List<SyntaxElement> lse = getSyntaxTree(sentence);
-        for(SyntaxElement e : lse){                         //cerco il mio verbo
-            if(e.getValue().equals(verb)){                  //se lo trovo
+        for(SyntaxElement e : lse){                         
+            if(e.getValue().equals(verb)){                  //I'm looking for my verb
                 if(e.getEdges() == null) return null;
-                for(int i : e.getEdges()){                  //controllo i collegamenti che ha, sicuramente è connesso al suo soggetto
+                for(int i : e.getEdges()){                  //I check the connections it has
                     SyntaxElement buff = lse.get(i);        
-                    if (buff.getSyntax_value().contains("SUBJ")) { //contollo tutti gli archi se uno di questi è etichettato con SUBJ
-                        return buff;             //ritorna il nosto soggetto
+                    if (buff.getSyntax_value().contains("SUBJ")) { //I check all the arches if one of them is labeled with SUBJ
+                        return buff;                        //our subject returns
                     }
                 }
                 
