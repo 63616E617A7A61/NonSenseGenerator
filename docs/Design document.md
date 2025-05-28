@@ -70,7 +70,7 @@ The generation of the sentence is coded via the private method <code>generate()<
 
 > Here are reported the main interactions between a User and the system. While a sentence is always requiered to create a generated sentence there are some additional options that the user may decide to use that affect how the system responds.
 
-### Internal sequence diagrams
++ ### Internal sequence diagrams
 
 + ### <ins>**SentenceController**</ins>
 ![img](./Sequence%20diagrams/Diagrams/SentenceController.png) 
