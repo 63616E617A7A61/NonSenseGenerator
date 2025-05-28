@@ -25,7 +25,7 @@
 	- Note: The toxicity rate is displayed under the output sentence
 	- Date: 7/5
 		
-### **3. As a user I want to be able to see the syntactic tree of the input sentence**
+### **2. As a user I want to be able to see the syntactic tree of the input sentence**
 - *Given that I am a user When I provide a sentence in input and I click the "info" button, Then I view the syntactic tree*
 	- Validation: ok
 	- Note: The ui is responsive even to multiple sentences and trees
@@ -35,7 +35,7 @@
 	- Note: The ui is responsive even to multiple sentences and trees
 	- Date: 7/5
 	
-### **4. As a user I want the system to separate the nouns, adjectives and verbs of the input sentence so that they can be used in the output sentence**
+### **3. As a user I want the system to separate the nouns, adjectives and verbs of the input sentence so that they can be used in the output sentence**
 - *Given that I am a user When I provide an input sentence, and I click the generate sentence button, then the generated sentence must include the terms I used in my sentence*
 	- Validation: ok
 	- Note: if a generated output sentence is then given in input, and than the same templated is chosen, the input and output sentence will be equal. This follows the app requirements.
@@ -49,7 +49,7 @@
 	- Note: equal input generate different output in this scenario even with the same template, as expected
 	- Date: 7/5
 	
-### **5. As a user I want to be able to specify a verb tense so that the generated sentence’s verbs are conjugated in that specific tense.**
+### **4. As a user I want to be able to specify a verb tense so that the generated sentence’s verbs are conjugated in that specific tense.**
 - *Given that I am a user When I specify a verb tense then the generated sentence contains only verbs in that tense*
 	- Validation: ok
 	- Note: this applies even when different tenses are included in the same input, as expected.
@@ -63,7 +63,7 @@
 	- Note: see acceptance criteria 1
 	- Date: 23/5
 
-### **6. As a user I want to be able to choose a template from a list so that it will be used for the output sentence**
+### **5. As a user I want to be able to choose a template from a list so that it will be used for the output sentence**
 - *Given that I am a user When I choose a template the system uses that template for the output sentence*
 	- Validation: ok
 	- Note: the same input generates different outputs but with the same template if the same is chosen, as expected 
@@ -77,7 +77,7 @@
 	- Note: 
 	- Date: 23/5	
 	
-### **7. As a user I want the option to add new words from the input to the dictionary**
+### **6. As a user I want the option to add new words from the input to the dictionary**
 - *Given that I am a user If I click the "Save unkown word in the dictonary button", than if a word in the input sentence is not present in the dictionary, it is added to it.*
 	- Validation: ok
 	- Note: the word is added at the end of the .txt files not in alphabetical order. This does not influence the app logic.

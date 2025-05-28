@@ -1,34 +1,35 @@
 # TO DO : 
 - rimuovere italiano
 - sistemare link alle immagini in site
-- rivedere jira???
-- il sito non comprende l'intera documentazione
-- JAVADOC
-- unisci user story 1 e 2
-
+## Post Merge in main:
+- ricrea site, javadoc, site/markdown
 ---------------------
-The documentation for this project can be found [here](https://63616e617a7a61.github.io/NonSenseGenerator/).
+The project deliberables can be found [here](https://63616e617a7a61.github.io/NonSenseGenerator/) or in <code>docs/</code>.
 
-Or following the subsequent file tree: <br>
+The complete <code>docs/</code> file tree is:
 <pre>
-docs/
-    Class Diagram/
+<b>docs/</b>
+    <i>Class Diagram/</i>
         <a href="docs/Class Diagram/Class Diagram.png">Class Diagram</a>
-    Domain Model/
+    <i>Domain Model/</i>
         <a href="docs/Domain model/Domain model.png">Domain Model</a>
-    Manual/
+    <i>Manual/</i>
         <a href="docs/Manual/Manuale.md">Manual</a>
-    Sequence Diagrams/
-        Diagrams/
+    <i>Sequence Diagrams/</i>
+        <i>Diagrams/</i>
             <a href="docs/Sequence diagrams/Diagrams/InputSentence.png">Input Sentence</a>
             <a href="docs/Sequence diagrams/Diagrams/OutputSentence.png">Output Sentence</a>
             <a href="docs/Sequence diagrams/Diagrams/SentenceController.png">Sentence Controller</a>
             <a href="docs/Sequence diagrams/Diagrams/SyntagmInitialization.png">Syntagm Initialization</a>
             <a href="docs/Sequence diagrams/Diagrams/SystemSequenceDiagram.png">System Sequence Diagram</a>
             <a href="docs/Sequence diagrams/Diagrams/Template.png">Template</a>
-    UnitTest Report/
+    <i>UnitTest Report/</i>
         <a href="https://63616e617a7a61.github.io/NonSenseGenerator/UnitTest%20Report/surefire.html">Report</a>
+    <i>site/</i>
+        <i>Project Information/</i>
+            <i>apidocs/</i>
+                <a href="https://63616e617a7a61.github.io/NonSenseGenerator/site/Project%20Information/apidocs/index.html">Javadoc</a>
+            <a href="https://63616e617a7a61.github.io/NonSenseGenerator/site/Project%20Information/index.html">Maven Site</a>
     <a href="docs/Documento di design.md">Design Document</a>
-    <a href="docs/SystemTestDoc.md">System Test Document</a>
+    <a href="docs/System Test Document.md">System Test Document</a>
 </pre>    
-
