@@ -3,6 +3,8 @@
 - sistemare link alle immagini in site
 - rivedere jira???
 - il sito non comprende l'intera documentazione
+- JAVADOC
+- unisci user story 1 e 2
 
 ---------------------
 The documentation for this project can be found [here](https://63616e617a7a61.github.io/NonSenseGenerator/).

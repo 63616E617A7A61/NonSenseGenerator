@@ -1,15 +1,15 @@
 # System test document
 
-*Legenda struttura:*
+*Document Structure:*
 - **User Story**
     - **Acceptance Criteria**
-        - Validazione: ok
-        - Note/note: ...
-        - Date: oggi
+        - Validation:
+		- Note:
+		- Date:
     - **Acceptance Criteria**
-        - Validazione: ok
-        - Note/note: ...
-        - Date: oggi
+        - Validation:
+		- Note:
+		- Date:
     ...
 - **User Story**
     ...
