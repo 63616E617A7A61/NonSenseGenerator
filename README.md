@@ -1,6 +1,6 @@
 # TO DO : 
 - rimuovere italiano
-- sistemare link alle immagini in site
+- sistemare link alle immagini in site/Design doc
 ## Post Merge in main:
 - ricrea site, javadoc, site/markdown
 ---------------------
@@ -14,7 +14,7 @@ The complete <code>docs/</code> file tree is:
     <i>Domain Model/</i>
         <a href="docs/Domain model/Domain model.png">Domain Model</a>
     <i>Manual/</i>
-        <a href="docs/Manual/Manuale.md">Manual</a>
+        <a href="docs/Manual/Manual.md">Manual</a>
     <i>Sequence Diagrams/</i>
         <i>Diagrams/</i>
             <a href="docs/Sequence diagrams/Diagrams/InputSentence.png">Input Sentence</a>

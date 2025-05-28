@@ -10,133 +10,132 @@
     <div class="markdown-body">
         <p><em>Gruppo 63616E617A7A61, Ingegneria del Software (B)</em></p>
         <p><br></p>
-        <a href="!--![presentazione](https://www.svgrepo.com/show/508699/landscape-placeholder.svg)--">!--![presentazione](https://www.svgrepo.com/show/508699/landscape-placeholder.svg)--</a>
-        <h2 id="manuale-di-utilizzo-di-nonsensegenerator">Manuale di utilizzo di NonSenseGenerator</h2>
-        <h3 id="indice-">Indice:</h3>
+        <h2 id="nonsensegenerator-user-manual">NonSenseGenerator User Manual</h2>
+        <h3 id="index-">Index:</h3>
         <ul>
-        <li><a href="#descrizione-del-progetto">Descrizione del Progetto</a></li>
-        <li><a href="#come-eseguire-il-programma">Come eseguire il programma</a><ul>
-        <li><a href="#come-eseguire-il-programma">Vincoli di esecuzione</a></li>
+        <li><a href="#project-description">Project Description</a></li>
+        <li><a href="#how-to-run-the-program">How to run the program</a><ul>
+        <li><a href="#how-to-run-the-program">Execution constraints</a></li>
         </ul>
         </li>
-        <li><a href="#tecnologie-utilizzate">Librerie utilizzate  ed API esterne</a></li>
-        <li><a href="#principali-funzioni-utilizzate-da-librerie">Funzioni principali librerie esterne</a>
+        <li><a href="#technologies-used">Libraries used and external APIs</a></li>
+        <li><a href="#main-functions-used-by-libraries">Main functions of external libraries</a>
         <br>
         <br>
         <br></li>
         </ul>
-        <h1 id="descrizione-del-progetto">Descrizione del progetto</h1>
-        <p>NonSenseGenerator è un generatore casuale di frasi. A partire da un input testuale fornito dall&#39;utente il programma genera delle frasi casuali seguendo una logica di elaborazione linguistica interna. </p>
+        <h1 id="project-description">Project Description</h1>
+        <p>NonSenseGenerator is a random sentence generator. Starting from a textual input provided by the user, the program generates random sentences following an internal linguistic processing logic. </p>
         <p><br></p>
-        <h2 id="funzionalit-principali-fornite-all-utente">Funzionalità principali fornite all&#39;utente</h2>
-        <p><img src="home.png" alt="Home screen">
-        Nell&#39;interfaccia troviamo in ordine: un campo di testo dov&#39;è possibile scrivere la frase in input, sucessivamente un menù a tendina che permette di scegliere la struttura che deve avere la frase generata ed un menù per la selezione del tempo verbale che dev&#39;essere usato nella frase in output, infine un checkbox che permette di salvare nel dizionario interno i termini sconosciuti presenti nella frase data in input.</p>
-        <h3 id="generazione-di-frasi">Generazione di frasi</h3>
-        <p>Il processo di generazione si basa su tre fasi:</p>
+        <h2 id="main-features-provided-to-the-user">Main features provided to the user</h2>
+        <p><img src="../../Manual/home.png" alt="Home screen">
+        In the interface we find in order: a text field where it is possible to write the input sentence, then a drop-down menu that allows you to choose the structure that the generated sentence must have and a menu for selecting the verb tense that must be used in the output sentence, in the end a checkbox that allows you to save in the internal dictionary the unknown terms present in the input sentence.</p>
+        <h3 id="sentence-generation">Sentence generation</h3>
+        <p>The generation process is based on three phases:</p>
         <ul>
-        <li>Scelta di un <strong>template</strong>: Viene selezionata dall&#39;utente o casualmente una struttura predefinita per la frase da generare.</li>
-        <li><strong>Estrazione</strong> lessicale: Dall&#39;input vengono estratti nomi, aggettivi e verbi tramite analisi grammaticale.</li>
-        <li><strong>Composizione</strong> della frase: Gli elementi estratti vengono inseriti nei campi corrispondenti del template. Se una categoria (nomi, verbi, aggettivi) non contiene elementi a sufficienza, il sistema integra parole casuali prese da un dataset lessicale locale.</li>
+        <li>Selection of a <strong>template</strong>: The structure for the sentence to be generated is selected by the user or randomly.</li>
+        <li>Lexical <strong>extraction</strong>: Nouns, adjectives and verbs are extracted from the input through grammatical analysis.</li>
+        <li>Sentence <strong>composition</strong>: The extracted elements are inserted into the corresponding fields of the template. If a category (nouns, verbs, adjectives) does not contain enough elements, the system integrates random words taken from a local lexical dataset.</li>
         </ul>
-        <h3 id="analisi-tossicit-">Analisi tossicità</h3>
-        <p>La frase generata dall&#39;algoritmo viene sottoposta a un&#39;analisi della tossicità, dove con tossicità si intendono contenuti espliciti, violenti o volgari; più in generali tutti i contenuti ritenuti inappropriati avranno un <em>toxicity rate</em> superiore alle altre frasi. </p>
-        <h3 id="visualizzazione-albero-sintattico">Visualizzazione albero sintattico</h3>
-        <p>Il programma fornisce inoltre un&#39;analisi approfondita della frase di input, fornendo all&#39;utente un albero sintattico della stessa. <br>
-        <img src="syntaxtree.png" alt="Syntax tree example"> <br>
-        <i>L&#39;albero è rappresentato in senso &quot;orizzontale&quot; per questioni di spazi.</i>
+        <h3 id="toxicity-analysis">Toxicity analysis</h3>
+        <p>The sentence generated by the algorithm is subjected to a toxicity analysis, where toxicity means explicit, violent or vulgar content; more generally, all content deemed inappropriate will have a <em>toxicity rate</em> higher than other sentences.</p>
+        <h3 id="syntax-tree-view">Syntax tree view</h3>
+        <p>The program also provides a deep analysis of the input sentence, providing the user with a syntax tree of the same. <br>
+        <img src="../../Manual/syntaxtree.png" alt="Syntax tree example"> <br>
+        <i>The tree is represented in a &quot;horizontal&quot; direction for space reasons.</i>
         <br>
         <br>
         <br></p>
-        <h2 id="come-eseguire-il-programma">Come eseguire il programma</h2>
-        <p>Per avviare l&#39;applicazione:</p>
+        <h2 id="how-to-run-the-program">How to run the program</h2>
+        <p>To launch the application:</p>
         <ol>
-        <li><strong>Clona o scarica</strong> il progetto sul tuo dispositivo</li>
-        <li>Nella directory principale del progetto (root), inserisci il file JSON del service account di Google Cloud Console, rinominandolo in: <code>api_key.json</code></li>
-        <li>Verifica di avere <strong>Maven</strong> installato e correttamente configurato nel tuo sistema.</li>
-        <li>Dalla root del progetto, esegui il seguente comando per avviare l&#39;applicazione: <code>mvn javafx:run</code><blockquote>
-        <p>ℹ️ Assicurati di utilizzare JDK 21 o versione successiva per garantire la corretta esecuzione del programma</p>
+        <li><strong>Clone or download</strong> the project to your device</li>
+        <li>In the root directory of the project, insert the JSON file of the Google Cloud Console service account, renaming it to: <code>api_key.json</code></li>
+        <li>Verify that you have <strong>Maven</strong> installed and properly configured on your system.</li>
+        <li>From the root of the project, run the following command to launch the application: <code>mvn javafx:run</code><blockquote>
+        <p>ℹ️ Make sure you are using JDK 21 or later to ensure the program runs correctly</p>
         </blockquote>
         </li>
         </ol>
-        <p><strong>Come configurare Google Cloud Console</strong></p>
+        <p><strong>How ​​to set up Google Cloud Console</strong></p>
         <ol>
-        <li><strong>Crea un Service Account</strong></li>
-        <li>Vai su &quot;IAM e amministrazione&quot; &gt; &quot;Service Accounts&quot;</li>
-        <li>Clicca &quot;+ CREA SERVICE ACCOUNT&quot;</li>
-        <li>Inserisci nome e descrizione</li>
-        <li>Assegna il ruolo &quot;Storage Admin&quot; (o almeno &quot;Storage Object Admin&quot; per i permessi di scrittura)<blockquote>
-        <p>ℹ️ <em>Questo è necessario per abilitare l&#39;utilizzo dei bucket e quindi salvare tutte le frasi generate su Google Cloud</em></p>
+        <li><strong>Create a Service Account</strong></li>
+        <li>Go to &quot;IAM and Administration&quot; &gt; &quot;Service Accounts&quot;</li>
+        <li>Click &quot;+ CREATE SERVICE ACCOUNT&quot;</li>
+        <li>Enter name and description</li>
+        <li>Assign the role &quot;Storage Admin&quot; (or at least &quot;Storage Object Admin&quot; for write permissions)<blockquote>
+        <p>ℹ️ <em>This is necessary to enable the use of buckets and therefore save all generated sentences to Google Cloud</em></p>
         </blockquote>
         </li>
-        <li>Clicca &quot;Fatto&quot;</li>
-        <li><strong>Crea una chiave per il Service Account</strong></li>
-        <li>Nella lista dei Service Account, clicca sul tuo appena creato</li>
-        <li>Vai alla scheda &quot;KEYS&quot;</li>
-        <li>Clicca &quot;ADD KEY&quot; &gt; &quot;Create new key&quot;</li>
-        <li>Scegli formato JSON e scarica il file </li>
+        <li>Click &quot;Done&quot;</li>
+        <li><strong>Create a key for the Service Account</strong></li>
+        <li>In the list of Service Accounts, click on your newly created one</li>
+        <li>Go to the &quot;KEYS&quot; tab</li>
+        <li>Click &quot;ADD KEY&quot; &gt; &quot;Create new key&quot;</li>
+        <li>Choose JSON format and download the file</li>
         </ol>
         <p><br>
         <br>
         <br></p>
-        <h2 id="tecnologie-utilizzate">Tecnologie utilizzate</h2>
-        <p>Il progetto sfrutta diverse tecnologie per garantire uno sviluppo efficiente e un programma ben funzionante: </p>
-        <p><strong>Linguaggio e ambiente di sviluppo</strong></p>
+        <h2 id="technologies-used">Technologies used</h2>
+        <p>The project uses several technologies to ensure efficient development and a well-functioning program:</p>
+        <p><strong>Language and development environment</strong></p>
         <ul>
-        <li><strong>Java 21</strong>: linguaggi di programmazione principale</li>
-        <li><strong>Maven</strong>: per la gestione delle dipendenze nel progetto</li>
+        <li><strong>Java 21</strong>: main programming language</li>
+        <li><strong>Maven</strong>: for managing dependencies in the project</li>
         </ul>
-        <p><strong>Interfaccia grafica</strong></p>
+        <p><strong>Graphical interface</strong></p>
         <ul>
-        <li><strong>JavaFX (v23.0.1)</strong>: utilizzato per la creazione della GUI</li>
+        <li><strong>JavaFX (v23.0.1)</strong>: used for creating the GUI</li>
         </ul>
         <p><strong>Testing</strong></p>
         <ul>
-        <li><strong>JUnit 5 (Jupiter v5.8.2)</strong>: per la scrittura e l&#39;esecuzione di test automatici del codice</li>
+        <li><strong>JUnit 5 (Jupiter v5.8.2)</strong>: for writing and running automatic code tests</li>
         </ul>
-        <p><strong>Elaboraione del testo</strong></p>
+        <p><strong>Text processing</strong></p>
         <ul>
-        <li><strong>Google Cloud Natural Language API</strong>: per analisi sintattica, estrazione di informazioni e valutazione della tossicità</li>
-        <li><strong>Simple NLG</strong>: per la generazione linguistica, come il cambio di tempo verbale </li>
-        <li><strong>Evo Inflector</strong>: libreria per la gestione del passaggio tra la forma singolare e la forma plurale di una parola</li>
+        <li><strong>Google Cloud Natural Language API</strong>: for syntactic analysis, information extraction and toxicity assessment</li>
+        <li><strong>Simple NLG</strong>: for language generation, such as changing the tense of a verb</li>
+        <li><strong>Evo Inflector</strong>: library for managing the transition between the singular and plural form of a word</li>
         </ul>
-        <p><strong>Servizi Cloud</strong></p>
+        <p><strong>Cloud services</strong></p>
         <ul>
-        <li><strong>Google Cloud Storage API</strong>: per il salvataggio delle frasi generate dal sistema. Ogni frase viene registrata in un log sotto formato json.</li>
+        <li><strong>Google Cloud Storage API</strong>: for saving sentences generated by the system. Each sentence is recorded in a log in json format.</li>
         </ul>
-        <p><strong>Altri plugin</strong>: Vengono inoltre utilizzati altri plugin come <em>JavaFX Maven Plugin</em> o <em>Maven Javadoc Plugin</em></p>
+        <p><strong>Other plugins</strong>: Other plugins are also used such as <em>JavaFX Maven Plugin</em> or <em>Maven Javadoc Plugin</em></p>
         <p><br>
         <br>
         <br></p>
-        <h2 id="principali-funzioni-utilizzate-da-librerie">Principali funzioni utilizzate da librerie</h2>
-        <p>Il progetto sfrutta diverse librerie per garantire il corretto funzionamento dle programma:</p>
-        <p><strong>Simple NLG</strong> </p>
-        <p>I seguenti metodi vengono applicati add&#39;oggetto <code>SPhraseSpec</code> che rappresenta a tutti gli effetti una frase ovvero un wrapper di <code>PhraseElement</code>, questa libreria viene usata nel progetto solo ed esclusivamente per coniugare correttamente i verbi della frase di output (se possibile) analizzando persona e numero del soggetto.</p>
+        <h2 id="main-functions-used-by-libraries">Main functions used by libraries</h2>
+        <p>The project uses several libraries to ensure the correct functioning of the program:</p>
+        <p><strong>Simple NLG</strong></p>
+        <p>The following methods are applied to the <code>SPhraseSpec</code> object which effectively represents a sentence, i.e. a wrapper of <code>PhraseElement</code>, this library is used in the project only and exclusively to correctly conjugate the verbs of the output sentence (if possible) by analyzing the person and number of the subject.</p>
         <ul>
-        <li><code>setVerb(Object verb)</code> aggiunge il verbo al nostro oggetto SPhraseSpec</li>
-        <li><code>setFeature(String featureName, Object featureValue)</code> usato in più varianti, serve ad aggiungere informazioni sulla frase, nel programma viene utilizzato per aggiumgere persona, numero e tempo al nostro verbo, così che venga coniugato nella forma più corretta.</li>
+        <li><code>setVerb(Object verb)</code> adds the verb to our SPhraseSpec object</li>
+        <li><code>setFeature(String featureName, Object featureValue)</code> used in multiple variations, is used to add information about the sentence, in the program it is used to add person, number and tense to our verb, so that it is conjugated in the most correct form.</li>
         </ul>
-        <p>esempio: (supponendo <code>sentence</code> oggetto della classe SPhraseSpec)<br>
+        <p>example: (assuming <code>sentence</code> object of class SPhraseSpec)<br>
         <code>sentence.setVerb(&quot;was&quot;);</code><br>
         <code>sentence.setFeature(Feature.TENSE, Tense.PRESENT);</code><br>
         <code>System.out.println(realiser.realiseSentence(sentence));</code><br>
-        l&#39;output che vedremo nella console sarà <b>is</b>.</p>
+        the output we will see in the console will be <b>is</b>.</p>
         <p><strong>Evo Inflector</strong></p>
-        <p>Fornisce metodi per la pluralizzazione di nomi. Questa libreria è stata scelta dato che è stata fatta la scelta di introdurre nomi plurali all&#39;interno dei template. Quindi ogni volta che dovrebbe esssere inserito un nome plurale il programma prima di tutto controlla che il nome sia pluralizzabile (ovvero che non sia un nome proprio), dopodiché se lo è utilizza la seguente libreria per pluralizzarlo; altrimenti il programma prevede di scartare il nome non pluralizzabile e di scegliere dal dizionario un nome che sia pluralizzabile.</p>
+        <p>Provides methods for pluralizing names. This library was chosen because it was decided to introduce plural names within templates. So every time a plural name should be inserted, the program first checks that the name is pluralizable (i.e. that it is not a proper name), then if it is, it uses the following library to pluralize it; otherwise, the program discards the non-pluralizable name and chooses a pluralizable name from the dictionary.</p>
         <ul>
-        <li><code>English.plural(String word)</code> pluralizza word.</li>
-        <li><code>English.plural(String word, int count)</code> in base al valore di cont pluralizza o meno la parola: <b>cont = 1</b> mantiene la parola al singolare; <b>cont = 2</b> pluralizza la parola.</li>
+        <li><code>English.plural(String word)</code> pluralizes word.</li>
+        <li><code>English.plural(String word, int count)</code> pluralizes the word or not based on the value of cont: <b>cont = 1</b> keeps the word singular; <b>cont = 2</b> pluralizes the word.</li>
         </ul>
-        <p>Non sempre i termini pluralizzati sono corretti, infatti gli sviluppatori di questa libreria dichiarano: <em>&quot;Overall it returns a correct answer 69.02782% of the time&quot;</em>.</p>
+        <p>Pluralized terms are not always correct, in fact the developers of this library declare: <em>&quot;Overall it returns a correct answer 69.02782% of the time&quot;</em>.</p>
         <p><strong>Google Cloud Natural Language API</strong></p>
-        <p>API usate per l&#39;analisi delle parte sintattica di una frase e per validare alcuni parametri legati alle proprietà della frase ad esempio la tossicità. Nel progetto sono state fatte chiamate a due API di Google Cloud Natural Language API, nello specifico:</p>
+        <p>APIs used to analyze the syntactic part of a sentence and to validate some parameters related to the properties of the sentence, such as toxicity. In the project, calls were made to two Google Cloud Natural Language APIs, specifically:</p>
         <ul>
-        <li><strong>Analyzing Syntax</strong> la risposta a questa API ritorna una collezione di oggetti <code>Token</code> che contengono preziose informazioni per il funzionamento del programma, tra le funzioni più usate: <code>token.getPartOfSpeech()</code> e <code>token.getDependencyEdge()</code>.</li>
-        <li><strong>Moderate text</strong> la risposta a questa API ritorna una collezione di oggetti <code>ClassificationCategory</code> che contengono vari parametri di moderazione della frase.</li>
+        <li><strong>Analyzing Syntax</strong> the response to this API returns a collection of <code>Token</code> objects that contain valuable information for the operation of the program, among the most used functions: <code>token.getPartOfSpeech()</code> and <code>token.getDependencyEdge()</code>.</li>
+        <li><strong>Moderate text</strong> the response to this API returns a collection of <code>ClassificationCategory</code> objects that contain various moderation parameters of the sentence.</li>
         </ul>
         <p><strong>Google Cloud Storage API</strong></p>
-        <p>Usato per la gestione dei <code>Bucket</code>, così da salvare ogni volta la frase generata dal programma. Un Bucket è un particolare oggetto che può contenere altri oggetti i <code>Blob</code>, ognuno di questi permette di gestire e rappresentare una risorsa, nel programma utilizziamo i Blob per caricare all&#39;interno del Bucket le frasi generate dal programma in formato json. Il metood principale che permette questo è:</p>
+        <p>Used for the management of <code>Buckets</code>, so as to save each time the sentence generated by the program. A Bucket is a particular object that can contain other objects the <code>Blob</code>s, each of these allows to manage and represent a resource, in the program we use the Blobs to load the sentences generated by the program in json format into the Bucket. The main method that allows this is:</p>
         <ul>
-        <li><code>create(BlobInfo blob, byte[] content)</code> che accetta un oggetto BlobInfo correttamente inizializzato (quindi già associato ad un Bucket) e un array di byte che sarà il file di cui vogliamo fare l&#39;upload. Questo metodo è un metodo della classe <code>Storage</code> che si occupa di autenticarsi al servizio di Google Cloud Storage.</li>
+        <li><code>create(BlobInfo blob, byte[] content)</code> that accepts a correctly initialized BlobInfo object (therefore already associated with a Bucket) and an array of bytes that will be the file we want to upload. This method is a method of the <code>Storage</code> class that takes care of authenticating to the Google Cloud Storage service.</li>
         </ul>
     </div>
 </body>
