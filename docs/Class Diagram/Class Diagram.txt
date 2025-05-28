@@ -64,10 +64,11 @@ class "SentenceController" as sc {
 + getOutputSentence()
 + getSyntaxTree()
 + getToxicity()
++ {static} rewriteTemplate(String template)
 }
 
 'INPUT SENTENCE
-class "InputSentence" as is <Syntagm>{
+class "InputSentence" as is {
 - Syntagm[] : syntagms
 - String : Value
 --
@@ -77,7 +78,7 @@ class "InputSentence" as is <Syntagm>{
 }
 
 'OUTPUT SENTENCE
-class "OutPutSentence" as os <Template> {
+class "OutputSentence" as os {
 - String : value
 - Template : t
 --

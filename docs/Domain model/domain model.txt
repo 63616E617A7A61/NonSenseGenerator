@@ -28,7 +28,7 @@ is -down-> ac : uses
 os "1" -left-> "1" t : \tgenerates on\t
 
 is "1" -right-> "*" s : \tcontains\t
-os *-right- is : needs\t
+os "1" *-right- "1" is : needs\t
 
 v --|> s : is a
 n --|> s : is a 

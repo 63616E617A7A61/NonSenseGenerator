@@ -1,7 +1,7 @@
 @startuml
 
 participant "SentenceController" as sc
-participant "InptutSentence" as is
+participant "InputSentence" as is
 participant "OutputSentence" as os
 participant "ApiController" as ac
 

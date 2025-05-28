@@ -1,6 +1,6 @@
 @startuml
 
-participant "InptutSentence" as is
+participant "InputSentence" as is
 participant "ApiController" as ac
 entity "Google cloud" as c
 
@@ -25,13 +25,13 @@ alt tag = Verb
 ac -> ac : add verb to list
 end
 
-end
 alt tag = Noun
 ac -> ac : add noun to list
 end
 
 alt tag = Adjective
 ac -> ac : add adjective to list
+end
 end
 
 end

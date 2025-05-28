@@ -1,7 +1,7 @@
 @startuml
 
 participant "OutputSentence" as os
-participant "InptutSentence" as is
+participant "InputSentence" as is
 participant "ApiController" as ac
 entity "Google cloud" as c
 participant "Template" as t
@@ -14,7 +14,7 @@ group OutputSentence()
 
 
 group generate from InputSentence
-os -> is : receive syntagms from inputSentence
+os -> is : receive syntagms from InputSentence
 activate is
 
 is -> ac : extract()
