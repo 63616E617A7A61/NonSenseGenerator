@@ -106,7 +106,9 @@ public class Controller {
         });
 
         templateSelector.getItems().add("Casual"); // add default value to the list
-        templateSelector.getItems().addAll(SentenceController.getTemplateList());
+        for (String templateName : SentenceController.getTemplateList()) {
+            templateSelector.getItems().add(templateName.replaceAll("\\\\", "")); // add all templates to the list
+        }
         templateSelector.setValue("Casual"); // set default value to "Select a template"
         templateSelector.setOnAction(event -> {
             String selectedTemplate = templateSelector.getValue();
