@@ -22,7 +22,7 @@
 The majority of the actors are those that constitute the internal layer of the system that is responsable for the actual logical computation requiered to execute all operations.
 
 ## *Class diagram*
-![img](./Class%20diagram/Class%20diagram.png)
+![img](./Class%20Diagram/Class%20Diagram.png)
 
 ### System description:
 
