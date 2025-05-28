@@ -4,7 +4,7 @@
 
 ## NonSenseGenerator User Manual
 
-### Indice:
+### Index:
 + [Project Description](#project-description)
 + [How to run the program](#how-to-run-the-program)
   + [Execution constraints](#how-to-run-the-program)
