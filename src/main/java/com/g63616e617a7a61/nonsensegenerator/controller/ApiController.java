@@ -29,6 +29,7 @@ import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.BucketInfo;
+import com.google.cloud.storage.BucketInfo.PublicAccessPrevention;
 
 /**
  * Controller class for interacting with Google Cloud Natural Language API and Cloud Storage.
@@ -250,7 +251,22 @@ public class ApiController {
             // Check if bucket exists, create if not
             Bucket bucket = storage.get(bucketName);
             if (bucket == null) {
-                bucket = storage.create(BucketInfo.of(bucketName));
+                try {
+                    bucket = storage.create(
+                    BucketInfo.newBuilder(bucketName)
+                        .setLocation("europe-west1") 
+                        .setIamConfiguration(
+                            BucketInfo.IamConfiguration.newBuilder()
+                                .setPublicAccessPrevention(PublicAccessPrevention.ENFORCED) 
+                                .build()
+                        )
+                        .build()
+                );
+                    System.out.println("Bucket creato: " + bucketName);
+                } catch (StorageException e) {
+                    System.err.println("Errore nella creazione del bucket: " + e.getMessage());
+                    return false;
+                }
             }
 
             // Create blob info with JSON content type
