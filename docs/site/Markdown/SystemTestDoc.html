@@ -2,130 +2,133 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>system Test Document</title>
+    <title>System Test Document</title>
 
     <link rel="stylesheet" href="css/github-markdown.css">
 </head>
 <body background="black" style="margin: 10px 20px;">
     <div class="markdown-body">
         <h1 id="system-test-document">System test document</h1>
-        <p><em>Legenda struttura:</em></p>
+        <p><em>Document Structure:</em></p>
         <ul>
         <li><strong>User Story</strong><ul>
         <li><strong>Acceptance Criteria</strong><ul>
-        <li>Validazione: ok</li>
-        <li>Note/note: ...</li>
-        <li>Date: oggi</li>
+        <li>Validation:</li>
+        <li>Note:</li>
+        <li>Date:</li>
         </ul>
         </li>
         <li><strong>Acceptance Criteria</strong><ul>
-        <li>Validazione: ok</li>
-        <li>Note/note: ...</li>
-        <li>Date: oggi
+        <li>Validation:</li>
+        <li>Note:</li>
+        <li>Date:
         ...</li>
         </ul>
         </li>
         </ul>
         </li>
         <li><strong>User Story</strong>
-        ...</li>
+          ...</li>
         </ul>
         <h3 id="-1-as-a-user-i-want-to-provide-in-input-a-sentence-so-that-i-can-view-in-output-the-nonsense-sentence-genrated-and-relative-toxicity-rate-"><strong>1. As a user I want to provide in input a sentence so that I can view in output the nonsense sentence genrated and relative toxicity rate</strong></h3>
         <ul>
-        <li><em>Given I am a user when I input a sentence and press the generate button or click enter, an output sentence is generated</em><ul>
+        <li><em>Given that I’m a user When I write in input a sentence and I click the “generate” button Then the system generates a sentence following a template using the words given in input plus additional word from the dictionary</em><ul>
         <li>Validation: ok</li>
         <li>Note: </li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
-        </ul>
-        <h3 id="-2-as-a-user-i-want-to-be-able-to-see-the-toxicity-rate-of-the-generated-sentence-"><strong>2. As a user I want to be able to see the toxicity rate of the generated sentence</strong></h3>
-        <ul>
         <li><em>Given that I am a user the toxicity rate is displayed upon generation</em><ul>
         <li>Validation: ok</li>
         <li>Note: The toxicity rate is displayed under the output sentence</li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
         </ul>
-        <h3 id="-3-as-a-user-i-want-to-be-able-to-see-the-syntactic-tree-of-the-input-sentence-"><strong>3. As a user I want to be able to see the syntactic tree of the input sentence</strong></h3>
+        <h3 id="-2-as-a-user-i-want-to-be-able-to-see-the-syntactic-tree-of-the-input-sentence-"><strong>2. As a user I want to be able to see the syntactic tree of the input sentence</strong></h3>
         <ul>
         <li><em>Given that I am a user When I provide a sentence in input and I click the &quot;info&quot; button, Then I view the syntactic tree</em><ul>
         <li>Validation: ok</li>
         <li>Note: The ui is responsive even to multiple sentences and trees</li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
         <li><em>Given that I am a user and the tree is already showing, When I click the &quot;info&quot; button again, the tree is hidden</em><ul>
         <li>Validation: ok</li>
         <li>Note: The ui is responsive even to multiple sentences and trees</li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
         </ul>
-        <h3 id="-4-as-a-user-i-want-the-system-to-separate-the-nouns-adjectives-and-verbs-of-the-input-sentence-so-that-they-can-be-used-in-the-output-sentence-"><strong>4. As a user I want the system to separate the nouns, adjectives and verbs of the input sentence so that they can be used in the output sentence</strong></h3>
+        <h3 id="-3-as-a-user-i-want-the-system-to-separate-the-nouns-adjectives-and-verbs-of-the-input-sentence-so-that-they-can-be-used-in-the-output-sentence-"><strong>3. As a user I want the system to separate the nouns, adjectives and verbs of the input sentence so that they can be used in the output sentence</strong></h3>
         <ul>
         <li><em>Given that I am a user When I provide an input sentence, and I click the generate sentence button, then the generated sentence must include the terms I used in my sentence</em><ul>
         <li>Validation: ok</li>
         <li>Note: if a generated output sentence is then given in input, and than the same templated is chosen, the input and output sentence will be equal. This follows the app requirements.</li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
         <li><em>Given that I am a user When I provide an input sentence, and I click the generate sentence button, if the generated sentence uses more words than given in input, then the generated sentence must include additional terms to complete the template</em><ul>
         <li>Validation: ok</li>
         <li>Note: all input words are used if possibile</li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
         <li><em>Given that I am a user When I provide an input sentence, and I click the generate sentence button, if the generated sentence uses less than given in input, then the generated sentence must include some of terms I used in my input sentence, randomly sampled</em><ul>
         <li>Validation: ok</li>
         <li>Note: equal input generate different output in this scenario even with the same template, as expected</li>
-        <li>Date: 27/5</li>
+        <li>Date: 7/5</li>
         </ul>
         </li>
         </ul>
-        <h3 id="-5-as-a-user-i-want-to-be-able-to-specify-a-verb-tense-so-that-the-output-sentence-is-generated-in-that-tense-"><strong>5. As a user I want to be able to specify a verb tense so that the output sentence is generated in that tense</strong></h3>
+        <h3 id="-4-as-a-user-i-want-to-be-able-to-specify-a-verb-tense-so-that-the-generated-sentence-s-verbs-are-conjugated-in-that-specific-tense-"><strong>4. As a user I want to be able to specify a verb tense so that the generated sentence’s verbs are conjugated in that specific tense.</strong></h3>
         <ul>
         <li><em>Given that I am a user When I specify a verb tense then the generated sentence contains only verbs in that tense</em><ul>
         <li>Validation: ok</li>
         <li>Note: this applies even when different tenses are included in the same input, as expected.</li>
-        <li>Date: 27/5</li>
+        <li>Date: 23/5</li>
         </ul>
         </li>
         <li><em>Given that I am a user when I don&#39;t specify a verb tense that the default option is the PRESENT</em><ul>
         <li>Validation: ok</li>
         <li>Note:</li>
-        <li>Date: 27/5</li>
+        <li>Date: 23/5</li>
         </ul>
         </li>
         <li><em>Given that I am a user and my input contains verbs, they get included in the output, with their tense changed to be consistent with the rest of the output sentence</em><ul>
         <li>Validation: ok</li>
         <li>Note: see acceptance criteria 1</li>
-        <li>Date: 27/5</li>
+        <li>Date: 23/5</li>
         </ul>
         </li>
         </ul>
-        <h3 id="-6-as-a-user-i-want-to-be-able-to-choose-a-template-from-a-list-so-that-it-will-be-used-for-the-output-sentence-"><strong>6. As a user I want to be able to choose a template from a list so that it will be used for the output sentence</strong></h3>
+        <h3 id="-5-as-a-user-i-want-to-be-able-to-choose-a-template-from-a-list-so-that-it-will-be-used-for-the-output-sentence-"><strong>5. As a user I want to be able to choose a template from a list so that it will be used for the output sentence</strong></h3>
         <ul>
         <li><em>Given that I am a user When I choose a template the system uses that template for the output sentence</em><ul>
         <li>Validation: ok</li>
         <li>Note: the same input generates different outputs but with the same template if the same is chosen, as expected </li>
-        <li>Date: 27/5</li>
+        <li>Date: 23/5</li>
         </ul>
         </li>
         <li><em>Given that I am a user and I don&#39;t choose a template, Then the system will select one randomly</em><ul>
         <li>Validation: ok</li>
         <li>Note: the same input generates outputs with different templates if no one is chosen, as expected</li>
-        <li>Date: 27/5</li>
+        <li>Date: 23/5</li>
+        </ul>
+        </li>
+        <li><em>Given that I am a user, in any case I want the output sentence to specify what template it has used</em><ul>
+        <li>Validation: ok</li>
+        <li>Note: </li>
+        <li>Date: 23/5    </li>
         </ul>
         </li>
         </ul>
-        <h3 id="-7-as-a-user-i-want-the-option-to-add-new-words-from-the-input-to-the-dictionary-"><strong>7. As a user I want the option to add new words from the input to the dictionary</strong></h3>
+        <h3 id="-6-as-a-user-i-want-the-option-to-add-new-words-from-the-input-to-the-dictionary-"><strong>6. As a user I want the option to add new words from the input to the dictionary</strong></h3>
         <ul>
-        <li><em>Given that I am a user If I click the &quot;Save unkown word in the dictonary button&quot;, than if a word in the input sentence is not present in Date/, it is added</em><ul>
+        <li><em>Given that I am a user If I click the &quot;Save unkown word in the dictonary button&quot;, than if a word in the input sentence is not present in the dictionary, it is added to it.</em><ul>
         <li>Validation: ok</li>
         <li>Note: the word is added at the end of the .txt files not in alphabetical order. This does not influence the app logic.</li>
-        <li>Date: 27/5</li>
+        <li>Date: 23/5</li>
         </ul>
         </li>
         </ul>
