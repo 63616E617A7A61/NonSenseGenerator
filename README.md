@@ -1,8 +1,6 @@
-# TO DO : 
-- rimuovere italiano
-- sistemare link alle immagini in site/Design doc
+# TO DO :
 ## Post Merge in main:
-- ricrea site, javadoc, site/markdown
+- ricrea javadoc, site/project info, unit test
 ---------------------
 The project deliberables can be found [here](https://63616e617a7a61.github.io/NonSenseGenerator/) or in <code>docs/</code>.
 
@@ -30,6 +28,6 @@ The complete <code>docs/</code> file tree is:
             <i>apidocs/</i>
                 <a href="https://63616e617a7a61.github.io/NonSenseGenerator/site/Project%20Information/apidocs/index.html">Javadoc</a>
             <a href="https://63616e617a7a61.github.io/NonSenseGenerator/site/Project%20Information/index.html">Maven Site</a>
-    <a href="docs/Documento di design.md">Design Document</a>
+    <a href="docs/Design document.md">Design Document</a>
     <a href="docs/System Test Document.md">System Test Document</a>
 </pre>    
