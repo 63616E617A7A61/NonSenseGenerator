@@ -9,6 +9,9 @@ package com.g63616e617a7a61.nonsensegenerator.model;
 
 public abstract class Syntagm 
 {
+    /**
+     * The value the syntagm subclass represents
+     */
     protected String value;
 
     /**

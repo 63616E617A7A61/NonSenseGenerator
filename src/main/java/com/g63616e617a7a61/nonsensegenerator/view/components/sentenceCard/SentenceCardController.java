@@ -89,6 +89,7 @@ public class SentenceCardController {
      * @param count             the index number of the sentence.
      * @param generatedSentence the generated sentence text.
      * @param toxicity          the calculated toxicity percentage (0–100).
+     * @param template          the template used by the generated sentence
      */
     public void setContent(int count, String generatedSentence, double toxicity, String template) {
         sentenceCount.setText("Sentence " + Integer.toString(count));

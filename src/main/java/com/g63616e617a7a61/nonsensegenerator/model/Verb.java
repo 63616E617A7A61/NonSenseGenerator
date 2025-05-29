@@ -33,6 +33,10 @@ public class Verb extends Syntagm
         this.setValue(value);
     }
 
+    /**
+     * Adds a new verb to the data array
+     * @param s     the new verb to add
+     */
     public static void save(String s){
         if(data != null && data.indexOf(s) == -1){
             data.add(s);

@@ -33,6 +33,10 @@ public class Adjective extends Syntagm
         this.setValue(value);
     }
 
+    /**
+     * Adds a new adjective to the data array
+     * @param s     the new adjective to add
+     */
     public static void save(String s){
         if(data != null && data.indexOf(s) == -1){
             data.add(s);

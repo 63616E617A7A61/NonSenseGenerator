@@ -46,6 +46,10 @@ public class Template
         return template;
     }
 
+    /**
+     * Returns the array containing all templates loaded from file
+     * @return the data array
+     */
     public static ArrayList<String> getTemplates(){
         if (data == null) {
             data = DataUtils.load(DATAPATH);

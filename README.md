@@ -1,7 +1,3 @@
-# TO DO :
-## Post Merge in main:
-- ricrea javadoc, site/project info, unit test
----------------------
 The project deliberables can be found [here](https://63616e617a7a61.github.io/NonSenseGenerator/) or in <code>docs/</code>.
 
 The complete <code>docs/</code> file tree is:
