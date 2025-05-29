@@ -25,11 +25,12 @@
     -fx-text-fill: -title-color;
 }
 
-#sentenceCard StackPane Button{
+#sentenceCard StackPane Button {
+    -fx-background-color: transparent;
+    -fx-padding: 3;
     -fx-text-fill: -title-color;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-background-color: transparent;
     -fx-cursor: hand;
 }
 

@@ -23,6 +23,20 @@
                         <ProgressIndicator id="progressIndicator" fx:id="progressIndicator" prefHeight="16" prefWidth="16" />
                         <Region prefWidth="10" fx:id="progressIndicatorSpacer" />
                         <Label fx:id="genSentence" styleClass="genSentence" text=""  wrapText="true" />
+                        <Region prefWidth="10"/>
+                        <StackPane>
+                           <children>
+                              <Button fx:id="sentenceCardCopyBtn" text="">
+                                 <graphic>
+                                    <ImageView fitHeight="16" fitWidth="16" translateY="-3" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/view/res/icons/copy-white.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </StackPane>
                      </children>
                   </HBox>
                   <Region prefHeight="10" />
@@ -41,7 +55,7 @@
                <children>
                   <Button fx:id="sentenceCardInfoBtn" text="">
                      <graphic>
-                        <ImageView fitHeight="18" fitWidth="18" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20" fitWidth="20" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/view/res/icons/info-white.png" />
                            </image>

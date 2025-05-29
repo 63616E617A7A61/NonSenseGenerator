@@ -31,6 +31,9 @@ import javafx.scene.text.Text;
  *   <li>Using cached tree data on repeated access</li>
  *   <li>Handling scroll behavior inside a {@link ScrollPane}</li>
  * </ul>
+ * 
+ * 
+ * @author Nicola Zillio
  */
 public class SyntaxTreeController {
 
