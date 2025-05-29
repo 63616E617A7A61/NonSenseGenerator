@@ -89,6 +89,8 @@ public class OutputSentence {
         ArrayList<Verb> v = new ArrayList<>();
         ArrayList<Noun> n = new ArrayList<>();
         ArrayList<Adjective> a = new ArrayList<>();
+
+        //I divide the various syntactic parts that interest us
         for (Syntagm s : in.extract()) {
             if (s instanceof Verb) {
                 v.add((Verb) s);
@@ -98,10 +100,10 @@ public class OutputSentence {
                 a.add((Adjective) s);
             }
         }
-        // ho diviso le varie parti sintattiche che ci interessano
 
-        value = t.getTemplate(); // copio il template nella frase di output
+        value = t.getTemplate(); //I copy the template into the output sentence
 
+        //I check if other terms are needed, if we don't have enough I take them from the "dictionary"
         int diff = countOccurrences("%ve") - v.size();
         if(diff > 0){
             for (int i = 0; i < diff; i++) {
@@ -120,15 +122,15 @@ public class OutputSentence {
                 a.add(new Adjective());
             }
         }
-        // ho controllato se servivano altri termini se non ne abbiamo abbastanza li ho pescati dal dizionario
         
-        // faccio shuffle degli arraylist prima di riempire il template
+        //I shuffle arraylists before filling the template
         Collections.shuffle(n);
         Collections.shuffle(v);
         Collections.shuffle(a);
 
         int index = 0;
 
+        //I search and replace all noun and adjective placeholders
         while (true) {
             index = value.indexOf("%", index);
             if (index == -1) {
@@ -145,8 +147,8 @@ public class OutputSentence {
                     break;
                 case "%np":
                     String tmp = n.removeFirst().toString();
-                    while (Character.isUpperCase(tmp.charAt(0))) {  //finchè è un nome proprio
-                        tmp = new Noun().getValue();                //cerco di generare un nome che possa essere pluralizzato
+                    while (Character.isUpperCase(tmp.charAt(0))) {  //As long as it is a proper name
+                        tmp = new Noun().getValue();                //I try to generate a name that can be pluralized
                     }
                     word = English.plural(tmp);
                     
@@ -155,14 +157,14 @@ public class OutputSentence {
                     word = substring;
                     break;
             }
-            if (index == 0) {  // se e' la prima parola mette la lettera maiuscola
+            if (index == 0) {  //if it's the first word put a capital letter
                 word = word.substring(0, 1).toUpperCase() + word.substring(1);
             }
             value = value.replaceFirst(substring, word);
             index += substring.length();
         }
-        // cerco e sostituisco tutti i placeholder di nomi e aggettivi
 
+        //I search and replace all the verbs, correcting their verb tense
         while (true) {
             index = value.indexOf("%", index);
             if (index == -1) {
@@ -179,14 +181,14 @@ public class OutputSentence {
             }
 
             String newVerb = changeTense(subj, word);
-            if (index == 0) {  // se e' la prima parola mette la lettera maiuscola
+            if (index == 0) {  //if it's the first word put a capital letter
                 newVerb = newVerb.substring(0, 1).toUpperCase() + newVerb.substring(1);
             }
             value = value.replaceFirst(word, newVerb);
             
             index += substring.length();
         }
-        // cerco e sostituisco tutti i verbi correggendone il tempo verbale
+        //Now that we have the sentence I can analyze its toxicity
         try {
             toxicity = ApiController.getToxicity(value);
         } catch (IOException e) {

@@ -33,6 +33,10 @@ public class Noun extends Syntagm
         this.setValue(value);
     }
 
+    /**
+     * Adds a new noun to the data array
+     * @param s     the new noun to add
+     */
     public static void save(String s){
         if(data != null && data.indexOf(s) == -1){
             data.add(s);

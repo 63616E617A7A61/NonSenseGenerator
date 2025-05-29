@@ -1,10 +1,14 @@
 package com.g63616e617a7a61.nonsensegenerator;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import com.g63616e617a7a61.nonsensegenerator.model.DataUtils;
 
@@ -42,5 +46,30 @@ public class UtilsTest
     {
         ArrayList<String> list = DataUtils.load("data/Adjectives.txt");
         assertNotNull(list);
+    }
+    
+    @Test
+    public void appendShouldAddToEOF(@TempDir Path tempDir) 
+    {
+        // tempDir è una DIRECTORY temporanea, non un file
+        String fileName = "test.txt";
+        String append = "APPENDTEST";
+        
+        // Crea il file DENTRO la directory temporanea
+        Path tempFile = tempDir.resolve(fileName);
+
+        try {
+            Files.createFile(tempFile); // Crea il file
+            Files.writeString(tempFile, "FirstLine\n");
+        } catch (IOException e) {
+            assertTrue(false, e.getMessage());
+        }
+
+        DataUtils.append(append, tempFile.toString());
+
+        ArrayList<String> test = DataUtils.load(tempFile.toString());
+        
+        assertEquals(test.size(), 2);
+        assertTrue(test.get(test.size()-1).equals(append));
     }
 }

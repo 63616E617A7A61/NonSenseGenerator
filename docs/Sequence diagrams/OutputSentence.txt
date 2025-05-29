@@ -1,0 +1,63 @@
+@startuml
+
+participant "OutputSentence" as os
+participant "InputSentence" as is
+participant "ApiController" as ac
+entity "Google cloud" as c
+participant "Template" as t
+
+group OutputSentence()
+
+-> os : InputSentence
+-> os : custom template
+-> os : requested tense
+
+
+group generate from InputSentence
+os -> is : receive syntagms from InputSentence
+activate is
+
+is -> ac : extract()
+ac -> c : send request
+activate c
+ac <-- c : response
+deactivate c
+is <-- ac: syntagms[]
+os <-- is : syntagms[]
+deactivate is
+
+
+loop for each received syntagm
+os -> os : add verbs to internal list
+os -> os : add nouns to internal list
+os -> os : add adjectives to internal list
+end
+
+end
+
+os -> t : get template if none provided
+os <-- t : template
+
+os -> os : count requiered syntagms for chosen template
+
+alt not enough syntagms to fill template 
+os -> os : generate new verbs, nouns and/or adjectives
+end
+
+os -> os : fill template
+
+os -> os : save generated sentence
+end
+
+group getToxicity()
+os -> ac : calculate sentence toxicity
+activate ac
+ac -> ac : create request
+ac -> c : send request
+activate c
+ac <-- c : sentence toxicity 
+deactivate c
+os <-- ac : toxicity
+deactivate ac
+end
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+Actor "User" as u
+Participant "System" as s
+
+u -> s : input sentence
+activate u
+
+u -> s : custom template
+u -> s : specify tense
+u -> s : click "save terms" button
+u -> s : click "generate" button
+
+u <-- s : generated sentence
+u <-- s : show toxicity
+
+u -> s : click "show tree" button
+u <-- s : syntax tree
+deactivate u
+
+@enduml
