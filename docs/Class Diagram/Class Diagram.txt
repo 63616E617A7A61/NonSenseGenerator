@@ -1,0 +1,113 @@
+@startuml
+
+'SYNTAXELEMENT
+class "SyntaxElement" as se {
+- String : value
+- String : syntax_value
+- int : index
+- ArrayList<Integer> : edges
+--
+--
+}
+
+'DATAUTILS
+class "DataUtils" as du {
+--
++ {static} load(String filePath)
++ {static} append(String s, String filePath)
++ {static} getRandom(ArrayList<String> list)
+--
+}
+
+'APICONTROLLER
+class "ApiController" as ac {
+- {static} String : key
+- {static} String : bucketName
+--
++ {static} extract(String s)
++ {static} getSyntaxTree(String s)
++ {static} getToxicity()
++ {static} uploadJsonToBucket()
+--
+}
+
+'VERB / NOUN / ADJECTIVE
+class "Verb" as v {
+- {static} ArrayList<String> : data
+- {static} String : dataPath
+}
+class "Noun" as n {
+- {static} ArrayList<String> : data
+- {static} String : dataPath
+}
+class "Adjective" as a {
+- {static} ArrayList<String> : data
+- {static} String : dataPath
+}
+
+'SYNTAGM
+Abstract "Syntagm" as s{
+# String : value
+}
+
+'TEMPLATE
+class "Template" as t {
+- String : template
+
+}
+
+'SENTENCE CONTROLLER
+class "SentenceController" as sc {
+-InputSentence in
+-OutputSentence out
+--
++ getOutputSentence()
++ getSyntaxTree()
++ getToxicity()
++ {static} rewriteTemplate(String template)
+}
+
+'INPUT SENTENCE
+class "InputSentence" as is {
+- Syntagm[] : syntagms
+- String : Value
+--
++ extract()
++ getSyntaxTree()
+--
+}
+
+'OUTPUT SENTENCE
+class "OutputSentence" as os {
+- String : value
+- Template : t
+--
++ getToxicity()
+- generate(InputSentence in)
+--
+}
+
+
+
+'RELATIONS
+
+v --|> s : extends
+n --|> s : extends
+a --|> s : extends
+
+s -d-> du : use functionalities
+
+os --> ac : use functionalitites
+is --> ac : use functionalitites
+
+os "1\t" -d--> "1\t" t : generates on
+t -r-> du : use functionalities
+
+os "1" *-r- "1" is : needs
+is "1" -> "*" s : contains
+
+sc "1   " *-- "1" os : contains
+sc "1 " *-- "1   " is : contains
+
+ac -> se : uses
+@enduml

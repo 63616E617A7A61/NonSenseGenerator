@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Deliverables</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+
+        /* background */
+        html {
+            height: 1500px;
+            overflow: auto;
+            scrollbar-width: none;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            background: #020024;
+            background: -webkit-linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 47%, rgba(0, 212, 255, 1) 100%);
+            background: -moz-linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 47%, rgba(0, 212, 255, 1) 100%);
+            background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 47%, rgba(0, 212, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#00D4FF", GradientType=0);
+        }
+
+
+        /* Main container */
+        .doc-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .doc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #e7e7e7;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+
+            font-family: "Martian Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(300px, 400px));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .doc-button {
+            background: #63badd;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 150px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            font-weight: bold;
+        }
+
+        .doc-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            background: #2980b9;
+            border-color: #ffffff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .doc-title {
+                font-size: 2rem;
+            }
+            
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            font-size: 16px;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+
+            border-top-left-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <h1 class="doc-title">Deliverables</h1>
+        
+        <div class="button-grid">
+            <a target="_blank" href="site/Markdown/Manual.html" class="doc-button">
+                <span>User Manual</span>
+            </a>
+            
+            <a target="_blank" href="https://studenti-team-hixm3nin.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true" class="doc-button">
+                <span>User Stories</span>
+            </a>
+
+            <a target="_blank" href="site/Markdown/DesignDoc.html" class="doc-button">
+                <span>Design Document</span>
+            </a>
+
+            <a target="_blank" href="site/Project Information/index.html" class="doc-button">
+                <n>Maven site</span>
+            </a>
+            
+            <a target="_blank" href="site/Markdown/SystemTestDoc.html" class="doc-button">
+                <span>System Test Document</span>
+            </a>
+
+            <a target="_blank" href="UnitTest Report/surefire.html" class="doc-button">
+                <span>Report Unit Test</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a target="_self" href="https://github.com/63616E617A7A61/NonSenseGenerator">GitHub site</a>
+    </div>
+</body>
+</html>
