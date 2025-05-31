@@ -23,6 +23,7 @@ NonSenseGenerator is a random sentence generator. Starting from a textual input 
 ## Main features provided to the user
 
 ![Home screen](home.png)
+<br>
 In the interface we find in order: a text field where it is possible to write the input sentence, then a drop-down menu that allows you to choose the structure that the generated sentence must have and a menu for selecting the verb tense that must be used in the output sentence, in the end a checkbox that allows you to save in the internal dictionary the unknown terms present in the input sentence.
 
 ### Sentence generation
