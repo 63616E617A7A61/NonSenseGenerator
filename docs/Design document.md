@@ -15,14 +15,14 @@
         + ##### [Initialization of built-in dictionary and template list](#initialization-of-built-in-dictionary-and-template-list-1)
 
 ## *Domain model*
-![img](./Domain%20model/Domain%20model.png)
+![Domain_model](./Domain%20model/Domain%20model.png)
 
 #### Description:   
 >The user of Nonsense generator interacts directly with a UI layer. below it there are multiple controllers that forward the requests of the user to the logical components of the system and makes it so the data is formatted correctly when needed to be presented to the user.
 The majority of the actors are those that constitute the internal layer of the system that is responsable for the actual logical computation requiered to execute all operations.
 
 ## *Class diagram*
-![img](./Class%20Diagram/Class%20Diagram.png)
+![Class_diagram](./Class%20Diagram/Class%20Diagram.png)
 
 ### System description:
 
@@ -63,17 +63,17 @@ The <code>***getSyntaxTree()***</code> method is used to get the syntactic tree 
 Class that supports the generation of a template-based random sentence by utilizing a given ***InputSentence***.
 The generation of the sentence is coded via the private method <code>generate()</code> that executes operations on an ***InputSentence*** to extract its syntagms and uses them to fill a template that may be specified or picked randomly from the internal list of the system.  
 
-## **Sequence diagrams**
+## *Sequence diagrams:*
 
-+ ### System sequence Diagram:
-![img](./Sequence%20diagrams/Diagrams/SystemSequenceDiagram.png)
++ ## *System sequence Diagram*:
+![System_sequence_diagram](./Sequence%20diagrams/Diagrams/SystemSequenceDiagram.png)
 
 > Here are reported the main interactions between a User and the system. While a sentence is always requiered to create a generated sentence there are some additional options that the user may decide to use that affect how the system responds.
 
-+ ### Internal sequence diagrams
++ ## *Internal sequence diagrams*
 
-+ ### <ins>**SentenceController**</ins>
-![img](./Sequence%20diagrams/Diagrams/SentenceController.png) 
++ ### <ins>SentenceController</ins>
+![SentenceController](./Sequence%20diagrams/Diagrams/SentenceController.png) 
 
 #### Description: 
 
@@ -86,16 +86,16 @@ The generation of the sentence is coded via the private method <code>generate()<
 > These operation are shown in greater detail in later diagrams as they are implemented in ***InputSentence*** and ***OutputSentence*** while ***SentenceController*** only delegates work to these classes.
 
 
-+ ### <ins>**InputSentence*</ins>*
-![img](./Sequence%20diagrams/Diagrams/InputSentence.png)
++ ### <ins>InputSentence</ins>
+![InputSentence](./Sequence%20diagrams/Diagrams/InputSentence.png)
 
 #### Description: 
 
 > This diagram shows the steps executed by ***InputSentence*** during initialization to extract the syntagms from the given sentence by utilizing Functionalities provided by ***ApiController***. Each token received from the response given by the Google cloud Natural Language API is used to create a syntagm and categorize appropriately.
 Below is shown the internal working of the <code>getSyntaxTree()</code> method used to generate the syntactic tree from nodes of type ***SyntaxElement*** created from the sentence given by the user. 
 
-+ ### <ins>**OutputSentence**</ins>
-![img](./Sequence%20diagrams/Diagrams/OutputSentence.png) 
++ ### <ins>OutputSentence</ins>
+![OutputSentence](./Sequence%20diagrams/Diagrams/OutputSentence.png) 
 
 #### Description: 
 
@@ -103,8 +103,8 @@ Below is shown the internal working of the <code>getSyntaxTree()</code> method u
 ***OutputSentence*** is capable of generating more terms by utilizing the constructors of ***Verb***,***Noun*** and ***Adjective*** should the number of terms extracted from ***InputSentence*** be insufficient. 
 The getToxicity() functionality of ***OutputSentence*** is implemented by relying on ***ApiController*** to make a custom request to the server Google cloud server and returning the result as a number.
 
-+ ### <ins>**Initialization of built-in dictionary and template list:**</ins>
++ ### <ins>Initialization of built-in dictionary and template list:</ins>
 #### Description: 
 > The diagram shows the interactions between the classes that need some provided data to work properly and how ***DataUtils*** is used to retrieve that data and manipulate it.
 
-![DataInitialization](./Sequence%20diagrams/Diagrams/DataInitialization.png)
+![Data_initialization](./Sequence%20diagrams/Diagrams/DataInitialization.png)
