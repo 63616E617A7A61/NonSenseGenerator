@@ -12,26 +12,26 @@
         <h1 id="design-document-nonsense-generator">Design document - Nonsense generator</h1>
         <h2 id="index-">Index:</h2>
         <ul>
-        <li><h3 id="-ins-domain-model-ins-domain-model-1-"><a href="#domain-model-1"><ins>Domain model</ins></a></h3>
+        <li><h3 id="-ins-domain-model-ins-domain-model-1-"><a href="#-domain-model-"><ins>Domain model</ins></a></h3>
         </li>
-        <li><h3 id="-ins-class-diagram-ins-class-diagram-1-"><a href="#class-diagram-1"><ins>Class diagram</ins></a></h3>
+        <li><h3 id="-ins-class-diagram-ins-class-diagram-1-"><a href="#-class-diagram-"><ins>Class diagram</ins></a></h3>
         <ul>
-        <li><a href="#system-description">System description</a></li>
+        <li><a href="#system-description-">System description</a></li>
         </ul>
         </li>
-        <li><h3 id="-ins-sequence-diagrams-ins-sequence-diagrams-1-"><a href="#sequence-diagrams-1"><ins>Sequence diagrams</ins></a></h3>
+        <li><h3 id="-ins-sequence-diagrams-ins-sequence-diagrams-1-"><a href="#-sequence-diagrams-"><ins>Sequence diagrams</ins></a></h3>
         <ul>
-        <li><h4 id="-system-sequence-diagram-system-sequence-diagram-1-"><a href="#system-sequence-diagram-1">System sequence diagram</a></h4>
+        <li><h4 id="-system-sequence-diagram-system-sequence-diagram-1-"><a href="#-system-sequence-diagram-">System sequence diagram</a></h4>
         </li>
-        <li><h4 id="-internal-sequence-diagrams-internal-sequence-diagrams-1-"><a href="#internal-sequence-diagrams-1">Internal sequence diagrams</a></h4>
+        <li><h4 id="-internal-sequence-diagrams-internal-sequence-diagrams-1-"><a href="#-internal-sequence-diagrams-">Internal sequence diagrams</a></h4>
         <ul>
-        <li><h5 id="-sentencecontroller-sentencecontroller-1-"><a href="#sentencecontroller-1">SentenceController</a></h5>
+        <li><h5 id="-sentencecontroller-sentencecontroller-"><a href="#-ins-sentencecontroller-ins-">SentenceController</a></h5>
         </li>
-        <li><h5 id="-inputsentence-inputsentence-1-"><a href="#inputsentence-1">InputSentence</a></h5>
+        <li><h5 id="-inputsentence-inputsentence-"><a href="#-ins-inputsentence-ins-">InputSentence</a></h5>
         </li>
-        <li><h5 id="-outputsentence-outputsentence-1-"><a href="#outputsentence-1">OutputSentence</a></h5>
+        <li><h5 id="-outputsentence-outputsentence-"><a href="#-ins-outputsentence-ins-">OutputSentence</a></h5>
         </li>
-        <li><h5 id="-initialization-of-built-in-dictionary-and-template-list-initialization-of-built-in-dictionary-and-template-list-1-"><a href="#initialization-of-built-in-dictionary-and-template-list-1">Initialization of built-in dictionary and template list</a></h5>
+        <li><h5 id="-initialization-of-built-in-dictionary-and-template-list-initialization-of-built-in-dictionary-and-template-list-"><a href="#-ins-initialization-of-built-in-dictionary-and-template-list-ins-">Initialization of built-in dictionary and template list</a></h5>
         </li>
         </ul>
         </li>
@@ -39,14 +39,14 @@
         </li>
         </ul>
         <h2 id="-domain-model-"><em>Domain model</em></h2>
-        <p><img src="../../Domain%20model/Domain%20model.png" alt="img"></p>
+        <p><img src="../../Domain%20model/Domain%20model.png" alt="Domain_model"></p>
         <h4 id="description-">Description:</h4>
         <blockquote>
         <p>The user of Nonsense generator interacts directly with a UI layer. below it there are multiple controllers that forward the requests of the user to the logical components of the system and makes it so the data is formatted correctly when needed to be presented to the user.
         The majority of the actors are those that constitute the internal layer of the system that is responsable for the actual logical computation requiered to execute all operations.</p>
         </blockquote>
         <h2 id="-class-diagram-"><em>Class diagram</em></h2>
-        <p><img src="../../Class%20Diagram/Class%20Diagram.png" alt="img"></p>
+        <p><img src="../../Class%20Diagram/Class%20Diagram.png" alt="Class_diagram"></p>
         <h3 id="system-description-">System description:</h3>
         <ul>
         <li><blockquote>
@@ -103,19 +103,19 @@
         </blockquote>
         </li>
         </ul>
-        <h2 id="-sequence-diagrams-"><strong>Sequence diagrams</strong></h2>
+        <h2 id="-sequence-diagrams-"><em>Sequence diagrams:</em></h2>
         <ul>
-        <li><h3 id="system-sequence-diagram-">System sequence Diagram:</h3>
-        <img src="../../Sequence%20diagrams/Diagrams/SystemSequenceDiagram.png" alt="img"></li>
+        <li><h2 id="-system-sequence-diagram-"><em>System sequence Diagram</em>:</h2>
+        <img src="../../Sequence%20diagrams/Diagrams/SystemSequenceDiagram.png" alt="System_sequence_diagram"></li>
         </ul>
         <blockquote>
         <p>Here are reported the main interactions between a User and the system. While a sentence is always requiered to create a generated sentence there are some additional options that the user may decide to use that affect how the system responds.</p>
         </blockquote>
         <ul>
-        <li><h3 id="internal-sequence-diagrams">Internal sequence diagrams</h3>
+        <li><h2 id="-internal-sequence-diagrams-"><em>Internal sequence diagrams</em></h2>
         </li>
-        <li><h3 id="-ins-sentencecontroller-ins-"><ins><strong>SentenceController</strong></ins></h3>
-        <p><img src="../../Sequence%20diagrams/Diagrams/SentenceController.png" alt="img"> </p>
+        <li><h3 id="-ins-sentencecontroller-ins-"><ins>SentenceController</ins></h3>
+        <p><img src="../../Sequence%20diagrams/Diagrams/SentenceController.png" alt="SentenceController"> </p>
         </li>
         </ul>
         <h4 id="description-">Description:</h4>
@@ -130,8 +130,8 @@
         <p>These operation are shown in greater detail in later diagrams as they are implemented in <strong><em>InputSentence</em></strong> and <strong><em>OutputSentence</em></strong> while <strong><em>SentenceController</em></strong> only delegates work to these classes.</p>
         </blockquote>
         <ul>
-        <li><h3 id="-ins-inputsentence-ins-"><ins><em>*InputSentence</em></ins>*</h3>
-        <img src="../../Sequence%20diagrams/Diagrams/InputSentence.png" alt="img"></li>
+        <li><h3 id="-ins-inputsentence-ins-"><ins>InputSentence</ins></h3>
+        <img src="../../Sequence%20diagrams/Diagrams/InputSentence.png" alt="InputSentence"></li>
         </ul>
         <h4 id="description-">Description:</h4>
         <blockquote>
@@ -139,8 +139,8 @@
         Below is shown the internal working of the <code>getSyntaxTree()</code> method used to generate the syntactic tree from nodes of type <strong><em>SyntaxElement</em></strong> created from the sentence given by the user. </p>
         </blockquote>
         <ul>
-        <li><h3 id="-ins-outputsentence-ins-"><ins><strong>OutputSentence</strong></ins></h3>
-        <img src="../../Sequence%20diagrams/Diagrams/OutputSentence.png" alt="img"> </li>
+        <li><h3 id="-ins-outputsentence-ins-"><ins>OutputSentence</ins></h3>
+        <img src="../../Sequence%20diagrams/Diagrams/OutputSentence.png" alt="OutputSentence"> </li>
         </ul>
         <h4 id="description-">Description:</h4>
         <blockquote>
@@ -149,14 +149,14 @@
         The getToxicity() functionality of <strong><em>OutputSentence</em></strong> is implemented by relying on <strong><em>ApiController</em></strong> to make a custom request to the server Google cloud server and returning the result as a number.</p>
         </blockquote>
         <ul>
-        <li><h3 id="-ins-initialization-of-built-in-dictionary-and-template-list-ins-"><ins><strong>Initialization of built-in dictionary and template list:</strong></ins></h3>
+        <li><h3 id="-ins-initialization-of-built-in-dictionary-and-template-list-ins-"><ins>Initialization of built-in dictionary and template list:</ins></h3>
         <h4 id="description-">Description:</h4>
         <blockquote>
         <p>The diagram shows the interactions between the classes that need some provided data to work properly and how <strong><em>DataUtils</em></strong> is used to retrieve that data and manipulate it.</p>
         </blockquote>
         </li>
         </ul>
-        <p><img src="../../Sequence%20diagrams/Diagrams/DataInitialization.png" alt="DataInitialization"></p>
+        <p><img src="../../Sequence%20diagrams/Diagrams/DataInitialization.png" alt="Data_initialization"></p>
     </div>
 </body>
 </html>
